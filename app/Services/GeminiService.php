@@ -30,7 +30,8 @@ class GeminiService
             ];
         }
 
-        $response = Http::withQueryParameters(['key' => $this->apiKey])
+        $response = Http::retry(3, 2000) // Retry up to 3 times with 2-second delay on 500+ errors
+            ->withQueryParameters(['key' => $this->apiKey])
             ->timeout(30)
             ->post($this->baseUrl, [
                 'contents' => [

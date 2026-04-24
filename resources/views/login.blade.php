@@ -58,26 +58,33 @@
             <p class="text-on-surface-variant text-sm">Masuk ke akun TaniSiaga Anda</p>
         </div>
 
-        <form class="space-y-5">
+        <form class="space-y-5" method="POST" action="{{ route('login.post') }}">
+            @csrf
             <div>
                 <label class="block text-sm font-medium text-on-surface mb-1.5" for="email">Email</label>
                 <div class="relative">
                     <span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-[20px]">mail</span>
-                    <input class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-surface-container-low border-transparent focus:border-primary focus:ring-1 focus:ring-primary text-on-surface font-body text-sm outline-none transition-all" id="email" placeholder="Masukkan email Anda" type="email" required />
+                    <input class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-surface-container-low border-transparent focus:border-primary focus:ring-1 focus:ring-primary text-on-surface font-body text-sm outline-none transition-all @error('email') border-red-500 @enderror" id="email" name="email" placeholder="Masukkan email Anda" type="email" value="{{ old('email') }}" required autofocus />
                 </div>
+                @error('email')
+                    <span class="text-red-500 text-xs mt-1">{{ $message }}</span>
+                @enderror
             </div>
             
             <div>
                 <label class="block text-sm font-medium text-on-surface mb-1.5" for="password">Kata Sandi</label>
                 <div class="relative">
                     <span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-[20px]">lock</span>
-                    <input class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-surface-container-low border-transparent focus:border-primary focus:ring-1 focus:ring-primary text-on-surface font-body text-sm outline-none transition-all" id="password" placeholder="Masukkan kata sandi" type="password" required />
+                    <input class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-surface-container-low border-transparent focus:border-primary focus:ring-1 focus:ring-primary text-on-surface font-body text-sm outline-none transition-all @error('password') border-red-500 @enderror" id="password" name="password" placeholder="Masukkan kata sandi" type="password" required />
                 </div>
+                @error('password')
+                    <span class="text-red-500 text-xs mt-1">{{ $message }}</span>
+                @enderror
             </div>
 
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
-                    <input class="h-4 w-4 text-primary focus:ring-primary border-outline-variant rounded" id="remember-me" type="checkbox" />
+                    <input class="h-4 w-4 text-primary focus:ring-primary border-outline-variant rounded" id="remember-me" name="remember" type="checkbox" />
                     <label class="ml-2 block text-sm text-on-surface-variant" for="remember-me">Ingat saya</label>
                 </div>
                 <div class="text-sm">
@@ -85,7 +92,7 @@
                 </div>
             </div>
 
-            <button class="w-full bg-primary text-on-primary py-2.5 px-4 rounded-xl font-medium hover:bg-primary-container hover:text-on-primary-container transition-all active:scale-[0.98] duration-200 shadow-sm" type="button" onclick="window.location.href='dashboard.html'">
+            <button class="w-full bg-primary text-on-primary py-2.5 px-4 rounded-xl font-medium hover:bg-primary-container hover:text-on-primary-container transition-all active:scale-[0.98] duration-200 shadow-sm" type="submit">
                 Masuk
             </button>
         </form>

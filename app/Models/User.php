@@ -29,4 +29,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function lahans()
+    {
+        return $this->hasMany(Lahan::class);
+    }
+
+    public function chatSessions()
+    {
+        return $this->hasMany(ChatSession::class);
+    }
 }
