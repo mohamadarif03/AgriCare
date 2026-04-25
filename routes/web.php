@@ -5,6 +5,7 @@ use App\Http\Controllers\LahanController;
 use App\Http\Controllers\TaniBotController;
 use App\Http\Controllers\PestDetectionController;
 use App\Http\Controllers\PlantingCalendarController;
+use App\Http\Controllers\MarketPriceController;
 
 // ─── Halaman Statis ─────────────────────────────────────────────────────────
 Route::get('/', fn() => view('index'))->name('index');
@@ -25,8 +26,9 @@ Route::middleware('auth')->group(function () {
             'lahans' => auth()->user()->lahans
         ]);
     })->name('pest_detection_alert');
-    Route::get('/market-price', fn() => view('pages.market_price'))->name('market_price');
-    Route::get('/riskmap', fn() => view('pages.riskmap'))->name('riskmap');
+    Route::get('/market-price', [MarketPriceController::class, 'index'])->name('market_price');
+    Route::get('/api/market-price', [MarketPriceController::class, 'getData'])->name('market_price.data');
+
     Route::get('/tanibot', [App\Http\Controllers\TaniBotController::class, 'index'])->name('tanibot');
     Route::post('/api/tanibot/chat', [App\Http\Controllers\TaniBotController::class, 'chat'])->name('tanibot.chat');
     Route::post('/api/pest-detection/analyze', [App\Http\Controllers\PestDetectionController::class, 'detect'])->name('pest_detection.analyze');

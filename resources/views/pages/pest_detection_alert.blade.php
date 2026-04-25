@@ -114,74 +114,7 @@
                 </div>
             </div>
         </section>
-        <!-- Threat Prediction Section -->
-        <section class="flex flex-col gap-md">
-            <div class="flex justify-between items-end">
-                <h2 class="font-h2 text-h2 text-on-surface">Prediksi Hama Minggu Ini</h2>
-                <a class="font-small-label text-small-label text-primary hover:underline flex items-center"
-                    href="#">Lihat Semua <span class="material-symbols-outlined text-sm">chevron_right</span></a>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-                <!-- Card 1 -->
-                <div
-                    class="bg-surface-container-lowest rounded-xl border border-surface-variant p-md shadow-[0_2px_8px_rgba(27,94,32,0.04)] relative overflow-hidden group">
-                    <div
-                        class="absolute -top-6 -right-6 text-tertiary/5 group-hover:scale-110 transition-transform duration-500">
-                        <span class="material-symbols-outlined text-9xl">bug_report</span>
-                    </div>
-                    <div class="flex justify-between items-start mb-sm relative z-10">
-                        <div
-                            class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full flex items-center gap-1 w-max">
-                            <span class="material-symbols-outlined text-sm">emergency</span>
-                            <span class="font-small-label text-small-label">WASPADA</span>
-                        </div>
-                        <span class="material-symbols-outlined text-on-surface-variant">trending_up</span>
-                    </div>
-                    <h3 class="font-h3 text-h3 text-on-surface relative z-10">Wereng Cokelat</h3>
-                    <p class="font-body text-body text-on-surface-variant mt-xs relative z-10">Lonjakan populasi
-                        terdeteksi di area sekitar akibat kelembapan tinggi.</p>
-                </div>
-                <!-- Card 2 -->
-                <div
-                    class="bg-surface-container-lowest rounded-xl border border-surface-variant p-md shadow-[0_2px_8px_rgba(27,94,32,0.04)] relative overflow-hidden group">
-                    <div
-                        class="absolute -top-6 -right-6 text-secondary/5 group-hover:scale-110 transition-transform duration-500">
-                        <span class="material-symbols-outlined text-9xl">pest_control</span>
-                    </div>
-                    <div class="flex justify-between items-start mb-sm relative z-10">
-                        <div
-                            class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full flex items-center gap-1 w-max">
-                            <span class="material-symbols-outlined text-sm">visibility</span>
-                            <span class="font-small-label text-small-label">PANTAU</span>
-                        </div>
-                        <span class="material-symbols-outlined text-on-surface-variant">trending_flat</span>
-                    </div>
-                    <h3 class="font-h3 text-h3 text-on-surface relative z-10">Penggerek Batang</h3>
-                    <p class="font-body text-body text-on-surface-variant mt-xs relative z-10">Aktivitas sedang
-                        terpantau pada fase vegetatif padi.</p>
-                </div>
-                <!-- Card 3 -->
-                <div
-                    class="bg-surface-container-lowest rounded-xl border border-surface-variant p-md shadow-[0_2px_8px_rgba(27,94,32,0.04)] relative overflow-hidden group">
-                    <div
-                        class="absolute -top-6 -right-6 text-primary/5 group-hover:scale-110 transition-transform duration-500">
-                        <span class="material-symbols-outlined text-9xl">eco</span>
-                    </div>
-                    <div class="flex justify-between items-start mb-sm relative z-10">
-                        <div
-                            class="bg-primary-container text-on-primary-container px-3 py-1 rounded-full flex items-center gap-1 w-max">
-                            <span class="material-symbols-outlined text-sm">check_circle</span>
-                            <span class="font-small-label text-small-label">AMAN</span>
-                        </div>
-                        <span class="material-symbols-outlined text-on-surface-variant">trending_down</span>
-                    </div>
-                    <h3 class="font-h3 text-h3 text-on-surface relative z-10">Tikus Sawah</h3>
-                    <p class="font-body text-body text-on-surface-variant mt-xs relative z-10">Risiko rendah di wilayah
-                        Anda saat ini. Terus jaga kebersihan area.</p>
-                </div>
-            </div>
-        </section>
-        <!-- Community Map Section -->
+  
         <section
             class="flex flex-col gap-md bg-surface-container-lowest rounded-xl border border-surface-variant p-md shadow-[0_2px_8px_rgba(27,94,32,0.04)]">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-sm">
@@ -255,6 +188,13 @@
     const fileInput = document.getElementById('foto-input');
     const btnUpload = document.getElementById('btn-upload');
     const lahanSelect = document.getElementById('lahan-select');
+    
+    const lahansData = @json($lahans->map(function($l) {
+        return [
+            'id' => $l->id,
+            'pest_detection' => $l->pest_detection
+        ];
+    })->keyBy('id'));
 
     uploadBox.addEventListener('click', (e) => {
         if(e.target !== lahanSelect && e.target.tagName !== 'OPTION') {
@@ -285,6 +225,28 @@
     });
 
     fileInput.addEventListener('change', handleUpload);
+
+    lahanSelect.addEventListener('change', () => {
+        const lahanId = lahanSelect.value;
+        if (lahanId && lahansData[lahanId] && lahansData[lahanId].pest_detection) {
+            const data = lahansData[lahanId].pest_detection;
+            updateResultUI(data);
+            document.getElementById('result-image').src = data.foto_url ? data.foto_url : 'https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=800&q=80';
+        } else {
+            resetResultUI();
+        }
+    });
+
+    function resetResultUI() {
+        document.getElementById('result-image').src = 'https://lh3.googleusercontent.com/aida-public/AB6AXuBSrQl8JGr6azHtpphmgiN_H8r4LggQwEaqnBIlUM9otG0IHFw7yzUcfk4WG2wp5gv9NC52V_jUQJnOHlIC0x6FtrW8-y-z6OKLTua58N88zcdM5T0MoyEruwtGg025nQoUmxlm1H-Q87S0lEPOO29OuX_NR8vKuzsO2J_FlBTIGXuKpY6iN6Lf_ytSA1fgPPWBsQMFY17h0GVJoy-SFhK6CxgutYnu0LCnSwp2risaw--cyKmS6V5jNzye56GEXmgEWBf8Fwn77-o';
+        document.getElementById('result-title').innerText = 'Menunggu Analisis...';
+        document.getElementById('result-subtitle').innerText = 'Belum ada data';
+        document.getElementById('result-severity').className = 'bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full flex items-center gap-1';
+        document.getElementById('result-severity').innerHTML = '<span class="material-symbols-outlined text-sm">hourglass_empty</span><span class="font-small-label text-small-label">MENUNGGU</span>';
+        document.getElementById('result-actions').innerHTML = '<li>Pilih lahan dan unggah foto hama atau penyakit untuk mendapatkan rekomendasi penanganan.</li>';
+        document.getElementById('result-preventions').innerHTML = '<li>AI akan menganalisis foto dan memberikan rekomendasi pencegahan ke depan.</li>';
+        document.getElementById('result-confidence').innerText = 'Tingkat Kepercayaan: 0%';
+    }
 
     async function handleUpload() {
         if (!fileInput.files.length) return;
@@ -324,6 +286,10 @@
 
             const data = await res.json();
             if(res.ok) {
+                // Update cached data so it persists when switching tabs
+                if(lahansData[lahanId]) {
+                    lahansData[lahanId].pest_detection = data;
+                }
                 updateResultUI(data);
             } else {
                 alert(data.message || data.error || 'Terjadi kesalahan saat memproses gambar.');
@@ -370,6 +336,11 @@
 
         const preventionsHtml = (data.pencegahan || []).map(p => '<li>' + p + '</li>').join('');
         document.getElementById('result-preventions').innerHTML = preventionsHtml || '<li>Lakukan pencegahan standar.</li>';
+    }
+
+    // Trigger initial load if lahan is selected
+    if (lahanSelect.value) {
+        lahanSelect.dispatchEvent(new Event('change'));
     }
 </script>
 <style>

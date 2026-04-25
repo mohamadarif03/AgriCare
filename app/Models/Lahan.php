@@ -31,6 +31,8 @@ class Lahan extends Model
         'status_risiko_updated_at',
         'kalender_tanam',
         'kalender_tanam_generated_at',
+        'pest_detection',
+        'pest_detection_updated_at',
         'notifikasi_aktif',
         'is_aktif',
     ];
@@ -41,6 +43,8 @@ class Lahan extends Model
         'status_risiko_updated_at'    => 'datetime',
         'kalender_tanam'              => 'array',
         'kalender_tanam_generated_at' => 'datetime',
+        'pest_detection'              => 'array',
+        'pest_detection_updated_at'   => 'datetime',
         'notifikasi_aktif'            => 'boolean',
         'is_aktif'                    => 'boolean',
         'luas'                        => 'decimal:2',
