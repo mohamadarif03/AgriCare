@@ -18,12 +18,18 @@ Route::post('/logout', [App\Http\Controllers\AuthController::class, 'logout'])->
 Route::middleware('auth')->group(function () {
     // Dashboard & Fitur
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/calender-planning', fn() => view('pages.calender_planning'))->name('calender_planning');
-    Route::get('/pest-detection', fn() => view('pages.pest_detection_alert'))->name('pest_detection_alert');
+    Route::get('/calender-planning', [App\Http\Controllers\PlantingCalendarController::class, 'index'])->name('calender_planning');
+    Route::post('/api/calender-planning/generate', [App\Http\Controllers\PlantingCalendarController::class, 'generate'])->name('calender_planning.generate');
+    Route::get('/pest-detection', function() {
+        return view('pages.pest_detection_alert', [
+            'lahans' => auth()->user()->lahans
+        ]);
+    })->name('pest_detection_alert');
     Route::get('/market-price', fn() => view('pages.market_price'))->name('market_price');
     Route::get('/riskmap', fn() => view('pages.riskmap'))->name('riskmap');
     Route::get('/tanibot', [App\Http\Controllers\TaniBotController::class, 'index'])->name('tanibot');
     Route::post('/api/tanibot/chat', [App\Http\Controllers\TaniBotController::class, 'chat'])->name('tanibot.chat');
+    Route::post('/api/pest-detection/analyze', [App\Http\Controllers\PestDetectionController::class, 'detect'])->name('pest_detection.analyze');
     Route::get('/ai-reccomendation', fn() => view('pages.ai_reccomendation'))->name('ai_reccomendation');
 
     // CRUD Lahan

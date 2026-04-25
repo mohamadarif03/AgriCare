@@ -9,6 +9,7 @@ class GeminiService
     protected string $apiKey;
     protected string $model;
     protected string $baseUrl;
+    protected $lastResponse;
 
     public function __construct()
     {
@@ -23,38 +24,52 @@ class GeminiService
 
         if ($imageBase64 && $mimeType) {
             $parts[] = [
-                'inline_data' => [
-                    'mime_type' => $mimeType,
-                    'data'      => $imageBase64,
+                'inlineData' => [
+                    'mimeType' => $mimeType,
+                    'data'     => $imageBase64,
                 ]
             ];
         }
 
         $response = Http::retry(3, 2000) // Retry up to 3 times with 2-second delay on 500+ errors
             ->withQueryParameters(['key' => $this->apiKey])
-            ->timeout(30)
+            ->timeout(180)
             ->post($this->baseUrl, [
                 'contents' => [
                     ['parts' => $parts]
                 ],
                 'generationConfig' => [
                     'temperature'     => 0.7,
-                    'maxOutputTokens' => 2048,
+                    'maxOutputTokens' => 65536,
+                    'responseMimeType' => 'application/json',
                 ]
             ]);
 
         if ($response->failed()) {
-            throw new \Exception('Gemini API error: ' . $response->body());
+            $status = $response->status();
+            $body = $response->body();
+            if ($status === 429) {
+                throw new \Exception("Gemini API Rate Limit Exceeded (429). Server sibuk atau kuota habis: " . $body);
+            } elseif ($status >= 500) {
+                throw new \Exception("Gemini API Server Error ($status). Server sedang sibuk atau down: " . $body);
+            }
+            throw new \Exception("Gemini API Error ($status): " . $body);
         }
 
+        $this->lastResponse = $response;
         return $response->json('candidates.0.content.parts.0.text') ?? '';
     }
 
-    public function generateJson(string $prompt): array
+    public function generateJson(string $prompt, ?string $imageBase64 = null, ?string $mimeType = null): array
     {
-        $result = $this->generate($prompt);
+        $result = $this->generate($prompt, $imageBase64, $mimeType);
         $clean  = preg_replace('/```json|```/m', '', $result);
 
-        return json_decode(trim($clean), true) ?? [];
+        $parsed = json_decode(trim($clean), true);
+        if ($parsed === null) {
+            $fullResponse = $this->lastResponse ? $this->lastResponse->body() : 'No full response';
+            throw new \Exception("Gemini returned invalid JSON. Raw output:\n" . $result . "\n\nFull API Response:\n" . $fullResponse);
+        }
+        return $parsed;
     }
 }
