@@ -58,29 +58,35 @@
 
         {{-- Top Metrics (Bento Grid) --}}
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {{-- Metric 1: Indeks Risiko --}}
+            {{-- Metric 1: Skor Ketahanan Lahan --}}
             <div class="bg-surface rounded-xl p-5 border border-surface-variant shadow-[0_2px_8px_rgba(27,94,32,0.04)]">
                 <div class="flex justify-between items-start mb-2">
-                    <span class="font-small-label text-small-label text-on-surface-variant">Indeks Risiko Lahan</span>
-                    @if($risikoLevel)
+                    <span class="font-small-label text-small-label text-on-surface-variant">Skor Ketahanan Lahan</span>
                     @php
-                        $badgeClass = match($risikoLevel) {
-                            'KRITIS'  => 'bg-red-100 text-red-800',
-                            'WASPADA' => 'bg-amber-100 text-amber-800',
-                            default   => 'bg-green-100 text-green-800',
-                        };
+                        $skor = $recommendation ? ($recommendation->data_json['skor_ketahanan'] ?? null) : null;
+                        $skorLevel = '—';
+                        $badgeClass = 'bg-surface-container text-on-surface-variant';
+                        if ($skor !== null) {
+                            if ($skor >= 75) {
+                                $skorLevel = 'SANGAT BAIK';
+                                $badgeClass = 'bg-green-100 text-green-800';
+                            } elseif ($skor >= 50) {
+                                $skorLevel = 'CUKUP BAIK';
+                                $badgeClass = 'bg-amber-100 text-amber-800';
+                            } else {
+                                $skorLevel = 'KRITIS';
+                                $badgeClass = 'bg-red-100 text-red-800';
+                            }
+                        }
                     @endphp
-                    <span class="{{ $badgeClass }} text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wide">{{ $risikoLevel }}</span>
-                    @else
-                    <span class="bg-surface-container text-on-surface-variant text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wide">—</span>
-                    @endif
+                    <span class="{{ $badgeClass }} text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wide">{{ $skorLevel }}</span>
                 </div>
                 <div class="flex items-end gap-2">
-                    <span class="font-h2 text-h2 text-on-surface">{{ $risikoIndex ?? '—' }}</span><span class="text-sm text-on-surface-variant mb-1">/100</span>
+                    <span class="font-h2 text-h2 text-on-surface">{{ $skor ?? '—' }}</span><span class="text-sm text-on-surface-variant mb-1">/100</span>
                 </div>
                 <div class="mt-3 flex items-center justify-between text-xs text-on-surface-variant">
                     <span>{{ $selectedLahan->nama ?? 'Belum ada lahan' }}</span>
-                    <span>{{ $cuacaHariIni ? 'Live' : '—' }}</span>
+                    <span>AI TaniBot</span>
                 </div>
             </div>
 
@@ -148,17 +154,29 @@
             </div>
 
             {{-- Metric 4: Harga Komoditas --}}
+            @php
+                $mainCommodity = $marketPrices[0] ?? null;
+            @endphp
             <div class="bg-surface rounded-xl p-5 border border-surface-variant shadow-[0_2px_8px_rgba(27,94,32,0.04)]">
                 <div class="flex justify-between items-start mb-2">
-                    <span class="font-small-label text-small-label text-on-surface-variant">Harga {{ ucfirst($selectedLahan->komoditas ?? 'Padi') }} Hari Ini</span>
-                    <span class="material-symbols-outlined text-green-600">trending_up</span>
+                    <span class="font-small-label text-small-label text-on-surface-variant">Harga {{ $mainCommodity['label'] ?? ucfirst($selectedLahan->komoditas ?? 'Padi') }} Hari Ini</span>
+                    <span class="material-symbols-outlined {{ ($mainCommodity['trend'] ?? 0) >= 0 ? 'text-green-600' : 'text-red-600' }}">
+                        {{ ($mainCommodity['trend'] ?? 0) >= 0 ? 'trending_up' : 'trending_down' }}
+                    </span>
                 </div>
-                <div class="font-h2 text-h2 text-on-surface">Rp 5.200<span class="text-sm font-normal text-on-surface-variant">/kg</span></div>
-                <div class="flex items-center gap-1 mt-1 text-sm font-medium text-green-600">
-                    <span class="material-symbols-outlined text-sm">arrow_upward</span> +3.2%
+                @if($mainCommodity)
+                <div class="font-h2 text-h2 text-on-surface">Rp {{ number_format($mainCommodity['harga'], 0, ',', '.') }}<span class="text-sm font-normal text-on-surface-variant">/kg</span></div>
+                <div class="flex items-center gap-1 mt-1 text-sm font-medium {{ $mainCommodity['trend'] >= 0 ? 'text-green-600' : 'text-red-600' }}">
+                    <span class="material-symbols-outlined text-sm">{{ $mainCommodity['trend'] >= 0 ? 'arrow_upward' : 'arrow_downward' }}</span> {{ $mainCommodity['trend'] > 0 ? '+' : '' }}{{ $mainCommodity['trend'] }}%
                 </div>
+                @else
+                <div class="font-h2 text-h2 text-on-surface">—<span class="text-sm font-normal text-on-surface-variant">/kg</span></div>
+                <div class="flex items-center gap-1 mt-1 text-sm font-medium text-on-surface-variant">
+                    Belum ada data
+                </div>
+                @endif
                 <div class="mt-3 text-xs text-on-surface-variant bg-surface-container-low px-2 py-1 rounded inline-block">
-                    Waktu jual: <strong>Tahan dulu</strong>
+                    Wilayah: <strong>{{ \App\Models\MarketPrice::availableRegions()[$defaultRegion] ?? $defaultRegion }}</strong>
                 </div>
             </div>
         </div>
@@ -253,35 +271,33 @@
                         <span class="text-[10px] font-bold bg-primary-container text-on-primary-container px-2 py-1 rounded-md">Powered by TaniBot AI</span>
                     </div>
                     <div class="space-y-3 relative z-10">
-                        @if($cuacaHariIni && $cuacaHariIni['curah_hujan'] > 0)
-                        <div class="flex items-start gap-3 p-3 bg-white rounded-lg border border-surface-variant">
-                            <input class="mt-1 rounded text-primary focus:ring-primary border-outline-variant" type="checkbox" />
-                            <div class="flex-1">
-                                <p class="font-body text-body text-on-surface font-medium">Cek saluran irigasi</p>
-                                <p class="text-xs text-on-surface-variant">Antisipasi hujan ({{ $cuacaHariIni['curah_hujan'] }}mm) di wilayah lahan.</p>
+                        @if($recommendation && collect($recommendation->checklists)->where('kategori', 'hari_ini')->isNotEmpty())
+                            @foreach(collect($recommendation->checklists)->where('kategori', 'hari_ini') as $checklist)
+                            <div class="flex items-start gap-3 p-3 bg-white rounded-lg border {{ $checklist->is_checked ? 'border-primary/50 bg-primary/5' : 'border-surface-variant' }}">
+                                <span class="material-symbols-outlined mt-0.5 {{ $checklist->is_checked ? 'text-primary' : 'text-outline-variant' }}">
+                                    {{ $checklist->is_checked ? 'check_box' : 'check_box_outline_blank' }}
+                                </span>
+                                <div class="flex-1">
+                                    <p class="font-body text-body {{ $checklist->is_checked ? 'text-on-surface-variant line-through' : 'text-on-surface' }} font-medium">{{ $checklist->title }}</p>
+                                    <p class="text-xs text-on-surface-variant">{{ $checklist->detail }}</p>
+                                </div>
+                                <span class="bg-error-container text-on-error-container text-[10px] font-bold px-2 py-0.5 rounded uppercase">Segera</span>
                             </div>
-                            <span class="bg-red-100 text-red-700 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Tinggi</span>
-                        </div>
-                        @endif
-                        @if($selectedLahan)
-                        <div class="flex items-start gap-3 p-3 bg-white rounded-lg border border-surface-variant">
-                            <input class="mt-1 rounded text-primary focus:ring-primary border-outline-variant" type="checkbox" />
-                            <div class="flex-1">
-                                <p class="font-body text-body text-on-surface font-medium">Monitor {{ $selectedLahan->fase_label }}</p>
-                                <p class="text-xs text-on-surface-variant">Lahan {{ $selectedLahan->nama }} — pantau perkembangan fase tanam.</p>
+                            @endforeach
+                            <a href="{{ route('ai_reccomendation') }}" class="block text-center text-sm font-semibold text-primary mt-2 hover:underline">
+                                Lihat Semua Rekomendasi
+                            </a>
+                        @else
+                            <div class="flex items-start gap-3 p-3 bg-white rounded-lg border border-surface-variant">
+                                <span class="material-symbols-outlined mt-1 text-primary">check_circle</span>
+                                <div class="flex-1">
+                                    <p class="font-body text-body text-on-surface font-medium">Tidak ada aktivitas mendesak</p>
+                                    <p class="text-xs text-on-surface-variant">Anda bisa melihat rekomendasi aktivitas minggu ini atau bulan ini di halaman Analisis AI.</p>
+                                </div>
                             </div>
-                            <span class="bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Sedang</span>
-                        </div>
-                        @endif
-                        @if($lahans->isEmpty())
-                        <div class="flex items-start gap-3 p-3 bg-white rounded-lg border border-surface-variant">
-                            <input class="mt-1 rounded text-primary focus:ring-primary border-outline-variant" type="checkbox" />
-                            <div class="flex-1">
-                                <p class="font-body text-body text-on-surface font-medium">Daftarkan lahan pertama Anda</p>
-                                <p class="text-xs text-on-surface-variant">Untuk mendapatkan rekomendasi cuaca dan aktivitas dari AI.</p>
-                            </div>
-                            <span class="bg-blue-100 text-blue-700 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Mulai</span>
-                        </div>
+                            <a href="{{ route('ai_reccomendation') }}" class="block text-center text-sm font-semibold text-primary mt-2 hover:underline">
+                                Buka Analisis AI
+                            </a>
                         @endif
                     </div>
                 </div>
@@ -325,30 +341,26 @@
 
                 {{-- Harga Komoditas --}}
                 <div class="bg-surface rounded-xl border border-surface-variant p-5 shadow-[0_2px_12px_rgba(27,94,32,0.03)]">
-                    <h3 class="font-h3 text-h3 text-on-surface mb-4">Harga Komoditas</h3>
-                    <div class="space-y-3">
-                        <div class="flex justify-between items-center pb-2 border-b border-surface-variant">
-                            <span class="text-sm font-medium text-on-surface">Padi</span>
-                            <div class="text-right">
-                                <div class="text-sm font-bold text-on-surface">Rp 5.200</div>
-                                <div class="text-[10px] text-green-600 flex items-center justify-end gap-0.5"><span class="material-symbols-outlined text-[10px]">arrow_upward</span> +3.2%</div>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center pb-2 border-b border-surface-variant">
-                            <span class="text-sm font-medium text-on-surface">Jagung</span>
-                            <div class="text-right">
-                                <div class="text-sm font-bold text-on-surface">Rp 4.800</div>
-                                <div class="text-[10px] text-red-600 flex items-center justify-end gap-0.5"><span class="material-symbols-outlined text-[10px]">arrow_downward</span> -1.5%</div>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm font-medium text-on-surface">Cabai</span>
-                            <div class="text-right">
-                                <div class="text-sm font-bold text-on-surface">Rp 45.000</div>
-                                <div class="text-[10px] text-green-600 flex items-center justify-end gap-0.5"><span class="material-symbols-outlined text-[10px]">arrow_upward</span> +5.0%</div>
-                            </div>
-                        </div>
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="font-h3 text-h3 text-on-surface">Harga Komoditas</h3>
+                        <span class="text-[10px] bg-surface-container-low px-2 py-1 rounded-full text-on-surface-variant font-medium">{{ \App\Models\MarketPrice::availableRegions()[$defaultRegion] ?? $defaultRegion }}</span>
                     </div>
+                    <div class="space-y-3">
+                        @forelse($marketPrices as $mp)
+                        <div class="flex justify-between items-center pb-2 border-b border-surface-variant last:border-0 last:pb-0">
+                            <span class="text-sm font-medium text-on-surface">{{ $mp['label'] }}</span>
+                            <div class="text-right">
+                                <div class="text-sm font-bold text-on-surface">Rp {{ number_format($mp['harga'], 0, ',', '.') }}</div>
+                                <div class="text-[10px] {{ $mp['trend'] >= 0 ? 'text-green-600' : 'text-red-600' }} flex items-center justify-end gap-0.5"><span class="material-symbols-outlined text-[10px]">{{ $mp['trend'] >= 0 ? 'arrow_upward' : 'arrow_downward' }}</span> {{ $mp['trend'] > 0 ? '+' : '' }}{{ $mp['trend'] }}%</div>
+                            </div>
+                        </div>
+                        @empty
+                        <div class="text-center text-sm text-on-surface-variant py-4">Belum ada data harga.</div>
+                        @endforelse
+                    </div>
+                    <a href="{{ route('market_price') }}" class="w-full mt-4 flex items-center justify-center gap-2 py-2.5 bg-primary-container text-on-primary-container hover:bg-primary-container/80 rounded-xl text-sm font-semibold transition-colors">
+                        Lihat Radar Harga
+                    </a>
                 </div>
             </div>
         </div>

@@ -15,7 +15,7 @@
                 <div class="relative">
                     <select id="commodity-select" class="appearance-none bg-primary-container/10 text-primary font-small-label text-small-label px-4 py-2 pr-8 rounded-full border border-primary-container/20 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/30">
                         @foreach($commodities as $key => $label)
-                        <option value="{{ $key }}" {{ $key === 'padi' ? 'selected' : '' }}>{{ $label }}</option>
+                        <option value="{{ $key }}" {{ $key === $defaultCommodity ? 'selected' : '' }}>{{ $label }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -23,7 +23,7 @@
                 <div class="relative">
                     <select id="region-select" class="appearance-none bg-tertiary-container/10 text-tertiary font-small-label text-small-label px-4 py-2 pr-8 rounded-full border border-tertiary-container/20 cursor-pointer focus:outline-none focus:ring-2 focus:ring-tertiary/30">
                         @foreach($regions as $key => $label)
-                        <option value="{{ $key }}" {{ $key === 'cilacap' ? 'selected' : '' }}>{{ $label }}</option>
+                        <option value="{{ $key }}" {{ $key === $defaultRegion ? 'selected' : '' }}>{{ $label }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -258,12 +258,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const aiBadge = document.getElementById('card-ai-badge');
         const aiText = document.getElementById('card-ai-text');
         if (d.recommendation) {
+            aiBadge.classList.remove('hidden');
             const action = d.recommendation.action;
             const colors = actionColors[action] || actionColors.tahan;
             aiBadge.style.background = colors.bg;
             aiBadge.style.borderColor = colors.border;
             aiBadge.style.color = colors.text;
             aiText.textContent = (actionLabels[action] || action) + ' — ' + (d.recommendation.reason || '').substring(0, 40);
+        } else {
+            aiBadge.classList.add('hidden');
         }
 
         // Monthly high
@@ -375,7 +378,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderRecommendation(d) {
         const section = document.getElementById('recommendation-section');
         const rec = d.recommendation;
-        if (!rec) return;
+        if (!rec) {
+            section.classList.add('hidden');
+            return;
+        } else {
+            section.classList.remove('hidden');
+        }
 
         const action = rec.action || 'tahan';
         const colors = actionColors[action] || actionColors.tahan;

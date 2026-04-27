@@ -32,7 +32,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/tanibot', [App\Http\Controllers\TaniBotController::class, 'index'])->name('tanibot');
     Route::post('/api/tanibot/chat', [App\Http\Controllers\TaniBotController::class, 'chat'])->name('tanibot.chat');
     Route::post('/api/pest-detection/analyze', [App\Http\Controllers\PestDetectionController::class, 'detect'])->name('pest_detection.analyze');
-    Route::get('/ai-reccomendation', fn() => view('pages.ai_reccomendation'))->name('ai_reccomendation');
+    
+    // AI Recommendations
+    Route::get('/recommendations', [App\Http\Controllers\RecommendationController::class, 'index'])->name('ai_reccomendation');
+    Route::get('/api/recommendations', [App\Http\Controllers\RecommendationController::class, 'getData'])->name('api.recommendations.data');
+    Route::post('/api/recommendations/refresh', [App\Http\Controllers\RecommendationController::class, 'refreshRecommendation'])->name('api.recommendations.refresh');
+    Route::post('/api/recommendations/checklist', [App\Http\Controllers\RecommendationController::class, 'toggleChecklist'])->name('api.recommendations.checklist');
 
     // CRUD Lahan
     Route::get('/manage-lands', [LahanController::class, 'index'])->name('manage_lands');

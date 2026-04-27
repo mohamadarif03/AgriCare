@@ -135,7 +135,7 @@
                 <a class="font-['Plus_Jakarta_Sans'] font-semibold text-sm text-slate-600 dark:text-slate-400 hover:text-green-700 transition-colors"
                     href="{{ route('market_price') }}">Harga Pasar</a>
                 <a class="font-['Plus_Jakarta_Sans'] font-semibold text-sm text-slate-600 dark:text-slate-400 hover:text-green-700 transition-colors"
-                    href="{{ route('tanibot') }}">Komunitas</a>
+                    href="{{ route('tanibot') }}">Tanya AI</a>
             </div>
             <div class="flex items-center gap-4">
                 <a class="font-['Plus_Jakarta_Sans'] font-semibold text-sm bg-primary text-on-primary px-6 py-2 rounded-full hover:bg-primary-container hover:text-on-primary-container transition-all active:scale-95 duration-200"
@@ -281,22 +281,20 @@
                     class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant/30 hover:shadow-ambient transition-all group">
                     <div
                         class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center mb-sm group-hover:scale-110 transition-transform">
-                        <span class="material-symbols-outlined">map</span>
+                        <span class="material-symbols-outlined">analytics</span>
                     </div>
-                    <h3 class="font-h3 text-h3 text-on-surface mb-xs text-[20px]">Peta Risiko Lahan</h3>
-                    <p class="font-body text-body text-on-surface-variant text-[14px]">Visualisasi area lahan yang rawan
-                        kekeringan atau banjir berdasarkan topografi dan data satelit.</p>
+                    <h3 class="font-h3 text-h3 text-on-surface mb-xs text-[20px]">Rekomendasi AI</h3>
+                    <p class="font-body text-body text-on-surface-variant text-[14px]">Dapatkan skor ketahanan lahan dan rekomendasi aksi harian yang dipersonalisasi berdasarkan cuaca, hama, dan harga pasar.</p>
                 </div>
                 <!-- Feature 6 -->
                 <div
                     class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant/30 hover:shadow-ambient transition-all group">
                     <div
                         class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center mb-sm group-hover:scale-110 transition-transform">
-                        <span class="material-symbols-outlined">groups</span>
+                        <span class="material-symbols-outlined">smart_toy</span>
                     </div>
-                    <h3 class="font-h3 text-h3 text-on-surface mb-xs text-[20px]">Komunitas Tani</h3>
-                    <p class="font-body text-body text-on-surface-variant text-[14px]">Forum diskusi antar petani,
-                        penyuluh, dan pakar untuk berbagi pengalaman dan solusi praktis.</p>
+                    <h3 class="font-h3 text-h3 text-on-surface mb-xs text-[20px]">Asisten AI TaniBot</h3>
+                    <p class="font-body text-body text-on-surface-variant text-[14px]">Konsultasikan masalah pertanian Anda dengan asisten AI cerdas yang siap memberikan solusi dan rekomendasi 24/7.</p>
                 </div>
             </div>
         </div>
@@ -391,7 +389,7 @@
                 <a class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-500 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-300 transition-colors opacity-100 hover:opacity-80"
                     href="#">Kontak</a>
                 <a class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-500 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-300 transition-colors opacity-100 hover:opacity-80"
-                    href="#">Komunitas</a>
+                    href="{{ route('tanibot') }}">Tanya AI</a>
             </div>
         </div>
         <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-green-100 dark:border-slate-800 text-center">

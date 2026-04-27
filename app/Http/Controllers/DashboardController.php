@@ -95,6 +95,77 @@ class DashboardController extends Controller
                 $risikoLevel = 'AMAN';
             }
         }
+        // ─── Harga Pasar ─────────────────────────────────────────────
+        $defaultRegion = 'cilacap';
+        if ($selectedLahan) {
+            $availableRegions = array_keys(\App\Models\MarketPrice::availableRegions());
+            $landCity = strtolower($selectedLahan->kota ?? '');
+            foreach ($availableRegions as $regionKey) {
+                if (str_contains($landCity, strtolower($regionKey))) {
+                    $defaultRegion = $regionKey;
+                    break;
+                }
+            }
+        }
+
+        $commoditiesToFetch = ['padi', 'jagung', 'cabai_merah'];
+        if ($selectedLahan) {
+            $landComm = strtolower($selectedLahan->komoditas);
+            if (array_key_exists($landComm, \App\Models\MarketPrice::availableCommodities())) {
+                $commoditiesToFetch = array_diff($commoditiesToFetch, [$landComm]);
+                array_unshift($commoditiesToFetch, $landComm);
+                $commoditiesToFetch = array_slice($commoditiesToFetch, 0, 3);
+            }
+        }
+
+        // Pastikan ada data, jika kosong jalankan seed dummy data
+        if (\App\Models\MarketPrice::count() === 0) {
+            app(\App\Services\MarketPriceService::class)->seedDummyData();
+        }
+
+        $marketPrices = [];
+        foreach ($commoditiesToFetch as $comm) {
+            $latest = \App\Models\MarketPrice::forCommodity($comm)
+                ->forRegion($defaultRegion)
+                ->orderByDesc('tanggal')
+                ->first();
+                
+            if ($latest) {
+                $prev = \App\Models\MarketPrice::forCommodity($comm)
+                    ->forRegion($defaultRegion)
+                    ->where('tanggal', '<', $latest->tanggal)
+                    ->orderByDesc('tanggal')
+                    ->first();
+                    
+                $trend = $prev && $prev->harga > 0 ? round(($latest->harga - $prev->harga) / $prev->harga * 100, 1) : 0;
+                
+                $marketPrices[] = [
+                    'komoditas' => $comm,
+                    'label' => \App\Models\MarketPrice::availableCommodities()[$comm] ?? ucfirst($comm),
+                    'harga' => $latest->harga,
+                    'trend' => $trend
+                ];
+            }
+        }
+        // ─── Rekomendasi AI (Untuk Skor Ketahanan dan Aktivitas) ─────────────
+        $recommendation = null;
+        if ($selectedLahan) {
+            $recommendation = \App\Models\Recommendation::where('lahan_id', $selectedLahan->id)
+                ->where('user_id', $userId)
+                ->where('is_archived', false)
+                ->where('generated_at', '>=', now()->subHours(24))
+                ->with('checklists')
+                ->first();
+                
+            // Jika tidak ada di cache, kita panggil service (secara opsional bisa fallback atau regenerate)
+            if (!$recommendation) {
+                try {
+                    $recommendation = app(\App\Services\RecommendationService::class)->getRecommendation($userId, $selectedLahan->id);
+                } catch (\Exception $e) {
+                    $recommendation = null;
+                }
+            }
+        }
 
         return view('pages.dashboard', compact(
             'lahans',
@@ -108,7 +179,10 @@ class DashboardController extends Controller
             'estimasiPanen',
             'lahanPanenTerdekat',
             'risikoIndex',
-            'risikoLevel'
+            'risikoLevel',
+            'marketPrices',
+            'defaultRegion',
+            'recommendation'
         ));
     }
 }

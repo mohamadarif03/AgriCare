@@ -14,7 +14,7 @@
                 <a href="{{ route('pest_detection_alert') }}" class="px-3 py-2 text-sm font-semibold transition-colors whitespace-nowrap {{ request()->routeIs('pest_detection_alert') ? 'text-green-700 dark:text-green-400 border-b-2 border-green-700 dark:border-green-400' : 'text-slate-600 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-300' }}">Deteksi Hama</a>
                 <a href="{{ route('market_price') }}" class="px-3 py-2 text-sm font-semibold transition-colors whitespace-nowrap {{ request()->routeIs('market_price') ? 'text-green-700 dark:text-green-400 border-b-2 border-green-700 dark:border-green-400' : 'text-slate-600 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-300' }}">Radar Harga</a>
 
-                <a href="{{ route('tanibot') }}" class="px-3 py-2 text-sm font-semibold transition-colors whitespace-nowrap {{ request()->routeIs('tanibot') ? 'text-green-700 dark:text-green-400 border-b-2 border-green-700 dark:border-green-400' : 'text-slate-600 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-300' }}">Komunitas</a>
+                <a href="{{ route('tanibot') }}" class="px-3 py-2 text-sm font-semibold transition-colors whitespace-nowrap {{ request()->routeIs('tanibot') ? 'text-green-700 dark:text-green-400 border-b-2 border-green-700 dark:border-green-400' : 'text-slate-600 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-300' }}">Tanya AI</a>
                 <a href="{{ route('ai_reccomendation') }}" class="px-3 py-2 text-sm font-semibold transition-colors whitespace-nowrap {{ request()->routeIs('ai_reccomendation') ? 'text-green-700 dark:text-green-400 border-b-2 border-green-700 dark:border-green-400' : 'text-slate-600 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-300' }}">Rekomendasi</a>
             </div>
 
@@ -55,7 +55,7 @@
             <a href="{{ route('pest_detection_alert') }}" class="text-sm font-semibold whitespace-nowrap {{ request()->routeIs('pest_detection_alert') ? 'text-green-700 dark:text-green-400 border-b-2 border-green-700 dark:border-green-400 pb-1' : 'text-slate-600 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-300' }}">Deteksi Hama</a>
             <a href="{{ route('market_price') }}" class="text-sm font-semibold whitespace-nowrap {{ request()->routeIs('market_price') ? 'text-green-700 dark:text-green-400 border-b-2 border-green-700 dark:border-green-400 pb-1' : 'text-slate-600 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-300' }}">Radar Harga</a>
 
-            <a href="{{ route('tanibot') }}" class="text-sm font-semibold whitespace-nowrap {{ request()->routeIs('tanibot') ? 'text-green-700 dark:text-green-400 border-b-2 border-green-700 dark:border-green-400 pb-1' : 'text-slate-600 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-300' }}">Komunitas</a>
+            <a href="{{ route('tanibot') }}" class="text-sm font-semibold whitespace-nowrap {{ request()->routeIs('tanibot') ? 'text-green-700 dark:text-green-400 border-b-2 border-green-700 dark:border-green-400 pb-1' : 'text-slate-600 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-300' }}">Tanya AI</a>
             <a href="{{ route('ai_reccomendation') }}" class="text-sm font-semibold whitespace-nowrap {{ request()->routeIs('ai_reccomendation') ? 'text-green-700 dark:text-green-400 border-b-2 border-green-700 dark:border-green-400 pb-1' : 'text-slate-600 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-300' }}">Rekomendasi</a>
         </div>
     </div>

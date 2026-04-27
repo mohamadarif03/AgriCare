@@ -114,74 +114,7 @@
                 </div>
             </div>
         </section>
-  
-        <section
-            class="flex flex-col gap-md bg-surface-container-lowest rounded-xl border border-surface-variant p-md shadow-[0_2px_8px_rgba(27,94,32,0.04)]">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-sm">
-                <div>
-                    <h2 class="font-h2 text-h2 text-on-surface">Peta Laporan Komunitas</h2>
-                    <p class="font-body text-body text-on-surface-variant">Pantau penyebaran hama berdasarkan laporan
-                        petani di sekitar Anda.</p>
-                </div>
-                <button
-                    class="bg-primary text-on-primary px-6 py-2 rounded-full font-small-label text-small-label hover:bg-surface-tint transition-colors duration-200 flex items-center gap-2 shadow-[0_4px_12px_rgba(27,94,32,0.15)] whitespace-nowrap">
-                    <span class="material-symbols-outlined">location_on</span> Laporkan Kondisi Lahan Saya
-                </button>
-            </div>
-            <div
-                class="w-full h-80 bg-surface-container-high rounded-lg overflow-hidden relative border border-surface-variant">
-                <!-- Mock Map Background -->
-                <div class="absolute inset-0 bg-[#e5eadf] opacity-50"
-                    style="background-image: radial-gradient(#bfcab9 1px, transparent 1px); background-size: 20px 20px;">
-                </div>
-                <!-- Mock Map Pins -->
-                <div class="absolute top-[30%] left-[40%] flex flex-col items-center group cursor-pointer">
-                    <div class="bg-error text-on-error p-1 rounded-full shadow-md z-10"><span
-                            class="material-symbols-outlined text-sm" data-weight="fill"
-                            style="font-variation-settings: 'FILL' 1;">location_on</span></div>
-                    <div class="w-1 h-4 bg-error"></div>
-                    <div
-                        class="hidden group-hover:block absolute bottom-full mb-2 bg-surface-container-lowest p-2 rounded shadow-lg border border-surface-variant w-32 z-20">
-                        <p class="font-small-label text-small-label text-on-surface font-bold">Wereng</p>
-                        <p class="text-[10px] text-on-surface-variant">Hari ini</p>
-                    </div>
-                </div>
-                <div class="absolute top-[60%] left-[25%] flex flex-col items-center group cursor-pointer">
-                    <div class="bg-secondary-container text-on-secondary-container p-1 rounded-full shadow-md z-10">
-                        <span class="material-symbols-outlined text-sm" data-weight="fill"
-                            style="font-variation-settings: 'FILL' 1;">location_on</span></div>
-                    <div class="w-1 h-4 bg-secondary-container"></div>
-                </div>
-                <div class="absolute top-[45%] left-[70%] flex flex-col items-center group cursor-pointer">
-                    <div class="bg-primary text-on-primary p-1 rounded-full shadow-md z-10"><span
-                            class="material-symbols-outlined text-sm" data-weight="fill"
-                            style="font-variation-settings: 'FILL' 1;">location_on</span></div>
-                    <div class="w-1 h-4 bg-primary"></div>
-                </div>
-                <div class="absolute top-[20%] left-[60%] flex flex-col items-center group cursor-pointer">
-                    <div class="bg-error text-on-error p-1 rounded-full shadow-md z-10"><span
-                            class="material-symbols-outlined text-sm" data-weight="fill"
-                            style="font-variation-settings: 'FILL' 1;">location_on</span></div>
-                    <div class="w-1 h-4 bg-error"></div>
-                </div>
-                <!-- Map Legend -->
-                <div
-                    class="absolute bottom-4 right-4 bg-surface-container-lowest/90 backdrop-blur p-3 rounded-lg border border-surface-variant shadow-sm flex flex-col gap-2">
-                    <div class="flex items-center gap-2">
-                        <div class="w-3 h-3 rounded-full bg-error"></div>
-                        <span class="font-small-label text-small-label text-on-surface">Bahaya Tinggi</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <div class="w-3 h-3 rounded-full bg-secondary-container"></div>
-                        <span class="font-small-label text-small-label text-on-surface">Perhatian</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <div class="w-3 h-3 rounded-full bg-primary"></div>
-                        <span class="font-small-label text-small-label text-on-surface">Terkendali</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+
     </main>
 <script>
     const uploadBox = document.getElementById('upload-box');

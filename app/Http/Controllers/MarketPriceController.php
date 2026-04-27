@@ -21,9 +21,38 @@ class MarketPriceController extends Controller
      */
     public function index()
     {
+        $defaultCommodity = 'padi';
+        $defaultRegion = 'cilacap';
+
+        if (auth()->check()) {
+            // Ambil satu lahan yang paling akhir ditambah
+            $latestLand = auth()->user()->lahans()->latest()->first();
+            
+            if ($latestLand) {
+                // Set default komoditas
+                $availableCommodities = array_keys(MarketPrice::availableCommodities());
+                $landCommodity = strtolower($latestLand->komoditas);
+                if (in_array($landCommodity, $availableCommodities)) {
+                    $defaultCommodity = $landCommodity;
+                }
+
+                // Set default wilayah
+                $availableRegions = array_keys(MarketPrice::availableRegions());
+                $landCity = strtolower($latestLand->kota ?? '');
+                foreach ($availableRegions as $regionKey) {
+                    if (str_contains($landCity, strtolower($regionKey))) {
+                        $defaultRegion = $regionKey;
+                        break;
+                    }
+                }
+            }
+        }
+
         return view('pages.market_price', [
-            'commodities' => MarketPrice::availableCommodities(),
-            'regions'     => MarketPrice::availableRegions(),
+            'commodities'      => MarketPrice::availableCommodities(),
+            'regions'          => MarketPrice::availableRegions(),
+            'defaultCommodity' => $defaultCommodity,
+            'defaultRegion'    => $defaultRegion,
         ]);
     }
 
