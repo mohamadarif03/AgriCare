@@ -120,6 +120,22 @@
         @yield('content')
     </main>
 
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-900 border-t border-green-100/50 dark:border-slate-800 mt-auto">
+        <div class="max-w-[1600px] mx-auto px-4 xl:px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-green-700 dark:text-green-500 text-[24px]" style="font-variation-settings: 'FILL' 1;">eco</span>
+                <span class="text-sm font-bold text-slate-700 dark:text-slate-300">TaniSiaga</span>
+                <span class="text-sm text-slate-500 dark:text-slate-400 ml-2">&copy; {{ date('Y') }} Hak Cipta Dilindungi.</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="{{ route('about') }}" class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-400 transition-colors">Tentang Kami</a>
+                <a href="{{ route('terms') }}" class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-400 transition-colors">Syarat & Ketentuan</a>
+                <a href="{{ route('privacy') }}" class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-400 transition-colors">Kebijakan Privasi</a>
+            </div>
+        </div>
+    </footer>
+
     @include('components.ai_button')
 </body>
 </html>

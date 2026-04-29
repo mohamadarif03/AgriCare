@@ -374,20 +374,16 @@
                     class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-green-800 dark:text-green-500 font-bold mb-2">
                     Perusahaan</h4>
                 <a class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-500 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-300 transition-colors opacity-100 hover:opacity-80"
-                    href="#">Tentang Kami</a>
+                    href="{{ route('about') }}">Tentang Kami</a>
                 <a class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-500 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-300 transition-colors opacity-100 hover:opacity-80"
-                    href="#">Syarat &amp; Ketentuan</a>
+                    href="{{ route('terms') }}">Syarat &amp; Ketentuan</a>
                 <a class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-500 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-300 transition-colors opacity-100 hover:opacity-80"
-                    href="#">Kebijakan Privasi</a>
+                    href="{{ route('privacy') }}">Kebijakan Privasi</a>
             </div>
             <div class="flex flex-col gap-2">
                 <h4
                     class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-green-800 dark:text-green-500 font-bold mb-2">
                     Bantuan</h4>
-                <a class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-500 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-300 transition-colors opacity-100 hover:opacity-80"
-                    href="#">Pusat Bantuan</a>
-                <a class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-500 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-300 transition-colors opacity-100 hover:opacity-80"
-                    href="#">Kontak</a>
                 <a class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-500 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-300 transition-colors opacity-100 hover:opacity-80"
                     href="{{ route('tanibot') }}">Tanya AI</a>
             </div>

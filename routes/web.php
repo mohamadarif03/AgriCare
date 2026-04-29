@@ -2,12 +2,20 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LahanController;
-use App\Http\Controllers\TaniBotController;
-use App\Http\Controllers\PestDetectionController;
-use App\Http\Controllers\PlantingCalendarController;
 use App\Http\Controllers\MarketPriceController;
 
 // ─── Halaman Statis ─────────────────────────────────────────────────────────
+// Halaman Informasi
+Route::get('/about', function () {
+    return view('pages.about');
+})->name('about');
+Route::get('/terms', function () {
+    return view('pages.terms');
+})->name('terms');
+Route::get('/privacy', function () {
+    return view('pages.privacy');
+})->name('privacy');
+
 Route::get('/', fn() => view('index'))->name('index');
 Route::get('/login', [App\Http\Controllers\AuthController::class, 'showLogin'])->name('login')->middleware('guest');
 Route::post('/login', [App\Http\Controllers\AuthController::class, 'login'])->name('login.post')->middleware('guest');
@@ -21,7 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
     Route::get('/calender-planning', [App\Http\Controllers\PlantingCalendarController::class, 'index'])->name('calender_planning');
     Route::post('/api/calender-planning/generate', [App\Http\Controllers\PlantingCalendarController::class, 'generate'])->name('calender_planning.generate');
-    Route::get('/pest-detection', function() {
+    Route::get('/pest-detection', function () {
         return view('pages.pest_detection_alert', [
             'lahans' => auth()->user()->lahans
         ]);
@@ -29,10 +37,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/market-price', [MarketPriceController::class, 'index'])->name('market_price');
     Route::get('/api/market-price', [MarketPriceController::class, 'getData'])->name('market_price.data');
 
+
     Route::get('/tanibot', [App\Http\Controllers\TaniBotController::class, 'index'])->name('tanibot');
     Route::post('/api/tanibot/chat', [App\Http\Controllers\TaniBotController::class, 'chat'])->name('tanibot.chat');
     Route::post('/api/pest-detection/analyze', [App\Http\Controllers\PestDetectionController::class, 'detect'])->name('pest_detection.analyze');
-    
+
     // AI Recommendations
     Route::get('/recommendations', [App\Http\Controllers\RecommendationController::class, 'index'])->name('ai_reccomendation');
     Route::get('/api/recommendations', [App\Http\Controllers\RecommendationController::class, 'getData'])->name('api.recommendations.data');
