@@ -87,9 +87,6 @@
                     <input class="h-4 w-4 text-primary focus:ring-primary border-outline-variant rounded" id="remember-me" name="remember" type="checkbox" />
                     <label class="ml-2 block text-sm text-on-surface-variant" for="remember-me">Ingat saya</label>
                 </div>
-                <div class="text-sm">
-                    <a class="font-medium text-primary hover:text-primary-container transition-colors" href="#">Lupa sandi?</a>
-                </div>
             </div>
 
             <button class="w-full bg-primary text-on-primary py-2.5 px-4 rounded-xl font-medium hover:bg-primary-container hover:text-on-primary-container transition-all active:scale-[0.98] duration-200 shadow-sm" type="submit">
@@ -111,7 +108,5 @@
             </a>
         </div>
     </div>
-
-    @include('components.ai_button')
 </body>
 </html>

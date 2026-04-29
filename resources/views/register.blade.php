@@ -127,7 +127,5 @@
             </a>
         </div>
     </div>
-
-    @include('components.ai_button')
 </body>
 </html>

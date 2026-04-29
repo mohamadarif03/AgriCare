@@ -73,14 +73,14 @@ class LahanController extends Controller
             'kelurahan'     => 'nullable|string|max:255',
             'latitude'      => 'nullable|numeric',
             'longitude'     => 'nullable|numeric',
-            'foto'          => 'nullable|image|mimes:jpg,jpeg,png,webp|max:4096',
+            'foto'          => 'nullable|image|mimes:jpg,jpeg,png,webp|max:1024',
         ], [
             'nama.required'         => 'Nama lahan wajib diisi.',
             'komoditas.required'    => 'Komoditas wajib dipilih.',
             'kode_wilayah.required' => 'Kode wilayah wajib diisi.',
             'luas.numeric'          => 'Luas harus berupa angka.',
             'foto.image'            => 'File harus berupa gambar.',
-            'foto.max'              => 'Ukuran foto maksimal 4MB.',
+            'foto.max'              => 'Ukuran foto maksimal 1MB.',
         ]);
 
         // Konversi luas ke hektar jika unit m²
@@ -161,7 +161,7 @@ class LahanController extends Controller
             'alamat'        => 'nullable|string|max:500',
             'latitude'      => 'nullable|numeric',
             'longitude'     => 'nullable|numeric',
-            'foto'          => 'nullable|image|mimes:jpg,jpeg,png,webp|max:4096',
+            'foto'          => 'nullable|image|mimes:jpg,jpeg,png,webp|max:1024',
         ]);
 
         // Konversi luas ke hektar

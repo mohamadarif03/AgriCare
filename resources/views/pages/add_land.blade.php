@@ -193,7 +193,7 @@
                         <span class="material-symbols-outlined text-4xl text-on-surface-variant">add_a_photo</span>
                         <div class="text-center">
                             <p class="text-sm font-semibold text-on-surface">Klik untuk upload foto</p>
-                            <p class="text-xs text-on-surface-variant mt-0.5">JPG, PNG, WebP — Maks. 4MB</p>
+                            <p class="text-xs text-on-surface-variant mt-0.5">JPG, PNG, WebP — Maks. 1MB</p>
                         </div>
                         <input type="file" id="foto" name="foto" accept="image/*" class="hidden" onchange="previewFoto(this)">
                         <img id="foto-preview" class="hidden w-full max-h-48 object-cover rounded-lg mt-2" alt="Preview">
@@ -272,6 +272,12 @@
 function previewFoto(input) {
     const preview = document.getElementById('foto-preview');
     if (input.files && input.files[0]) {
+        if (input.files[0].size > 1 * 1024 * 1024) {
+            alert('Ukuran foto maksimal 1 MB!');
+            input.value = '';
+            preview.classList.add('hidden');
+            return;
+        }
         const reader = new FileReader();
         reader.onload = e => { preview.src = e.target.result; preview.classList.remove('hidden'); };
         reader.readAsDataURL(input.files[0]);
