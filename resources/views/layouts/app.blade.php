@@ -136,6 +136,8 @@
         </div>
     </footer>
 
-    @include('components.ai_button')
+    @if(!request()->routeIs('tanibot'))
+        @include('components.ai_button')
+    @endif
 </body>
 </html>

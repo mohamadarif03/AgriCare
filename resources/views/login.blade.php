@@ -41,7 +41,7 @@
         }
     </style>
 </head>
-<body class="bg-background text-on-background font-body min-h-screen flex items-center justify-center p-4 relative overflow-hidden py-10">
+<body class="bg-background text-on-background font-body min-h-screen flex items-center justify-center p-4 relative overflow-y-auto overflow-x-hidden py-10">
     <!-- Abstract Background Decoration -->
     <div class="absolute inset-0 z-0 opacity-10 pointer-events-none">
         <div class="absolute top-20 left-10 w-64 h-64 bg-primary rounded-full mix-blend-multiply filter blur-3xl"></div>
@@ -49,7 +49,7 @@
     </div>
     <img alt="Lahan Pertanian TaniSiaga" class="absolute inset-0 w-full h-full object-cover opacity-20 z-0 pointer-events-none" src="{{ asset('assets/herosection.jpeg') }}" />
     
-    <div class="w-full max-w-md bg-surface-container-lowest rounded-2xl shadow-ambient border border-outline-variant/30 p-8 relative z-10">
+    <div class="w-full max-w-[360px] md:max-w-sm bg-surface-container-lowest rounded-2xl shadow-ambient border border-outline-variant/30 p-6 relative z-10">
         <div class="text-center mb-8">
             <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary-container text-on-primary-container mb-4">
                 <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">eco</span>

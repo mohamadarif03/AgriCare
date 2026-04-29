@@ -393,8 +393,6 @@
                 TaniSiaga. Menjaga Panen Nusantara dengan Kecerdasan Buatan.</p>
         </div>
     </footer>
-
-    @include('components.ai_button')
 </body>
 
 </html>

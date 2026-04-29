@@ -36,7 +36,6 @@
                             <a href="#" class="px-4 py-2.5 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:bg-green-50 dark:hover:bg-slate-700 hover:text-green-700 dark:hover:text-green-400 flex items-center gap-3"><span class="material-symbols-outlined text-[20px]">person</span> Profil Saya</a>
                             <a href="{{ route('manage_lands') }}" class="px-4 py-2.5 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:bg-green-50 dark:hover:bg-slate-700 hover:text-green-700 dark:hover:text-green-400 flex items-center gap-3"><span class="material-symbols-outlined text-[20px]">agriculture</span> Kelola Lahan</a>
                             <a href="{{ route('add_land') }}" class="px-4 py-2.5 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:bg-green-50 dark:hover:bg-slate-700 hover:text-green-700 dark:hover:text-green-400 flex items-center gap-3"><span class="material-symbols-outlined text-[20px]">add_location_alt</span> Tambah Lahan</a>
-                            <a href="#" class="px-4 py-2.5 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:bg-green-50 dark:hover:bg-slate-700 hover:text-green-700 dark:hover:text-green-400 flex items-center gap-3"><span class="material-symbols-outlined text-[20px]">settings</span> Pengaturan</a>
                             <div class="h-px bg-slate-100 dark:bg-slate-700 my-1"></div>
                             <form method="POST" action="{{ route('logout') }}" class="w-full">
                                 @csrf
