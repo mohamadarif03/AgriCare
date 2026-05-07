@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LahanController;
+
 use App\Http\Controllers\MarketPriceController;
 
 // ─── Halaman Statis ─────────────────────────────────────────────────────────
@@ -47,6 +48,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/api/recommendations', [App\Http\Controllers\RecommendationController::class, 'getData'])->name('api.recommendations.data');
     Route::post('/api/recommendations/refresh', [App\Http\Controllers\RecommendationController::class, 'refreshRecommendation'])->name('api.recommendations.refresh');
     Route::post('/api/recommendations/checklist', [App\Http\Controllers\RecommendationController::class, 'toggleChecklist'])->name('api.recommendations.checklist');
+
+
 
     // CRUD Lahan
     Route::get('/manage-lands', [LahanController::class, 'index'])->name('manage_lands');

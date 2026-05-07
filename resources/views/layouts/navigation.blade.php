@@ -4,7 +4,7 @@
             <!-- Kiri: Logo -->
             <a href="{{ route('dashboard') }}" class="flex items-center gap-2 shrink-0">
                 <span class="material-symbols-outlined text-green-700 dark:text-green-500 text-[28px]" style="font-variation-settings: 'FILL' 1;">eco</span>
-                <span class="text-xl font-extrabold text-green-700 dark:text-green-500 tracking-tighter hidden md:block">TaniSiaga</span>
+                <span class="text-xl font-extrabold text-green-700 dark:text-green-500 tracking-tighter hidden md:block">PastiPanen</span>
             </a>
 
             <!-- Tengah: Menu Navigasi -->

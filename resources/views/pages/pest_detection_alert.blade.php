@@ -285,10 +285,10 @@
     <footer class="w-full mt-auto border-t border-green-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-950">
         <div class="flex flex-col md:flex-row justify-between items-center py-10 px-6 gap-6 max-w-7xl mx-auto">
             <div class="text-lg font-bold text-green-800 dark:text-green-400">
-                TaniSiaga
+                PastiPanen
             </div>
             <div class="font-plus-jakarta text-xs md:text-sm font-normal text-slate-500 dark:text-slate-500">
-                © 2024 TaniSiaga. Guardian of the Harvest.
+                © 2024 PastiPanen. Guardian of the Harvest.
             </div>
             <div class="flex gap-4">
                 <a class="font-plus-jakarta text-xs md:text-sm font-normal text-slate-500 dark:text-slate-500 hover:text-green-600 dark:hover:text-green-300 hover:underline opacity-90 hover:opacity-100 transition-opacity"

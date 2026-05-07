@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Daftar - TaniSiaga</title>
+    <title>Daftar - PastiPanen</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
@@ -47,7 +47,7 @@
         <div class="absolute top-20 left-10 w-64 h-64 bg-primary rounded-full mix-blend-multiply filter blur-3xl"></div>
         <div class="absolute bottom-20 right-10 w-96 h-96 bg-primary-container rounded-full mix-blend-multiply filter blur-3xl"></div>
     </div>
-    <img alt="Lahan Pertanian TaniSiaga" class="absolute inset-0 w-full h-full object-cover opacity-20 z-0 pointer-events-none" src="{{ asset('assets/herosection.jpeg') }}" />
+    <img alt="Lahan Pertanian PastiPanen" class="absolute inset-0 w-full h-full object-cover opacity-20 z-0 pointer-events-none" src="{{ asset('assets/herosection.jpeg') }}" />
     
     <div class="w-full max-w-[380px] md:max-w-sm bg-surface-container-lowest rounded-2xl shadow-ambient border border-outline-variant/30 p-6 relative z-10">
         <div class="text-center mb-8">
@@ -55,7 +55,7 @@
                 <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">eco</span>
             </div>
             <h1 class="text-2xl font-bold text-on-surface mb-2">Buat Akun Baru</h1>
-            <p class="text-on-surface-variant text-sm">Bergabung dengan TaniSiaga sekarang</p>
+            <p class="text-on-surface-variant text-sm">Bergabung dengan PastiPanen sekarang</p>
         </div>
 
         <form class="space-y-4" method="POST" action="{{ route('register.post') }}">

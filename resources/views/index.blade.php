@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>TaniSiaga - Platform AI Pertanian Indonesia #1</title>
+    <title>PastiPanen - Platform AI Pertanian Indonesia #1</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap"
         rel="stylesheet" />
@@ -125,7 +125,7 @@
         <div class="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
             <div class="flex items-center gap-2 text-xl font-bold tracking-tight text-green-800 dark:text-green-400">
                 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">eco</span>
-                TaniSiaga
+                PastiPanen
             </div>
             <div class="hidden md:flex gap-6">
                 <a class="font-['Plus_Jakarta_Sans'] font-semibold text-sm text-slate-600 dark:text-slate-400 hover:text-green-700 transition-colors"
@@ -154,7 +154,7 @@
                 class="absolute bottom-20 right-10 w-96 h-96 bg-tertiary rounded-full mix-blend-multiply filter blur-3xl">
             </div>
         </div>
-        <img alt="Lahan Pertanian TaniSiaga"
+        <img alt="Lahan Pertanian PastiPanen"
             class="absolute inset-0 w-full h-full object-cover opacity-20 z-0 pointer-events-none"
             src="{{ asset('assets/herosection.jpeg') }}" />
         <div class="relative z-10 max-w-4xl mx-auto flex flex-col items-center gap-md">
@@ -352,7 +352,7 @@
             <div class="flex flex-col gap-4">
                 <div class="text-2xl font-black text-green-700 dark:text-green-400 flex items-center gap-2">
                     <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">eco</span>
-                    TaniSiaga
+                    PastiPanen
                 </div>
                 <p class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-500 dark:text-slate-400">
                     Menjaga Panen Nusantara dengan Kecerdasan Buatan. Platform andalan petani modern Indonesia.
@@ -390,7 +390,7 @@
         </div>
         <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-green-100 dark:border-slate-800 text-center">
             <p class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-500 dark:text-slate-400">© 2024
-                TaniSiaga. Menjaga Panen Nusantara dengan Kecerdasan Buatan.</p>
+                PastiPanen. Menjaga Panen Nusantara dengan Kecerdasan Buatan.</p>
         </div>
     </footer>
 </body>

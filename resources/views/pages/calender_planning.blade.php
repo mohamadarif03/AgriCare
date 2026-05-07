@@ -74,7 +74,7 @@
                 <div class="flex-1">
                     <div class="inline-flex items-center gap-1.5 bg-primary-container text-on-primary-container px-3 py-1 rounded-full mb-4">
                         <span class="material-symbols-outlined text-sm">auto_awesome</span>
-                        <span class="font-small-label text-small-label uppercase tracking-wider text-[11px]">Rekomendasi AI TaniSiaga</span>
+                        <span class="font-small-label text-small-label uppercase tracking-wider text-[11px]">Rekomendasi AI PastiPanen</span>
                     </div>
                     <h3 id="rekomendasiTitle" class="font-h3 text-h3 text-on-surface mb-3">Waktu Tanam Optimal:<br class="hidden md:block" /> —</h3>
                     <p id="rekomendasiAlasan" class="font-body text-body text-on-surface-variant max-w-2xl"></p>
@@ -168,8 +168,8 @@
 <!-- Footer -->
 <footer class="bg-slate-50 dark:bg-slate-950 border-t border-green-100 dark:border-slate-800 w-full mt-auto">
     <div class="flex flex-col md:flex-row justify-between items-center py-10 px-6 gap-6 max-w-7xl mx-auto">
-        <div class="text-lg font-bold text-green-800 dark:text-green-400">TaniSiaga</div>
-        <div class="font-plus-jakarta text-xs md:text-sm font-normal text-slate-500 dark:text-slate-500 opacity-90">© 2024 TaniSiaga. Guardian of the Harvest.</div>
+        <div class="text-lg font-bold text-green-800 dark:text-green-400">PastiPanen</div>
+        <div class="font-plus-jakarta text-xs md:text-sm font-normal text-slate-500 dark:text-slate-500 opacity-90">© 2024 PastiPanen. Guardian of the Harvest.</div>
         <div class="flex gap-4">
             <a class="font-plus-jakarta text-xs md:text-sm font-normal text-slate-500 hover:text-green-600 hover:underline" href="#">Privacy Policy</a>
             <a class="font-plus-jakarta text-xs md:text-sm font-normal text-slate-500 hover:text-green-600 hover:underline" href="#">Terms of Service</a>
