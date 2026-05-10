@@ -69,7 +69,7 @@
                         if ($skor !== null) {
                             if ($skor >= 75) {
                                 $skorLevel = 'SANGAT BAIK';
-                                $badgeClass = 'bg-green-100 text-green-800';
+                                $badgeClass = 'bg-blue-100 text-blue-800';
                             } elseif ($skor >= 50) {
                                 $skorLevel = 'CUKUP BAIK';
                                 $badgeClass = 'bg-amber-100 text-amber-800';
@@ -160,13 +160,13 @@
             <div class="bg-surface rounded-xl p-5 border border-surface-variant shadow-[0_2px_8px_rgba(27,94,32,0.04)]">
                 <div class="flex justify-between items-start mb-2">
                     <span class="font-small-label text-small-label text-on-surface-variant">Harga {{ $mainCommodity['label'] ?? ucfirst($selectedLahan->komoditas ?? 'Padi') }} Hari Ini</span>
-                    <span class="material-symbols-outlined {{ ($mainCommodity['trend'] ?? 0) >= 0 ? 'text-green-600' : 'text-red-600' }}">
+                    <span class="material-symbols-outlined {{ ($mainCommodity['trend'] ?? 0) >= 0 ? 'text-blue-600' : 'text-red-600' }}">
                         {{ ($mainCommodity['trend'] ?? 0) >= 0 ? 'trending_up' : 'trending_down' }}
                     </span>
                 </div>
                 @if($mainCommodity)
                 <div class="font-h2 text-h2 text-on-surface">Rp {{ number_format($mainCommodity['harga'], 0, ',', '.') }}<span class="text-sm font-normal text-on-surface-variant">/kg</span></div>
-                <div class="flex items-center gap-1 mt-1 text-sm font-medium {{ $mainCommodity['trend'] >= 0 ? 'text-green-600' : 'text-red-600' }}">
+                <div class="flex items-center gap-1 mt-1 text-sm font-medium {{ $mainCommodity['trend'] >= 0 ? 'text-blue-600' : 'text-red-600' }}">
                     <span class="material-symbols-outlined text-sm">{{ $mainCommodity['trend'] >= 0 ? 'arrow_upward' : 'arrow_downward' }}</span> {{ $mainCommodity['trend'] > 0 ? '+' : '' }}{{ $mainCommodity['trend'] }}%
                 </div>
                 @else
@@ -351,7 +351,7 @@
                             <span class="text-sm font-medium text-on-surface">{{ $mp['label'] }}</span>
                             <div class="text-right">
                                 <div class="text-sm font-bold text-on-surface">Rp {{ number_format($mp['harga'], 0, ',', '.') }}</div>
-                                <div class="text-[10px] {{ $mp['trend'] >= 0 ? 'text-green-600' : 'text-red-600' }} flex items-center justify-end gap-0.5"><span class="material-symbols-outlined text-[10px]">{{ $mp['trend'] >= 0 ? 'arrow_upward' : 'arrow_downward' }}</span> {{ $mp['trend'] > 0 ? '+' : '' }}{{ $mp['trend'] }}%</div>
+                                <div class="text-[10px] {{ $mp['trend'] >= 0 ? 'text-blue-600' : 'text-red-600' }} flex items-center justify-end gap-0.5"><span class="material-symbols-outlined text-[10px]">{{ $mp['trend'] >= 0 ? 'arrow_upward' : 'arrow_downward' }}</span> {{ $mp['trend'] > 0 ? '+' : '' }}{{ $mp['trend'] }}%</div>
                             </div>
                         </div>
                         @empty

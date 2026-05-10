@@ -25,52 +25,52 @@
                 extend: {
                     "colors": {
                         "secondary-fixed-dim": "#fabd00",
-                        "surface-variant": "#dfe4d9",
+                        "surface-variant": "#dfe2eb",
                         "on-secondary-fixed-variant": "#5b4300",
                         "on-primary": "#ffffff",
-                        "surface-container-highest": "#dfe4d9",
+                        "surface-container-highest": "#e1e4e9",
                         "on-secondary-fixed": "#261a00",
-                        "surface": "#f6fbf0",
+                        "surface": "#fdfbff",
                         "inverse-on-surface": "#eef2e7",
-                        "surface-tint": "#106d20",
-                        "primary-container": "#2e8534",
+                        "surface-tint": "#0280F9",
+                        "primary-container": "#d0e4ff",
                         "secondary": "#785900",
                         "tertiary-container": "#0077ce",
                         "tertiary-fixed": "#d3e4ff",
                         "tertiary": "#005ea4",
                         "outline-variant": "#bfcab9",
-                        "inverse-primary": "#82db7e",
+                        "inverse-primary": "#9bcaea",
                         "error-container": "#ffdad6",
                         "on-secondary-container": "#6c5000",
                         "on-tertiary-fixed": "#001c38",
                         "secondary-fixed": "#ffdf9e",
                         "on-tertiary-container": "#fdfcff",
-                        "surface-dim": "#d7dcd1",
+                        "surface-dim": "#d8dae0",
                         "on-error-container": "#93000a",
-                        "surface-container": "#ebf0e5",
+                        "surface-container": "#edf0f7",
                         "tertiary-fixed-dim": "#a2c9ff",
                         "on-surface-variant": "#40493d",
                         "on-surface": "#181d17",
                         "on-tertiary": "#ffffff",
                         "secondary-container": "#fdc003",
-                        "surface-bright": "#f6fbf0",
-                        "primary": "#0b6b1d",
-                        "on-primary-fixed": "#002204",
+                        "surface-bright": "#fdfbff",
+                        "primary": "#0280F9",
+                        "on-primary-fixed": "#001d36",
                         "on-background": "#181d17",
-                        "surface-container-low": "#f0f5ea",
+                        "surface-container-low": "#f3f3fa",
                         "inverse-surface": "#2d322b",
                         "on-tertiary-fixed-variant": "#004881",
-                        "on-primary-container": "#f7fff1",
+                        "on-primary-container": "#001d36",
                         "surface-container-lowest": "#ffffff",
-                        "background": "#f6fbf0",
+                        "background": "#fdfbff",
                         "on-secondary": "#ffffff",
-                        "surface-container-high": "#e5eadf",
-                        "primary-fixed": "#9df898",
-                        "on-primary-fixed-variant": "#005312",
+                        "surface-container-high": "#e7eaef",
+                        "primary-fixed": "#d0e4ff",
+                        "on-primary-fixed-variant": "#00497b",
                         "outline": "#707a6c",
                         "on-error": "#ffffff",
                         "error": "#ba1a1a",
-                        "primary-fixed-dim": "#82db7e"
+                        "primary-fixed-dim": "#9bcaea"
                     },
                     "borderRadius": {
                         "DEFAULT": "0.25rem",
@@ -124,20 +124,20 @@
     class="bg-background text-on-background font-body text-body selection:bg-primary-container selection:text-on-primary-container">
     <!-- TopNavBar -->
     <nav
-        class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md fixed top-0 w-full z-50 border-b border-green-100 dark:border-slate-800 shadow-sm dark:shadow-none">
+        class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md fixed top-0 w-full z-50 border-b border-blue-100 dark:border-slate-800 shadow-sm dark:shadow-none">
         <div class="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
-            <div class="flex items-center gap-2 text-xl font-bold tracking-tight text-green-800 dark:text-green-400">
+            <div class="flex items-center gap-2 text-xl font-bold tracking-tight text-blue-800 dark:text-blue-400">
                 <img src="{{ asset('assets/logo.png') }}" alt="TaniPintar Logo" class="h-8 w-auto">
                 
             </div>
             <div class="hidden md:flex gap-6">
-                {{-- <a class="font-['Plus_Jakarta_Sans'] font-semibold text-sm text-slate-600 dark:text-slate-400 hover:text-green-700 transition-colors"
+                {{-- <a class="font-['Plus_Jakarta_Sans'] font-semibold text-sm text-slate-600 dark:text-slate-400 hover:text-blue-700 transition-colors"
                     href="{{ route('dashboard') }}">Lahan Saya</a>
-                <a class="font-['Plus_Jakarta_Sans'] font-semibold text-sm text-slate-600 dark:text-slate-400 hover:text-green-700 transition-colors"
+                <a class="font-['Plus_Jakarta_Sans'] font-semibold text-sm text-slate-600 dark:text-slate-400 hover:text-blue-700 transition-colors"
                     href="{{ route('ai_reccomendation') }}">Analisis AI</a>
-                <a class="font-['Plus_Jakarta_Sans'] font-semibold text-sm text-slate-600 dark:text-slate-400 hover:text-green-700 transition-colors"
+                <a class="font-['Plus_Jakarta_Sans'] font-semibold text-sm text-slate-600 dark:text-slate-400 hover:text-blue-700 transition-colors"
                     href="{{ route('market_price') }}">Harga Pasar</a>
-                <a class="font-['Plus_Jakarta_Sans'] font-semibold text-sm text-slate-600 dark:text-slate-400 hover:text-green-700 transition-colors"
+                <a class="font-['Plus_Jakarta_Sans'] font-semibold text-sm text-slate-600 dark:text-slate-400 hover:text-blue-700 transition-colors"
                     href="{{ route('tanibot') }}">Tanya AI</a> --}}
             </div>
             <div class="flex items-center gap-4">
@@ -317,10 +317,10 @@
         </div>
     </section>
     <!-- Footer -->
-    <footer class="bg-slate-50 dark:bg-slate-950 w-full py-12 px-8 border-t border-green-100 dark:border-slate-800">
+    <footer class="bg-slate-50 dark:bg-slate-950 w-full py-12 px-8 border-t border-blue-100 dark:border-slate-800">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
             <div class="flex flex-col gap-4">
-                <div class="text-2xl font-black text-green-700 dark:text-green-400 flex items-center gap-2">
+                <div class="text-2xl font-black text-blue-700 dark:text-blue-400 flex items-center gap-2">
                     <img src="{{ asset('assets/logo.png') }}" alt="TaniPintar Logo" class="h-8 w-auto">
                     
                 </div>
@@ -330,35 +330,35 @@
             </div>
             <div class="flex flex-col gap-2">
                 <h4
-                    class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-green-800 dark:text-green-500 font-bold mb-2">
+                    class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-blue-800 dark:text-blue-500 font-bold mb-2">
                     Fitur</h4>
-                <a class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-500 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-300 transition-colors opacity-100 hover:opacity-80"
+                <a class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors opacity-100 hover:opacity-80"
                     href="{{ route('calender_planning') }}">Kalender Tanam</a>
-                <a class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-500 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-300 transition-colors opacity-100 hover:opacity-80"
+                <a class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors opacity-100 hover:opacity-80"
                     href="{{ route('pest_detection_alert') }}">Deteksi Hama</a>
-                <a class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-500 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-300 transition-colors opacity-100 hover:opacity-80"
+                <a class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors opacity-100 hover:opacity-80"
                     href="{{ route('market_price') }}">Harga Pasar</a>
             </div>
             <div class="flex flex-col gap-2">
                 <h4
-                    class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-green-800 dark:text-green-500 font-bold mb-2">
+                    class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-blue-800 dark:text-blue-500 font-bold mb-2">
                     Perusahaan</h4>
-                <a class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-500 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-300 transition-colors opacity-100 hover:opacity-80"
+                <a class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors opacity-100 hover:opacity-80"
                     href="{{ route('about') }}">Tentang Kami</a>
-                <a class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-500 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-300 transition-colors opacity-100 hover:opacity-80"
+                <a class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors opacity-100 hover:opacity-80"
                     href="{{ route('terms') }}">Syarat &amp; Ketentuan</a>
-                <a class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-500 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-300 transition-colors opacity-100 hover:opacity-80"
+                <a class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors opacity-100 hover:opacity-80"
                     href="{{ route('privacy') }}">Kebijakan Privasi</a>
             </div>
             <div class="flex flex-col gap-2">
                 <h4
-                    class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-green-800 dark:text-green-500 font-bold mb-2">
+                    class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-blue-800 dark:text-blue-500 font-bold mb-2">
                     Bantuan</h4>
-                <a class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-500 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-300 transition-colors opacity-100 hover:opacity-80"
+                <a class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors opacity-100 hover:opacity-80"
                     href="{{ route('tanibot') }}">Tanya AI</a>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-green-100 dark:border-slate-800 text-center">
+        <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-blue-100 dark:border-slate-800 text-center">
             <p class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-500 dark:text-slate-400">© 2024
                 TaniPintar. Menjaga Panen Nusantara dengan Kecerdasan Buatan.</p>
         </div>

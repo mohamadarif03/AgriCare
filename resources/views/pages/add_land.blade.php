@@ -254,7 +254,7 @@
                         </div>
                     </li>
                     <li class="flex items-start gap-3">
-                        <div class="w-8 h-8 rounded-full bg-green-50 text-green-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <div class="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 mt-0.5">
                             <span class="material-symbols-outlined text-[18px]">trending_up</span>
                         </div>
                         <div>
@@ -426,10 +426,10 @@ bmkgDesaSelect.addEventListener('change', () => {
 });
 
 function showResult(el, success, msg) {
-    el.classList.remove('hidden','bg-green-50','border-green-200','text-green-800','bg-red-50','border-red-200','text-red-700');
-    el.classList.add(success ? 'bg-green-50' : 'bg-red-50', 'border',
-        success ? 'border-green-200' : 'border-red-200',
-        success ? 'text-green-800'   : 'text-red-700');
+    el.classList.remove('hidden','bg-blue-50','border-blue-200','text-blue-800','bg-red-50','border-red-200','text-red-700');
+    el.classList.add(success ? 'bg-blue-50' : 'bg-red-50', 'border',
+        success ? 'border-blue-200' : 'border-red-200',
+        success ? 'text-blue-800'   : 'text-red-700');
     el.innerHTML = msg;
 }
 

@@ -5,10 +5,10 @@
 
     {{-- Flash Messages --}}
     @if(session('success'))
-    <div id="flash-success" class="flex items-center gap-3 px-5 py-4 bg-green-50 border border-green-200 text-green-800 rounded-xl shadow-sm">
-        <span class="material-symbols-outlined text-green-600">check_circle</span>
+    <div id="flash-success" class="flex items-center gap-3 px-5 py-4 bg-blue-50 border border-blue-200 text-blue-800 rounded-xl shadow-sm">
+        <span class="material-symbols-outlined text-blue-600">check_circle</span>
         <span class="font-semibold text-sm">{{ session('success') }}</span>
-        <button onclick="document.getElementById('flash-success').remove()" class="ml-auto text-green-500 hover:text-green-700">
+        <button onclick="document.getElementById('flash-success').remove()" class="ml-auto text-blue-500 hover:text-blue-700">
             <span class="material-symbols-outlined text-[18px]">close</span>
         </button>
     </div>
@@ -68,7 +68,7 @@
                     <div class="flex items-center gap-3">
                         @php
                             $risikoConfig = [
-                                'optimal' => ['color' => 'bg-green-100 text-green-600', 'icon' => 'check_circle', 'label' => 'Optimal', 'sub' => 'Kondisi Baik'],
+                                'optimal' => ['color' => 'bg-blue-100 text-blue-600', 'icon' => 'check_circle', 'label' => 'Optimal', 'sub' => 'Kondisi Baik'],
                                 'waspada' => ['color' => 'bg-amber-100 text-amber-600', 'icon' => 'warning', 'label' => 'Waspada', 'sub' => 'Perlu Perhatian'],
                                 'kritis'  => ['color' => 'bg-red-100 text-red-600', 'icon' => 'emergency', 'label' => 'Kritis', 'sub' => 'Segera Tindak'],
                             ];
@@ -152,7 +152,7 @@
                         <div>
                             <p class="text-xs text-on-surface-variant font-bold uppercase mb-1">Estimasi Panen</p>
                             <div class="flex items-center gap-2">
-                                <span class="material-symbols-outlined text-green-600">event_available</span>
+                                <span class="material-symbols-outlined text-blue-600">event_available</span>
                                 <span class="font-semibold text-on-surface">{{ $lahan->estimasi_panen ? $lahan->estimasi_panen->translatedFormat('d F Y') : '—' }}</span>
                             </div>
                         </div>
@@ -245,7 +245,7 @@
                 <div class="space-y-3 text-sm">
                     <div class="flex justify-between items-center">
                         <span class="text-on-surface-variant">Status</span>
-                        <span class="px-2 py-0.5 rounded text-[11px] font-bold {{ $lahan->is_aktif ? 'bg-green-100 text-green-700' : 'bg-surface-container text-on-surface-variant' }}">
+                        <span class="px-2 py-0.5 rounded text-[11px] font-bold {{ $lahan->is_aktif ? 'bg-blue-100 text-blue-700' : 'bg-surface-container text-on-surface-variant' }}">
                             {{ $lahan->is_aktif ? 'AKTIF' : 'NONAKTIF' }}
                         </span>
                     </div>

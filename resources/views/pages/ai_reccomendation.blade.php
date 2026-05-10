@@ -325,8 +325,8 @@
             },
 
             get skorHex() {
-                if (!this.data) return '#0b6b1d';
-                if (this.data.skor_ketahanan >= 75) return '#0b6b1d';
+                if (!this.data) return '#0280F9';
+                if (this.data.skor_ketahanan >= 75) return '#0280F9';
                 if (this.data.skor_ketahanan >= 50) return '#f59e0b';
                 return '#ba1a1a';
             },
