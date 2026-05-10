@@ -54,8 +54,8 @@
     
     <div class="w-full max-w-[360px] md:max-w-sm bg-surface-container-lowest rounded-2xl shadow-ambient border border-outline-variant/30 p-6 relative z-10">
         <div class="text-center mb-8">
-            <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary-container text-on-primary-container mb-4">
-                <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">eco</span>
+            <div class="inline-flex items-center justify-center mb-4">
+                <img src="{{ asset('assets/logo1.png') }}" alt="PastiPanen Logo" class="h-12 w-auto">
             </div>
             <h1 class="text-2xl font-bold text-on-surface mb-2">Selamat Datang Kembali</h1>
             <p class="text-on-surface-variant text-sm">Masuk ke akun PastiPanen Anda</p>

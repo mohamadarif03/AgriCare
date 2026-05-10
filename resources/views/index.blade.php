@@ -127,18 +127,18 @@
         class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md fixed top-0 w-full z-50 border-b border-green-100 dark:border-slate-800 shadow-sm dark:shadow-none">
         <div class="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
             <div class="flex items-center gap-2 text-xl font-bold tracking-tight text-green-800 dark:text-green-400">
-                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">eco</span>
-                PastiPanen
+                <img src="{{ asset('assets/logo.png') }}" alt="PastiPanen Logo" class="h-8 w-auto">
+                
             </div>
             <div class="hidden md:flex gap-6">
-                <a class="font-['Plus_Jakarta_Sans'] font-semibold text-sm text-slate-600 dark:text-slate-400 hover:text-green-700 transition-colors"
+                {{-- <a class="font-['Plus_Jakarta_Sans'] font-semibold text-sm text-slate-600 dark:text-slate-400 hover:text-green-700 transition-colors"
                     href="{{ route('dashboard') }}">Lahan Saya</a>
                 <a class="font-['Plus_Jakarta_Sans'] font-semibold text-sm text-slate-600 dark:text-slate-400 hover:text-green-700 transition-colors"
                     href="{{ route('ai_reccomendation') }}">Analisis AI</a>
                 <a class="font-['Plus_Jakarta_Sans'] font-semibold text-sm text-slate-600 dark:text-slate-400 hover:text-green-700 transition-colors"
                     href="{{ route('market_price') }}">Harga Pasar</a>
                 <a class="font-['Plus_Jakarta_Sans'] font-semibold text-sm text-slate-600 dark:text-slate-400 hover:text-green-700 transition-colors"
-                    href="{{ route('tanibot') }}">Tanya AI</a>
+                    href="{{ route('tanibot') }}">Tanya AI</a> --}}
             </div>
             <div class="flex items-center gap-4">
                 <a class="font-['Plus_Jakarta_Sans'] font-semibold text-sm bg-primary text-on-primary px-6 py-2 rounded-full hover:bg-primary-container hover:text-on-primary-container transition-all active:scale-95 duration-200"
@@ -168,39 +168,6 @@
                 Pantau risiko iklim lahan Anda, dapatkan jadwal tanam optimal, deteksi hama lebih awal, dan prediksi
                 harga panen — semua dalam satu platform berbasis AI.
             </p>
-            <div
-                class="mt-md w-full max-w-4xl bg-surface-container-lowest p-sm md:p-md rounded-[16px] shadow-ambient border border-outline-variant/30 flex flex-col md:flex-row gap-sm items-center">
-                <div class="w-full md:flex-1">
-                    <label class="sr-only">Komoditas</label>
-                    <div class="relative">
-                        <span
-                            class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline">grass</span>
-                        <select
-                            class="w-full pl-10 pr-4 py-3 rounded-[12px] bg-surface-container-low border-transparent focus:border-primary focus:ring-1 focus:ring-primary text-on-surface font-body text-body outline-none appearance-none cursor-pointer">
-                            <option>Padi</option>
-                            <option>Jagung</option>
-                            <option>Kedelai</option>
-                            <option>Cabai</option>
-                        </select>
-                        <span
-                            class="absolute right-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline pointer-events-none">expand_more</span>
-                    </div>
-                </div>
-                <div class="w-full md:flex-1">
-                    <label class="sr-only">Lokasi Lahan</label>
-                    <div class="relative">
-                        <span
-                            class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline">location_on</span>
-                        <input
-                            class="w-full pl-10 pr-4 py-3 rounded-[12px] bg-surface-container-low border-transparent focus:border-primary focus:ring-1 focus:ring-primary text-on-surface font-body text-body outline-none"
-                            placeholder="Lokasi Lahan..." type="text" />
-                    </div>
-                </div>
-                <button
-                    class="w-full md:w-auto flex-none whitespace-nowrap bg-primary text-on-primary py-3 px-8 rounded-full font-body text-body font-medium hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-ambient">
-                    Cek Sekarang — Gratis
-                </button>
-            </div>
         </div>
     </section>
     <!-- Stats Section -->
@@ -354,8 +321,8 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
             <div class="flex flex-col gap-4">
                 <div class="text-2xl font-black text-green-700 dark:text-green-400 flex items-center gap-2">
-                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">eco</span>
-                    PastiPanen
+                    <img src="{{ asset('assets/logo.png') }}" alt="PastiPanen Logo" class="h-8 w-auto">
+                    
                 </div>
                 <p class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-500 dark:text-slate-400">
                     Menjaga Panen Nusantara dengan Kecerdasan Buatan. Platform andalan petani modern Indonesia.

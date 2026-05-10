@@ -54,8 +54,8 @@
     
     <div class="w-full max-w-[380px] md:max-w-sm bg-surface-container-lowest rounded-2xl shadow-ambient border border-outline-variant/30 p-6 relative z-10">
         <div class="text-center mb-8">
-            <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary-container text-on-primary-container mb-4">
-                <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">eco</span>
+            <div class="inline-flex items-center justify-center mb-4">
+                <img src="{{ asset('assets/logo1.png') }}" alt="PastiPanen Logo" class="h-12 w-auto">
             </div>
             <h1 class="text-2xl font-bold text-on-surface mb-2">Buat Akun Baru</h1>
             <p class="text-on-surface-variant text-sm">Bergabung dengan PastiPanen sekarang</p>
@@ -102,13 +102,6 @@
                     <span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-[20px]">lock_reset</span>
                     <input class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-surface-container-low border-transparent focus:border-primary focus:ring-1 focus:ring-primary text-on-surface font-body text-sm outline-none transition-all" id="confirm-password" name="password_confirmation" placeholder="Ulangi kata sandi" type="password" required />
                 </div>
-            </div>
-
-            <div class="flex items-start mt-2">
-                <input class="mt-1 h-4 w-4 text-primary focus:ring-primary border-outline-variant rounded" id="terms" type="checkbox" required />
-                <label class="ml-2 block text-sm text-on-surface-variant leading-snug" for="terms">
-                    Saya setuju dengan <a href="#" class="text-primary hover:text-primary-container font-medium">Syarat & Ketentuan</a> serta <a href="#" class="text-primary hover:text-primary-container font-medium">Kebijakan Privasi</a>
-                </label>
             </div>
 
             <button class="w-full bg-primary text-on-primary py-2.5 px-4 rounded-xl font-medium hover:bg-primary-container hover:text-on-primary-container transition-all active:scale-[0.98] duration-200 shadow-sm mt-2" type="submit">
