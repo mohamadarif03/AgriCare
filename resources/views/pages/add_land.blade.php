@@ -54,7 +54,7 @@
                             <select id="komoditas" name="komoditas"
                                     class="w-full pl-11 pr-10 py-3 rounded-xl bg-surface-container-low border border-transparent focus:border-primary focus:ring-1 focus:ring-primary text-on-surface font-body text-sm outline-none appearance-none cursor-pointer transition-all @error('komoditas') border-red-400 bg-red-50 @enderror" required>
                                 <option value="" disabled {{ old('komoditas') ? '' : 'selected' }}>Pilih tanaman...</option>
-                                @foreach(['padi' => 'Padi', 'jagung' => 'Jagung', 'cabai' => 'Cabai', 'bawang_merah' => 'Bawang Merah', 'kedelai' => 'Kedelai', 'lainnya' => 'Lainnya...'] as $val => $label)
+                                @foreach(['padi' => 'Padi', 'cabai' => 'Cabai', 'bawang_merah' => 'Bawang Merah'] as $val => $label)
                                 <option value="{{ $val }}" {{ old('komoditas') === $val ? 'selected' : '' }}>{{ $label }}</option>
                                 @endforeach
                             </select>

@@ -66,7 +66,7 @@
                             <span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-[20px]">grass</span>
                             <select id="komoditas" name="komoditas"
                                     class="w-full pl-11 pr-10 py-3 rounded-xl bg-surface-container-low border border-transparent focus:border-primary focus:ring-1 focus:ring-primary text-on-surface font-body text-sm outline-none appearance-none cursor-pointer transition-all" required>
-                                @foreach(['padi' => 'Padi', 'jagung' => 'Jagung', 'cabai' => 'Cabai', 'bawang_merah' => 'Bawang Merah', 'kedelai' => 'Kedelai', 'lainnya' => 'Lainnya...'] as $val => $label)
+                                @foreach(['padi' => 'Padi', 'cabai' => 'Cabai', 'bawang_merah' => 'Bawang Merah'] as $val => $label)
                                 <option value="{{ $val }}" {{ old('komoditas', $lahan->komoditas) === $val ? 'selected' : '' }}>{{ $label }}</option>
                                 @endforeach
                             </select>
