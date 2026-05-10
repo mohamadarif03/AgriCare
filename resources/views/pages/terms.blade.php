@@ -16,19 +16,19 @@
         <div class="prose prose-lg prose-slate dark:prose-invert max-w-none">
             
             <p class="lead text-xl text-slate-600 dark:text-slate-300 mb-8">
-                Selamat datang di PastiPanen. Dengan mengakses dan menggunakan layanan kami, Anda dianggap telah membaca, memahami, dan menyetujui seluruh syarat dan ketentuan yang berlaku di bawah ini.
+                Selamat datang di TaniPintar. Dengan mengakses dan menggunakan layanan kami, Anda dianggap telah membaca, memahami, dan menyetujui seluruh syarat dan ketentuan yang berlaku di bawah ini.
             </p>
 
             <h2 class="text-2xl font-bold text-slate-800 dark:text-white mt-10 mb-4">1. Definisi dan Layanan</h2>
             <p class="text-slate-600 dark:text-slate-300 mb-6">
-                PastiPanen adalah platform berbasis web yang menyediakan informasi seputar pertanian, meliputi namun tidak terbatas pada, kalender tanam, prediksi cuaca, rekomendasi pemupukan berbasis AI, deteksi hama, dan informasi harga pasar. Layanan ini disediakan "sebagaimana adanya" untuk membantu pengambilan keputusan, bukan sebagai jaminan keberhasilan panen mutlak.
+                TaniPintar adalah platform berbasis web yang menyediakan informasi seputar pertanian, meliputi namun tidak terbatas pada, kalender tanam, prediksi cuaca, rekomendasi pemupukan berbasis AI, deteksi hama, dan informasi harga pasar. Layanan ini disediakan "sebagaimana adanya" untuk membantu pengambilan keputusan, bukan sebagai jaminan keberhasilan panen mutlak.
             </p>
 
             <h2 class="text-2xl font-bold text-slate-800 dark:text-white mt-10 mb-4">2. Akun Pengguna</h2>
             <ul class="list-disc pl-6 text-slate-600 dark:text-slate-300 space-y-2 mb-6">
                 <li>Pengguna wajib memberikan informasi yang akurat dan terkini saat melakukan pendaftaran.</li>
                 <li>Keamanan kata sandi dan akun adalah tanggung jawab penuh dari pengguna.</li>
-                <li>PastiPanen berhak untuk menangguhkan atau menghapus akun yang melanggar ketentuan atau terindikasi melakukan tindakan penyalahgunaan.</li>
+                <li>TaniPintar berhak untuk menangguhkan atau menghapus akun yang melanggar ketentuan atau terindikasi melakukan tindakan penyalahgunaan.</li>
             </ul>
 
             <h2 class="text-2xl font-bold text-slate-800 dark:text-white mt-10 mb-4">3. Penggunaan Data</h2>
@@ -38,17 +38,17 @@
 
             <h2 class="text-2xl font-bold text-slate-800 dark:text-white mt-10 mb-4">4. Batasan Tanggung Jawab</h2>
             <p class="text-slate-600 dark:text-slate-300 mb-6">
-                Seluruh rekomendasi yang diberikan oleh PastiPanen dihasilkan oleh algoritma Artificial Intelligence berdasarkan data cuaca, iklim, dan pasar yang tersedia secara publik (BMKG, Kementerian Pertanian, dll). Kami tidak menjamin keakuratan absolut dari prediksi tersebut. Kerugian materil maupun imateril yang timbul akibat keputusan bertani yang diambil sepenuhnya merupakan tanggung jawab pengguna.
+                Seluruh rekomendasi yang diberikan oleh TaniPintar dihasilkan oleh algoritma Artificial Intelligence berdasarkan data cuaca, iklim, dan pasar yang tersedia secara publik (BMKG, Kementerian Pertanian, dll). Kami tidak menjamin keakuratan absolut dari prediksi tersebut. Kerugian materil maupun imateril yang timbul akibat keputusan bertani yang diambil sepenuhnya merupakan tanggung jawab pengguna.
             </p>
 
             <h2 class="text-2xl font-bold text-slate-800 dark:text-white mt-10 mb-4">5. Kekayaan Intelektual</h2>
             <p class="text-slate-600 dark:text-slate-300 mb-6">
-                Seluruh desain, logo, algoritma, dan konten yang terdapat pada PastiPanen dilindungi oleh hak cipta. Pengguna dilarang untuk menyalin, mereproduksi, atau mendistribusikan ulang elemen-elemen tersebut tanpa izin tertulis dari pihak PastiPanen.
+                Seluruh desain, logo, algoritma, dan konten yang terdapat pada TaniPintar dilindungi oleh hak cipta. Pengguna dilarang untuk menyalin, mereproduksi, atau mendistribusikan ulang elemen-elemen tersebut tanpa izin tertulis dari pihak TaniPintar.
             </p>
 
             <h2 class="text-2xl font-bold text-slate-800 dark:text-white mt-10 mb-4">6. Perubahan Ketentuan</h2>
             <p class="text-slate-600 dark:text-slate-300 mb-6">
-                PastiPanen berhak mengubah syarat dan ketentuan ini kapan saja. Perubahan akan diinformasikan melalui halaman ini atau melalui notifikasi akun. Penggunaan layanan yang berkelanjutan setelah perubahan dianggap sebagai persetujuan terhadap syarat dan ketentuan yang baru.
+                TaniPintar berhak mengubah syarat dan ketentuan ini kapan saja. Perubahan akan diinformasikan melalui halaman ini atau melalui notifikasi akun. Penggunaan layanan yang berkelanjutan setelah perubahan dianggap sebagai persetujuan terhadap syarat dan ketentuan yang baru.
             </p>
 
          

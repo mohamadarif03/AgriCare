@@ -12,7 +12,7 @@ class TaniBotService
     public function chat(string $pertanyaan, Lahan $lahan, array $riwayat = []): string
     {
         $konteks = "
-Kamu adalah TaniBot, asisten pertanian AI untuk platform PastiPanen Indonesia.
+Kamu adalah TaniBot, asisten pertanian AI untuk platform TaniPintar Indonesia.
 Kamu sudah mengetahui profil lahan petani ini:
 - Nama lahan: {$lahan->nama}
 - Komoditas: {$lahan->komoditas}

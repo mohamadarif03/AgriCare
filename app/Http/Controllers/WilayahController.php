@@ -54,7 +54,7 @@ class WilayahController extends Controller
 
         $result = Cache::remember($cacheKey, now()->addHours(24), function () use ($kode) {
             try {
-                $response = Http::timeout(10)
+                $response = Http::withoutVerifying()->timeout(10)
                     ->get('https://api.bmkg.go.id/publik/prakiraan-cuaca', ['adm4' => $kode]);
 
                 if ($response->successful()) {
@@ -89,8 +89,12 @@ class WilayahController extends Controller
     public function provinces()
     {
         $data = Cache::remember('wilayah_provinces', now()->addHours(24), function () {
-            $res = Http::timeout(15)->get('https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json');
-            return $res->successful() ? $res->json() : [];
+            try {
+                $res = Http::withoutVerifying()->timeout(15)->get('https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json');
+                return $res->successful() ? $res->json() : [];
+            } catch (\Exception $e) {
+                return [];
+            }
         });
         return response()->json($data);
     }
@@ -101,8 +105,12 @@ class WilayahController extends Controller
     public function regencies($provinceId)
     {
         $data = Cache::remember("wilayah_regencies_{$provinceId}", now()->addHours(24), function () use ($provinceId) {
-            $res = Http::timeout(15)->get("https://emsifa.github.io/api-wilayah-indonesia/api/regencies/{$provinceId}.json");
-            return $res->successful() ? $res->json() : [];
+            try {
+                $res = Http::withoutVerifying()->timeout(15)->get("https://emsifa.github.io/api-wilayah-indonesia/api/regencies/{$provinceId}.json");
+                return $res->successful() ? $res->json() : [];
+            } catch (\Exception $e) {
+                return [];
+            }
         });
         return response()->json($data);
     }
@@ -113,8 +121,12 @@ class WilayahController extends Controller
     public function districts($regencyId)
     {
         $data = Cache::remember("wilayah_districts_{$regencyId}", now()->addHours(24), function () use ($regencyId) {
-            $res = Http::timeout(15)->get("https://emsifa.github.io/api-wilayah-indonesia/api/districts/{$regencyId}.json");
-            return $res->successful() ? $res->json() : [];
+            try {
+                $res = Http::withoutVerifying()->timeout(15)->get("https://emsifa.github.io/api-wilayah-indonesia/api/districts/{$regencyId}.json");
+                return $res->successful() ? $res->json() : [];
+            } catch (\Exception $e) {
+                return [];
+            }
         });
         return response()->json($data);
     }
@@ -125,8 +137,12 @@ class WilayahController extends Controller
     public function villages($districtId)
     {
         $data = Cache::remember("wilayah_villages_{$districtId}", now()->addHours(24), function () use ($districtId) {
-            $res = Http::timeout(15)->get("https://emsifa.github.io/api-wilayah-indonesia/api/villages/{$districtId}.json");
-            return $res->successful() ? $res->json() : [];
+            try {
+                $res = Http::withoutVerifying()->timeout(15)->get("https://emsifa.github.io/api-wilayah-indonesia/api/villages/{$districtId}.json");
+                return $res->successful() ? $res->json() : [];
+            } catch (\Exception $e) {
+                return [];
+            }
         });
         return response()->json($data);
     }
@@ -158,7 +174,7 @@ class WilayahController extends Controller
             // Fire all requests in parallel
             $responses = Http::pool(function ($pool) use ($codes) {
                 return array_map(
-                    fn($kode) => $pool->timeout(10)->get(
+                    fn($kode) => $pool->withOptions(['verify' => false])->timeout(10)->get(
                         'https://api.bmkg.go.id/publik/prakiraan-cuaca',
                         ['adm4' => $kode]
                     ),

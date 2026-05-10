@@ -5,7 +5,7 @@
     
     <!-- Hero Section -->
     <div class="mb-10 md:mb-16 text-center">
-        <h1 class="text-4xl md:text-5xl font-extrabold text-green-800 dark:text-green-400 tracking-tight mb-4">Tentang PastiPanen</h1>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-green-800 dark:text-green-400 tracking-tight mb-4">Tentang TaniPintar</h1>
         <p class="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
             Mitra terbaik Anda dalam mencapai pertanian yang cerdas, efisien, dan berkelanjutan.
         </p>
@@ -24,7 +24,7 @@
             </div>
             <div class="prose prose-lg prose-green dark:prose-invert max-w-none text-slate-600 dark:text-slate-300">
                 <p>
-                    <strong>PastiPanen</strong> hadir dengan visi untuk memodernisasi sektor pertanian Indonesia melalui pemanfaatan teknologi kecerdasan buatan (AI) dan data real-time. Kami percaya bahwa setiap petani berhak mendapatkan akses informasi yang akurat dan tepat waktu untuk mengoptimalkan hasil panen mereka.
+                    <strong>TaniPintar</strong> hadir dengan visi untuk memodernisasi sektor pertanian Indonesia melalui pemanfaatan teknologi kecerdasan buatan (AI) dan data real-time. Kami percaya bahwa setiap petani berhak mendapatkan akses informasi yang akurat dan tepat waktu untuk mengoptimalkan hasil panen mereka.
                 </p>
                 <p>
                     Misi kami adalah:
@@ -66,13 +66,13 @@
             <div class="text-center mb-10">
                 <h2 class="text-2xl md:text-3xl font-bold text-slate-800 dark:text-white mb-4">Membangun Ekosistem Pertanian Modern</h2>
                 <p class="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-                    Kami terus berinovasi dan berkolaborasi dengan berbagai pihak untuk memastikan PastiPanen selalu relevan dengan kebutuhan pertanian masa depan.
+                    Kami terus berinovasi dan berkolaborasi dengan berbagai pihak untuk memastikan TaniPintar selalu relevan dengan kebutuhan pertanian masa depan.
                 </p>
             </div>
             
             <div class="flex justify-center mt-8">
                 <a href="{{ route('dashboard') }}" class="px-8 py-4 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-2xl transition-all hover:scale-105 active:scale-95 shadow-lg shadow-green-600/20">
-                    Mulai Gunakan PastiPanen
+                    Mulai Gunakan TaniPintar
                 </a>
             </div>
         </div>

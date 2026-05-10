@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>PastiPanen Dashboard</title>
+    <title>TaniPintar Dashboard</title>
     <link rel="icon" type="image/svg+xml" href="{{ asset('assets/favicon.svg') }}">
     <link rel="icon" type="image/png" href="{{ asset('assets/favicon.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('assets/favicon.png') }}">
@@ -128,7 +128,7 @@
         <div class="max-w-[1600px] mx-auto px-4 xl:px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
             <div class="flex items-center gap-2">
                 <span class="material-symbols-outlined text-green-700 dark:text-green-500 text-[24px]" style="font-variation-settings: 'FILL' 1;">eco</span>
-                <span class="text-sm font-bold text-slate-700 dark:text-slate-300">PastiPanen</span>
+                <span class="text-sm font-bold text-slate-700 dark:text-slate-300">TaniPintar</span>
                 <span class="text-sm text-slate-500 dark:text-slate-400 ml-2">&copy; {{ date('Y') }} Hak Cipta Dilindungi.</span>
             </div>
             <div class="flex items-center gap-6">

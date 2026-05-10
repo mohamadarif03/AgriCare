@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Daftar - PastiPanen</title>
+    <title>Daftar - TaniPintar</title>
     <link rel="icon" type="image/svg+xml" href="{{ asset('assets/favicon.svg') }}">
     <link rel="icon" type="image/png" href="{{ asset('assets/favicon.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('assets/favicon.png') }}">
@@ -50,15 +50,15 @@
         <div class="absolute top-20 left-10 w-64 h-64 bg-primary rounded-full mix-blend-multiply filter blur-3xl"></div>
         <div class="absolute bottom-20 right-10 w-96 h-96 bg-primary-container rounded-full mix-blend-multiply filter blur-3xl"></div>
     </div>
-    <img alt="Lahan Pertanian PastiPanen" class="absolute inset-0 w-full h-full object-cover opacity-20 z-0 pointer-events-none" src="{{ asset('assets/herosection.jpeg') }}" />
+    <img alt="Lahan Pertanian TaniPintar" class="absolute inset-0 w-full h-full object-cover opacity-20 z-0 pointer-events-none" src="{{ asset('assets/herosection.jpeg') }}" />
     
     <div class="w-full max-w-[380px] md:max-w-sm bg-surface-container-lowest rounded-2xl shadow-ambient border border-outline-variant/30 p-6 relative z-10">
         <div class="text-center mb-8">
             <div class="inline-flex items-center justify-center mb-4">
-                <img src="{{ asset('assets/logo1.png') }}" alt="PastiPanen Logo" class="h-12 w-auto">
+                <img src="{{ asset('assets/logo1.png') }}" alt="TaniPintar Logo" class="h-12 w-auto">
             </div>
             <h1 class="text-2xl font-bold text-on-surface mb-2">Buat Akun Baru</h1>
-            <p class="text-on-surface-variant text-sm">Bergabung dengan PastiPanen sekarang</p>
+            <p class="text-on-surface-variant text-sm">Bergabung dengan TaniPintar sekarang</p>
         </div>
 
         <form class="space-y-4" method="POST" action="{{ route('register.post') }}">

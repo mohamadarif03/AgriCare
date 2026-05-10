@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>PastiPanen - Platform AI Pertanian Indonesia #1</title>
+    <title>TaniPintar - Platform AI Pertanian Indonesia #1</title>
     <link rel="icon" type="image/svg+xml" href="{{ asset('assets/favicon.svg') }}">
     <link rel="icon" type="image/png" href="{{ asset('assets/favicon.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('assets/favicon.png') }}">
@@ -127,7 +127,7 @@
         class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md fixed top-0 w-full z-50 border-b border-green-100 dark:border-slate-800 shadow-sm dark:shadow-none">
         <div class="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
             <div class="flex items-center gap-2 text-xl font-bold tracking-tight text-green-800 dark:text-green-400">
-                <img src="{{ asset('assets/logo.png') }}" alt="PastiPanen Logo" class="h-8 w-auto">
+                <img src="{{ asset('assets/logo.png') }}" alt="TaniPintar Logo" class="h-8 w-auto">
                 
             </div>
             <div class="hidden md:flex gap-6">
@@ -157,7 +157,7 @@
                 class="absolute bottom-20 right-10 w-96 h-96 bg-tertiary rounded-full mix-blend-multiply filter blur-3xl">
             </div>
         </div>
-        <img alt="Lahan Pertanian PastiPanen"
+        <img alt="Lahan Pertanian TaniPintar"
             class="absolute inset-0 w-full h-full object-cover opacity-20 z-0 pointer-events-none"
             src="{{ asset('assets/herosection.jpeg') }}" />
         <div class="relative z-10 max-w-4xl mx-auto flex flex-col items-center gap-md">
@@ -321,7 +321,7 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
             <div class="flex flex-col gap-4">
                 <div class="text-2xl font-black text-green-700 dark:text-green-400 flex items-center gap-2">
-                    <img src="{{ asset('assets/logo.png') }}" alt="PastiPanen Logo" class="h-8 w-auto">
+                    <img src="{{ asset('assets/logo.png') }}" alt="TaniPintar Logo" class="h-8 w-auto">
                     
                 </div>
                 <p class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-500 dark:text-slate-400">
@@ -360,7 +360,7 @@
         </div>
         <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-green-100 dark:border-slate-800 text-center">
             <p class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-500 dark:text-slate-400">© 2024
-                PastiPanen. Menjaga Panen Nusantara dengan Kecerdasan Buatan.</p>
+                TaniPintar. Menjaga Panen Nusantara dengan Kecerdasan Buatan.</p>
         </div>
     </footer>
 </body>
