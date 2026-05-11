@@ -106,12 +106,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="mt-md pt-sm border-t border-surface-variant flex justify-end">
+                {{-- <div class="mt-md pt-sm border-t border-surface-variant flex justify-end">
                     <button
                         class="bg-surface-container-low text-primary border border-primary px-6 py-2 rounded-full font-small-label text-small-label hover:bg-primary hover:text-on-primary transition-colors duration-200 flex items-center gap-2">
                         <span class="material-symbols-outlined">forum</span> Konsultasi dengan TaniBot
                     </button>
-                </div>
+                </div> --}}
             </div>
         </section>
 
