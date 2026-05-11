@@ -164,15 +164,12 @@
 
                 {{-- Submit Buttons --}}
                 <div class="pt-4 flex flex-col sm:flex-row items-center gap-3 justify-between border-t border-outline-variant/30">
-                    {{-- Hapus Lahan --}}
-                    <form action="{{ route('lahan.destroy', $lahan) }}" method="POST"
-                          onsubmit="return confirm('Hapus lahan ini? Aksi ini tidak dapat dibatalkan.')">
-                        @csrf @method('DELETE')
-                        <button type="submit" class="flex items-center gap-2 text-sm font-semibold text-red-500 hover:text-red-700 hover:bg-red-50 px-4 py-2.5 rounded-xl transition-colors">
-                            <span class="material-symbols-outlined text-[18px]">delete</span>
-                            Hapus Lahan
-                        </button>
-                    </form>
+                    {{-- Hapus Lahan (trigger form di luar) --}}
+                    <button type="button" onclick="document.getElementById('delete-lahan-form').submit()"
+                            class="flex items-center gap-2 text-sm font-semibold text-red-500 hover:text-red-700 hover:bg-red-50 px-4 py-2.5 rounded-xl transition-colors">
+                        <span class="material-symbols-outlined text-[18px]">delete</span>
+                        Hapus Lahan
+                    </button>
 
                     <div class="flex items-center gap-3">
                         <a href="{{ route('lahan.show', $lahan) }}" class="px-6 py-2.5 rounded-xl text-sm font-semibold text-on-surface-variant bg-surface hover:bg-surface-container transition-colors">
@@ -184,6 +181,12 @@
                         </button>
                     </div>
                 </div>
+            </form>
+
+            {{-- Form Hapus Lahan (di luar form utama) --}}
+            <form id="delete-lahan-form" action="{{ route('lahan.destroy', $lahan) }}" method="POST"
+                  onsubmit="return confirm('Hapus lahan ini? Aksi ini tidak dapat dibatalkan.')">
+                @csrf @method('DELETE')
             </form>
         </div>
 
