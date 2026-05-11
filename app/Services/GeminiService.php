@@ -13,8 +13,8 @@ class GeminiService
 
     public function __construct()
     {
-        $this->apiKey  = config('services.gemini.key');
-        $this->model   = config('services.gemini.model');
+        $this->apiKey  = config('tanipintar.gemini.api_key');
+        $this->model   = config('tanipintar.gemini.model');
         $this->baseUrl = "https://generativelanguage.googleapis.com/v1beta/models/{$this->model}:generateContent";
     }
 
@@ -60,16 +60,31 @@ class GeminiService
         return $response->json('candidates.0.content.parts.0.text') ?? '';
     }
 
-    public function generateJson(string $prompt, ?string $imageBase64 = null, ?string $mimeType = null): array
+    public function generateJson(string $prompt, ?string $imageBase64 = null, ?string $mimeType = null, int $maxRetries = 2): array
     {
-        $result = $this->generate($prompt, $imageBase64, $mimeType);
-        $clean  = preg_replace('/```json|```/m', '', $result);
+        $attempts = 0;
+        $lastResultRaw = '';
 
-        $parsed = json_decode(trim($clean), true);
-        if ($parsed === null) {
-            $fullResponse = $this->lastResponse ? $this->lastResponse->body() : 'No full response';
-            throw new \Exception("Gemini returned invalid JSON. Raw output:\n" . $result . "\n\nFull API Response:\n" . $fullResponse);
+        while ($attempts <= $maxRetries) {
+            $result = $this->generate($prompt, $imageBase64, $mimeType);
+            $clean  = preg_replace('/```json|```/m', '', $result);
+            $clean  = trim($clean);
+
+            $parsed = json_decode($clean, true);
+            if ($parsed !== null && json_last_error() === JSON_ERROR_NONE) {
+                return $parsed;
+            }
+
+            $lastResultRaw = $result;
+            $attempts++;
+            
+            if ($attempts <= $maxRetries) {
+                // Jeda 1 detik sebelum mencoba lagi agar terhindar dari spam
+                sleep(1);
+            }
         }
-        return $parsed;
+
+        $fullResponse = $this->lastResponse ? $this->lastResponse->body() : 'No full response';
+        throw new \Exception("Gemini returned invalid JSON after " . ($maxRetries + 1) . " attempts. JSON Error: " . json_last_error_msg() . "\n\nRaw output:\n" . $lastResultRaw . "\n\nFull API Response:\n" . $fullResponse);
     }
 }
