@@ -359,7 +359,7 @@
             </div>
         </div>
         <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-blue-100 dark:border-slate-800 text-center">
-            <p class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-500 dark:text-slate-400">© 2024
+            <p class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-slate-500 dark:text-slate-400">© 2026
                 TaniPintar. Menjaga Panen Nusantara dengan Kecerdasan Buatan.</p>
         </div>
     </footer>
