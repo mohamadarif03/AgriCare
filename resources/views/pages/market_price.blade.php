@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     const actionColors = {
         jual_sekarang: { bg: 'rgba(186,26,26,0.08)', border: 'rgba(186,26,26,0.2)', text: '#ba1a1a' },
-        tahan:         { bg: 'rgba(11,107,29,0.08)',  border: 'rgba(11,107,29,0.2)', text: '#0280F9' },
+        tahan:         { bg: 'rgba(11,107,29,0.08)',  border: 'rgba(11,107,29,0.2)', text: '#402E24' },
         jual_sebagian: { bg: 'rgba(120,89,0,0.08)',   border: 'rgba(120,89,0,0.2)',  text: '#785900' },
     };
 
@@ -317,7 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     {
                         label: 'Harga Historis',
                         data: historicalData,
-                        borderColor: '#0280F9',
+                        borderColor: '#402E24',
                         backgroundColor: 'rgba(11,107,29,0.08)',
                         fill: true, tension: 0.3, pointRadius: 0, borderWidth: 2,
                     },

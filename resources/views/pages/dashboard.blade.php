@@ -43,13 +43,13 @@
             </div>
         </div>
         @elseif($lahans->isEmpty())
-        <div class="bg-blue-50 border-l-4 border-blue-400 rounded-r-lg p-4 flex items-start gap-3">
-            <span class="material-symbols-outlined text-blue-500">info</span>
+        <div class="bg-orange-50 border-l-4 border-orange-400 rounded-r-lg p-4 flex items-start gap-3">
+            <span class="material-symbols-outlined text-orange-500">info</span>
             <div class="flex-1">
-                <p class="font-body text-body text-blue-900">
+                <p class="font-body text-body text-orange-900">
                     <strong>Selamat datang!</strong> Tambahkan lahan pertama Anda untuk melihat data cuaca real-time dari BMKG.
                 </p>
-                <a class="inline-flex items-center mt-2 text-sm font-semibold text-blue-700 hover:text-blue-800" href="{{ route('add_land') }}">
+                <a class="inline-flex items-center mt-2 text-sm font-semibold text-orange-700 hover:text-orange-800" href="{{ route('add_land') }}">
                     Tambah Lahan Sekarang <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
                 </a>
             </div>
@@ -69,7 +69,7 @@
                         if ($skor !== null) {
                             if ($skor >= 75) {
                                 $skorLevel = 'SANGAT BAIK';
-                                $badgeClass = 'bg-blue-100 text-blue-800';
+                                $badgeClass = 'bg-orange-100 text-orange-800';
                             } elseif ($skor >= 50) {
                                 $skorLevel = 'CUKUP BAIK';
                                 $badgeClass = 'bg-amber-100 text-amber-800';
@@ -160,13 +160,13 @@
             <div class="bg-surface rounded-xl p-5 border border-surface-variant shadow-[0_2px_8px_rgba(27,94,32,0.04)]">
                 <div class="flex justify-between items-start mb-2">
                     <span class="font-small-label text-small-label text-on-surface-variant">Harga {{ $mainCommodity['label'] ?? ucfirst($selectedLahan->komoditas ?? 'Padi') }} Hari Ini</span>
-                    <span class="material-symbols-outlined {{ ($mainCommodity['trend'] ?? 0) >= 0 ? 'text-blue-600' : 'text-red-600' }}">
+                    <span class="material-symbols-outlined {{ ($mainCommodity['trend'] ?? 0) >= 0 ? 'text-orange-600' : 'text-red-600' }}">
                         {{ ($mainCommodity['trend'] ?? 0) >= 0 ? 'trending_up' : 'trending_down' }}
                     </span>
                 </div>
                 @if($mainCommodity)
                 <div class="font-h2 text-h2 text-on-surface">Rp {{ number_format($mainCommodity['harga'], 0, ',', '.') }}<span class="text-sm font-normal text-on-surface-variant">/kg</span></div>
-                <div class="flex items-center gap-1 mt-1 text-sm font-medium {{ $mainCommodity['trend'] >= 0 ? 'text-blue-600' : 'text-red-600' }}">
+                <div class="flex items-center gap-1 mt-1 text-sm font-medium {{ $mainCommodity['trend'] >= 0 ? 'text-orange-600' : 'text-red-600' }}">
                     <span class="material-symbols-outlined text-sm">{{ $mainCommodity['trend'] >= 0 ? 'arrow_upward' : 'arrow_downward' }}</span> {{ $mainCommodity['trend'] > 0 ? '+' : '' }}{{ $mainCommodity['trend'] }}%
                 </div>
                 @else
@@ -351,7 +351,7 @@
                             <span class="text-sm font-medium text-on-surface">{{ $mp['label'] }}</span>
                             <div class="text-right">
                                 <div class="text-sm font-bold text-on-surface">Rp {{ number_format($mp['harga'], 0, ',', '.') }}</div>
-                                <div class="text-[10px] {{ $mp['trend'] >= 0 ? 'text-blue-600' : 'text-red-600' }} flex items-center justify-end gap-0.5"><span class="material-symbols-outlined text-[10px]">{{ $mp['trend'] >= 0 ? 'arrow_upward' : 'arrow_downward' }}</span> {{ $mp['trend'] > 0 ? '+' : '' }}{{ $mp['trend'] }}%</div>
+                                <div class="text-[10px] {{ $mp['trend'] >= 0 ? 'text-orange-600' : 'text-red-600' }} flex items-center justify-end gap-0.5"><span class="material-symbols-outlined text-[10px]">{{ $mp['trend'] >= 0 ? 'arrow_upward' : 'arrow_downward' }}</span> {{ $mp['trend'] > 0 ? '+' : '' }}{{ $mp['trend'] }}%</div>
                             </div>
                         </div>
                         @empty

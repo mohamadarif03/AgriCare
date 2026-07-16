@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>TaniPintar Dashboard</title>
+    <title>AgriCare Dashboard</title>
     <link rel="icon" type="image/svg+xml" href="{{ asset('assets/favicon.svg') }}">
     <link rel="icon" type="image/png" href="{{ asset('assets/favicon.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('assets/favicon.png') }}">
@@ -24,46 +24,46 @@
             theme: {
                 extend: {
                     "colors": {
-                        "surface-container-highest": "#e1e4e9",
+                        "surface-container-highest": "#EFE2D5",
                         "on-secondary": "#ffffff",
-                        "primary-fixed": "#d0e4ff",
+                        "primary-fixed": "#EFE2D5",
                         "tertiary-fixed": "#d3e4ff",
-                        "primary-container": "#d0e4ff",
+                        "primary-container": "#F5F2F0",
                         "on-primary": "#ffffff",
                         "on-secondary-fixed": "#261a00",
-                        "surface-container": "#edf0f7",
-                        "surface": "#fdfbff",
-                        "background": "#fdfbff",
-                        "inverse-surface": "#2d322b",
-                        "surface-variant": "#dfe2eb",
+                        "surface-container": "#F9F7F2",
+                        "surface": "#ffffff",
+                        "background": "#FDFBF7",
+                        "inverse-surface": "#402E24",
+                        "surface-variant": "#EFE2D5",
                         "tertiary-container": "#0077ce",
                         "tertiary": "#005ea4",
-                        "primary": "#0280F9",
-                        "inverse-on-surface": "#eef2e7",
-                        "on-surface": "#181d17",
-                        "on-surface-variant": "#40493d",
+                        "primary": "#402E24",
+                        "inverse-on-surface": "#FDFBF7",
+                        "on-surface": "#402E24",
+                        "on-surface-variant": "#63483A",
                         "secondary-fixed-dim": "#fabd00",
                         "surface-container-lowest": "#ffffff",
-                        "outline-variant": "#bfcab9",
-                        "on-primary-fixed": "#001d36",
+                        "outline-variant": "#D4A373",
+                        "on-primary-fixed": "#402E24",
                         "error-container": "#ffdad6",
-                        "surface-container-low": "#f3f3fa",
-                        "outline": "#707a6c",
+                        "surface-container-low": "#FCF9F5",
+                        "outline": "#8C624E",
                         "tertiary-fixed-dim": "#a2c9ff",
-                        "on-primary-container": "#001d36",
+                        "on-primary-container": "#402E24",
                         "secondary-fixed": "#ffdf9e",
                         "secondary": "#785900",
                         "secondary-container": "#fdc003",
-                        "inverse-primary": "#9bcaea",
+                        "inverse-primary": "#D4A373",
                         "on-tertiary-fixed-variant": "#004881",
                         "on-error-container": "#93000a",
-                        "on-background": "#181d17",
+                        "on-background": "#402E24",
                         "surface-bright": "#fdfbff",
-                        "surface-container-high": "#e7eaef",
-                        "primary-fixed-dim": "#9bcaea",
+                        "surface-container-high": "#F7EFE9",
+                        "primary-fixed-dim": "#D4A373",
                         "on-tertiary-container": "#fdfcff",
-                        "surface-tint": "#0280F9",
-                        "on-primary-fixed-variant": "#00497b",
+                        "surface-tint": "#402E24",
+                        "on-primary-fixed-variant": "#63483A",
                         "on-secondary-container": "#6c5000",
                         "on-tertiary": "#ffffff",
                         "surface-dim": "#d8dae0",
@@ -124,17 +124,17 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white dark:bg-slate-900 border-t border-blue-100/50 dark:border-slate-800 mt-auto">
+    <footer class="bg-white dark:bg-slate-900 border-t border-orange-100/50 dark:border-slate-800 mt-auto">
         <div class="max-w-[1600px] mx-auto px-4 xl:px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
             <div class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-blue-700 dark:text-blue-500 text-[24px]" style="font-variation-settings: 'FILL' 1;">eco</span>
-                <span class="text-sm font-bold text-slate-700 dark:text-slate-300">TaniPintar</span>
+                <span class="material-symbols-outlined text-orange-700 dark:text-orange-500 text-[24px]" style="font-variation-settings: 'FILL' 1;">eco</span>
+                <span class="text-sm font-bold text-slate-700 dark:text-slate-300">AgriCare</span>
                 <span class="text-sm text-slate-500 dark:text-slate-400 ml-2">&copy; {{ date('Y') }} Hak Cipta Dilindungi.</span>
             </div>
             <div class="flex items-center gap-6">
-                <a href="{{ route('about') }}" class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Tentang Kami</a>
-                <a href="{{ route('terms') }}" class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Syarat & Ketentuan</a>
-                <a href="{{ route('privacy') }}" class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Kebijakan Privasi</a>
+                <a href="{{ route('about') }}" class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors">Tentang Kami</a>
+                <a href="{{ route('terms') }}" class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors">Syarat & Ketentuan</a>
+                <a href="{{ route('privacy') }}" class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors">Kebijakan Privasi</a>
             </div>
         </div>
     </footer>

@@ -16,7 +16,7 @@
         <div class="prose prose-lg prose-slate dark:prose-invert max-w-none">
             
             <p class="lead text-xl text-slate-600 dark:text-slate-300 mb-8">
-                Privasi Anda sangat penting bagi kami. Kebijakan Privasi ini menjelaskan bagaimana TaniPintar mengumpulkan, menggunakan, dan melindungi informasi pribadi Anda saat menggunakan layanan kami.
+                Privasi Anda sangat penting bagi kami. Kebijakan Privasi ini menjelaskan bagaimana AgriCare mengumpulkan, menggunakan, dan melindungi informasi pribadi Anda saat menggunakan layanan kami.
             </p>
 
             <h2 class="text-2xl font-bold text-slate-800 dark:text-white mt-10 mb-4">1. Informasi yang Kami Kumpulkan</h2>
@@ -34,7 +34,7 @@
                 Informasi yang dikumpulkan digunakan untuk:
             </p>
             <ul class="list-disc pl-6 text-slate-600 dark:text-slate-300 space-y-2 mb-6">
-                <li>Menyediakan, memelihara, dan meningkatkan kualitas layanan TaniPintar.</li>
+                <li>Menyediakan, memelihara, dan meningkatkan kualitas layanan AgriCare.</li>
                 <li>Menghasilkan rekomendasi AI yang personal untuk jadwal tanam, cuaca, dan deteksi hama berdasarkan data lahan spesifik Anda.</li>
                 <li>Menghubungi Anda terkait pembaruan layanan, peringatan keamanan, atau pemberitahuan penting lainnya.</li>
             </ul>
@@ -55,7 +55,7 @@
 
             <h2 class="text-2xl font-bold text-slate-800 dark:text-white mt-10 mb-4">5. Penggunaan Cookie</h2>
             <p class="text-slate-600 dark:text-slate-300 mb-6">
-                TaniPintar menggunakan <em>cookie</em> dan teknologi pelacakan serupa untuk menyimpan preferensi sesi Anda (seperti status login) dan menganalisis tren penggunaan demi pengalaman pengguna yang lebih baik. Anda dapat mengatur browser Anda untuk menolak cookie, namun hal tersebut mungkin memengaruhi beberapa fungsi dari platform kami.
+                AgriCare menggunakan <em>cookie</em> dan teknologi pelacakan serupa untuk menyimpan preferensi sesi Anda (seperti status login) dan menganalisis tren penggunaan demi pengalaman pengguna yang lebih baik. Anda dapat mengatur browser Anda untuk menolak cookie, namun hal tersebut mungkin memengaruhi beberapa fungsi dari platform kami.
             </p>
 
             <h2 class="text-2xl font-bold text-slate-800 dark:text-white mt-10 mb-4">6. Perubahan Kebijakan Privasi</h2>

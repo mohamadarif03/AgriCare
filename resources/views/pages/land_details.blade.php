@@ -5,10 +5,10 @@
 
     {{-- Flash Messages --}}
     @if(session('success'))
-    <div id="flash-success" class="flex items-center gap-3 px-5 py-4 bg-blue-50 border border-blue-200 text-blue-800 rounded-xl shadow-sm">
-        <span class="material-symbols-outlined text-blue-600">check_circle</span>
+    <div id="flash-success" class="flex items-center gap-3 px-5 py-4 bg-orange-50 border border-orange-200 text-orange-800 rounded-xl shadow-sm">
+        <span class="material-symbols-outlined text-orange-600">check_circle</span>
         <span class="font-semibold text-sm">{{ session('success') }}</span>
-        <button onclick="document.getElementById('flash-success').remove()" class="ml-auto text-blue-500 hover:text-blue-700">
+        <button onclick="document.getElementById('flash-success').remove()" class="ml-auto text-orange-500 hover:text-orange-700">
             <span class="material-symbols-outlined text-[18px]">close</span>
         </button>
     </div>
@@ -68,7 +68,7 @@
                     <div class="flex items-center gap-3">
                         @php
                             $risikoConfig = [
-                                'optimal' => ['color' => 'bg-blue-100 text-blue-600', 'icon' => 'check_circle', 'label' => 'Optimal', 'sub' => 'Kondisi Baik'],
+                                'optimal' => ['color' => 'bg-orange-100 text-orange-600', 'icon' => 'check_circle', 'label' => 'Optimal', 'sub' => 'Kondisi Baik'],
                                 'waspada' => ['color' => 'bg-amber-100 text-amber-600', 'icon' => 'warning', 'label' => 'Waspada', 'sub' => 'Perlu Perhatian'],
                                 'kritis'  => ['color' => 'bg-red-100 text-red-600', 'icon' => 'emergency', 'label' => 'Kritis', 'sub' => 'Segera Tindak'],
                             ];
@@ -91,7 +91,7 @@
                         <span class="text-xs font-bold uppercase tracking-wider">Luas Lahan</span>
                     </div>
                     <div class="flex items-center gap-3">
-                        <div class="w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center">
+                        <div class="w-12 h-12 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center">
                             <span class="material-symbols-outlined text-3xl">straighten</span>
                         </div>
                         <div>
@@ -138,7 +138,7 @@
                         <div>
                             <p class="text-xs text-on-surface-variant font-bold uppercase mb-1">Luas Lahan</p>
                             <div class="flex items-center gap-2">
-                                <span class="material-symbols-outlined text-blue-600">square_foot</span>
+                                <span class="material-symbols-outlined text-orange-600">square_foot</span>
                                 <span class="font-semibold text-on-surface">{{ $lahan->luas ? number_format($lahan->luas, 2) . ' Hektar (Ha)' : 'Belum diisi' }}</span>
                             </div>
                         </div>
@@ -152,7 +152,7 @@
                         <div>
                             <p class="text-xs text-on-surface-variant font-bold uppercase mb-1">Estimasi Panen</p>
                             <div class="flex items-center gap-2">
-                                <span class="material-symbols-outlined text-blue-600">event_available</span>
+                                <span class="material-symbols-outlined text-orange-600">event_available</span>
                                 <span class="font-semibold text-on-surface">{{ $lahan->estimasi_panen ? $lahan->estimasi_panen->translatedFormat('d F Y') : '—' }}</span>
                             </div>
                         </div>
@@ -229,7 +229,7 @@
                         Edit Informasi Lahan
                     </a>
                     <a href="{{ route('calender_planning') }}" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface text-sm font-semibold transition-colors">
-                        <span class="material-symbols-outlined text-blue-600">calendar_month</span>
+                        <span class="material-symbols-outlined text-orange-600">calendar_month</span>
                         Lihat Kalender Tanam
                     </a>
                     <a href="{{ route('ai_reccomendation') }}" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface text-sm font-semibold transition-colors">
@@ -245,7 +245,7 @@
                 <div class="space-y-3 text-sm">
                     <div class="flex justify-between items-center">
                         <span class="text-on-surface-variant">Status</span>
-                        <span class="px-2 py-0.5 rounded text-[11px] font-bold {{ $lahan->is_aktif ? 'bg-blue-100 text-blue-700' : 'bg-surface-container text-on-surface-variant' }}">
+                        <span class="px-2 py-0.5 rounded text-[11px] font-bold {{ $lahan->is_aktif ? 'bg-orange-100 text-orange-700' : 'bg-surface-container text-on-surface-variant' }}">
                             {{ $lahan->is_aktif ? 'AKTIF' : 'NONAKTIF' }}
                         </span>
                     </div>

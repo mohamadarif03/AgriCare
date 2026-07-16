@@ -5,10 +5,10 @@
 
     {{-- Flash Messages --}}
     @if(session('success'))
-    <div id="flash-success" class="flex items-center gap-3 px-5 py-4 bg-blue-50 border border-blue-200 text-blue-800 rounded-xl shadow-sm animate-fade-in">
-        <span class="material-symbols-outlined text-blue-600">check_circle</span>
+    <div id="flash-success" class="flex items-center gap-3 px-5 py-4 bg-orange-50 border border-orange-200 text-orange-800 rounded-xl shadow-sm animate-fade-in">
+        <span class="material-symbols-outlined text-orange-600">check_circle</span>
         <span class="font-semibold text-sm">{{ session('success') }}</span>
-        <button onclick="document.getElementById('flash-success').remove()" class="ml-auto text-blue-500 hover:text-blue-700">
+        <button onclick="document.getElementById('flash-success').remove()" class="ml-auto text-orange-500 hover:text-orange-700">
             <span class="material-symbols-outlined text-[18px]">close</span>
         </button>
     </div>
@@ -115,7 +115,7 @@
     {{-- Quick Stats --}}
     <div class="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
         <div class="bg-white p-4 rounded-xl border border-outline-variant/30 flex items-center gap-4">
-            <div class="w-12 h-12 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0">
+            <div class="w-12 h-12 rounded-lg bg-orange-50 text-orange-600 flex items-center justify-center flex-shrink-0">
                 <span class="material-symbols-outlined">agriculture</span>
             </div>
             <div>
@@ -124,7 +124,7 @@
             </div>
         </div>
         <div class="bg-white p-4 rounded-xl border border-outline-variant/30 flex items-center gap-4">
-            <div class="w-12 h-12 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0">
+            <div class="w-12 h-12 rounded-lg bg-orange-50 text-orange-600 flex items-center justify-center flex-shrink-0">
                 <span class="material-symbols-outlined">square_foot</span>
             </div>
             <div>

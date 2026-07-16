@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LahanController;
+use App\Http\Controllers\KalkulatorPemupukanController;
 
 use App\Http\Controllers\MarketPriceController;
 
@@ -28,6 +29,8 @@ Route::post('/logout', [App\Http\Controllers\AuthController::class, 'logout'])->
 Route::middleware('auth')->group(function () {
     // Dashboard & Fitur
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/kalkulator-pemupukan', [KalkulatorPemupukanController::class, 'index'])->name('kalkulator_pemupukan');
+    Route::post('/api/kalkulator-pemupukan/generate', [KalkulatorPemupukanController::class, 'generate'])->name('kalkulator_pemupukan.generate');
     Route::get('/calender-planning', [App\Http\Controllers\PlantingCalendarController::class, 'index'])->name('calender_planning');
     Route::post('/api/calender-planning/generate', [App\Http\Controllers\PlantingCalendarController::class, 'generate'])->name('calender_planning.generate');
     Route::get('/pest-detection', function () {

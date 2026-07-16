@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Masuk - TaniPintar</title>
+    <title>Masuk - AgriCare</title>
     <link rel="icon" type="image/svg+xml" href="{{ asset('assets/favicon.svg') }}">
     <link rel="icon" type="image/png" href="{{ asset('assets/favicon.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('assets/favicon.png') }}">
@@ -16,20 +16,20 @@
             theme: {
                 extend: {
                     "colors": {
-                        "primary": "#0280F9",
-                        "primary-container": "#d0e4ff",
+                        "primary": "#402E24",
+                        "primary-container": "#F5F2F0",
                         "on-primary": "#ffffff",
-                        "on-primary-container": "#001d36",
-                        "background": "#fdfbff",
-                        "on-background": "#181d17",
-                        "surface": "#fdfbff",
-                        "on-surface": "#181d17",
-                        "surface-variant": "#dfe2eb",
-                        "on-surface-variant": "#40493d",
+                        "on-primary-container": "#402E24",
+                        "background": "#FDFBF7",
+                        "on-background": "#402E24",
+                        "surface": "#ffffff",
+                        "on-surface": "#402E24",
+                        "surface-variant": "#EFE2D5",
+                        "on-surface-variant": "#63483A",
                         "surface-container-lowest": "#ffffff",
-                        "surface-container-low": "#f3f3fa",
-                        "outline": "#707a6c",
-                        "outline-variant": "#bfcab9",
+                        "surface-container-low": "#FCF9F5",
+                        "outline": "#8C624E",
+                        "outline-variant": "#D4A373",
                     },
                     "fontFamily": {
                         "body": ["Plus Jakarta Sans"],
@@ -50,15 +50,15 @@
         <div class="absolute top-20 left-10 w-64 h-64 bg-primary rounded-full mix-blend-multiply filter blur-3xl"></div>
         <div class="absolute bottom-20 right-10 w-96 h-96 bg-primary-container rounded-full mix-blend-multiply filter blur-3xl"></div>
     </div>
-    <img alt="Lahan Pertanian TaniPintar" class="absolute inset-0 w-full h-full object-cover opacity-20 z-0 pointer-events-none" src="{{ asset('assets/herosection.jpeg') }}" />
+    <img alt="Lahan Pertanian AgriCare" class="absolute inset-0 w-full h-full object-cover opacity-20 z-0 pointer-events-none" src="{{ asset('assets/herosection.jpeg') }}" />
     
     <div class="w-full max-w-[360px] md:max-w-sm bg-surface-container-lowest rounded-2xl shadow-ambient border border-outline-variant/30 p-6 relative z-10">
         <div class="text-center mb-8">
             <div class="inline-flex items-center justify-center mb-4">
-                <img src="{{ asset('assets/logo1.png') }}" alt="TaniPintar Logo" class="h-12 w-auto">
+                <img src="{{ asset('assets/logo1.png') }}" alt="AgriCare Logo" class="h-12 w-auto">
             </div>
             <h1 class="text-2xl font-bold text-on-surface mb-2">Selamat Datang Kembali</h1>
-            <p class="text-on-surface-variant text-sm">Masuk ke akun TaniPintar Anda</p>
+            <p class="text-on-surface-variant text-sm">Masuk ke akun AgriCare Anda</p>
         </div>
 
         <form class="space-y-5" method="POST" action="{{ route('login.post') }}">

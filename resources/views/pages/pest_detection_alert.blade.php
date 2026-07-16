@@ -282,22 +282,22 @@
 </style>
 
     <!-- Footer -->
-    {{-- <footer class="w-full mt-auto border-t border-blue-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-950">
+    {{-- <footer class="w-full mt-auto border-t border-orange-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-950">
         <div class="flex flex-col md:flex-row justify-between items-center py-10 px-6 gap-6 max-w-7xl mx-auto">
-            <div class="text-lg font-bold text-blue-800 dark:text-blue-400">
-                TaniPintar
+            <div class="text-lg font-bold text-orange-800 dark:text-orange-400">
+                AgriCare
             </div>
             <div class="font-plus-jakarta text-xs md:text-sm font-normal text-slate-500 dark:text-slate-500">
-                © 2024 TaniPintar. Guardian of the Harvest.
+                © 2024 AgriCare. Guardian of the Harvest.
             </div>
             <div class="flex gap-4">
-                <a class="font-plus-jakarta text-xs md:text-sm font-normal text-slate-500 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-300 hover:underline opacity-90 hover:opacity-100 transition-opacity"
+                <a class="font-plus-jakarta text-xs md:text-sm font-normal text-slate-500 dark:text-slate-500 hover:text-orange-600 dark:hover:text-orange-300 hover:underline opacity-90 hover:opacity-100 transition-opacity"
                     href="#">Privacy Policy</a>
-                <a class="font-plus-jakarta text-xs md:text-sm font-normal text-slate-500 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-300 hover:underline opacity-90 hover:opacity-100 transition-opacity"
+                <a class="font-plus-jakarta text-xs md:text-sm font-normal text-slate-500 dark:text-slate-500 hover:text-orange-600 dark:hover:text-orange-300 hover:underline opacity-90 hover:opacity-100 transition-opacity"
                     href="#">Terms of Service</a>
-                <a class="font-plus-jakarta text-xs md:text-sm font-normal text-slate-500 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-300 hover:underline opacity-90 hover:opacity-100 transition-opacity"
+                <a class="font-plus-jakarta text-xs md:text-sm font-normal text-slate-500 dark:text-slate-500 hover:text-orange-600 dark:hover:text-orange-300 hover:underline opacity-90 hover:opacity-100 transition-opacity"
                     href="#">Help Center</a>
-                <a class="font-plus-jakarta text-xs md:text-sm font-normal text-slate-500 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-300 hover:underline opacity-90 hover:opacity-100 transition-opacity"
+                <a class="font-plus-jakarta text-xs md:text-sm font-normal text-slate-500 dark:text-slate-500 hover:text-orange-600 dark:hover:text-orange-300 hover:underline opacity-90 hover:opacity-100 transition-opacity"
                     href="#">Community Guidelines</a>
             </div>
         </div>
