@@ -27,9 +27,10 @@ Route::post('/logout', [App\Http\Controllers\AuthController::class, 'logout'])->
 
 // ─── Fitur Utama & Lahan (Hanya untuk user yang login) ──────────────────────
 Route::middleware('auth')->group(function () {
-    // Dashboard & Fitur
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+    Route::post('/api/dashboard/generate-ai', [App\Http\Controllers\DashboardController::class, 'generateAiRecommendation'])->name('dashboard.generate_ai');
     Route::get('/kalkulator-pemupukan', [KalkulatorPemupukanController::class, 'index'])->name('kalkulator_pemupukan');
+    Route::get('/api/kalkulator-pemupukan/data', [KalkulatorPemupukanController::class, 'getData'])->name('kalkulator_pemupukan.data');
     Route::post('/api/kalkulator-pemupukan/generate', [KalkulatorPemupukanController::class, 'generate'])->name('kalkulator_pemupukan.generate');
     Route::get('/calender-planning', [App\Http\Controllers\PlantingCalendarController::class, 'index'])->name('calender_planning');
     Route::post('/api/calender-planning/generate', [App\Http\Controllers\PlantingCalendarController::class, 'generate'])->name('calender_planning.generate');

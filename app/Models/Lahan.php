@@ -35,6 +35,8 @@ class Lahan extends Model
         'pest_detection_updated_at',
         'notifikasi_aktif',
         'is_aktif',
+        'kalkulator_pemupukan',
+        'kalkulator_pemupukan_generated_at',
     ];
 
     protected $casts = [
@@ -48,6 +50,8 @@ class Lahan extends Model
         'notifikasi_aktif'            => 'boolean',
         'is_aktif'                    => 'boolean',
         'luas'                        => 'decimal:2',
+        'kalkulator_pemupukan'        => 'array',
+        'kalkulator_pemupukan_generated_at' => 'datetime',
     ];
 
     // Relasi ke User

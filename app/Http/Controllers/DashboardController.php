@@ -149,6 +149,7 @@ class DashboardController extends Controller
         }
         // ─── Rekomendasi AI (Untuk Skor Ketahanan dan Aktivitas) ─────────────
         $recommendation = null;
+        $needsAiGeneration = false;
         if ($selectedLahan) {
             $recommendation = \App\Models\Recommendation::where('lahan_id', $selectedLahan->id)
                 ->where('user_id', $userId)
@@ -157,13 +158,9 @@ class DashboardController extends Controller
                 ->with('checklists')
                 ->first();
                 
-            // Jika tidak ada di cache, kita panggil service (secara opsional bisa fallback atau regenerate)
+            // Jika tidak ada di cache, set flag needsAiGeneration menjadi true
             if (!$recommendation) {
-                try {
-                    $recommendation = app(\App\Services\RecommendationService::class)->getRecommendation($userId, $selectedLahan->id);
-                } catch (\Exception $e) {
-                    $recommendation = null;
-                }
+                $needsAiGeneration = true;
             }
         }
 
@@ -182,7 +179,43 @@ class DashboardController extends Controller
             'risikoLevel',
             'marketPrices',
             'defaultRegion',
-            'recommendation'
+            'recommendation',
+            'needsAiGeneration'
         ));
+    }
+
+    public function generateAiRecommendation(Request $request)
+    {
+        $request->validate([
+            'lahan_id' => 'required|exists:lahans,id'
+        ]);
+
+        $userId = $this->currentUserId();
+        
+        try {
+            $recommendation = app(\App\Services\RecommendationService::class)->getRecommendation($userId, $request->lahan_id);
+            
+            // Format skor dan checklist untuk dibalikkan via AJAX
+            return response()->json([
+                'success' => true,
+                'data' => [
+                    'skor_kesehatan' => $recommendation->skor_kesehatan ?? null,
+                    'checklists' => $recommendation->checklists->map(function ($item) {
+                        return [
+                            'id' => $item->id,
+                            'task_title' => $item->task_title,
+                            'priority' => $item->priority,
+                            'description' => $item->description,
+                            'is_completed' => $item->is_completed
+                        ];
+                    })
+                ]
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Gagal memproses AI: ' . $e->getMessage()
+            ], 500);
+        }
     }
 }

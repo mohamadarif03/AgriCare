@@ -57,7 +57,7 @@
         @endif
 
         {{-- Top Metrics (Bento Grid) --}}
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             {{-- Metric 1: Skor Ketahanan Lahan --}}
             <div class="bg-surface rounded-xl p-5 border border-surface-variant shadow-[0_2px_8px_rgba(27,94,32,0.04)]">
                 <div class="flex justify-between items-start mb-2">
@@ -66,7 +66,10 @@
                         $skor = $recommendation ? ($recommendation->data_json['skor_ketahanan'] ?? null) : null;
                         $skorLevel = '—';
                         $badgeClass = 'bg-surface-container text-on-surface-variant';
-                        if ($skor !== null) {
+                        if ($needsAiGeneration) {
+                            $skorLevel = 'LOADING...';
+                            $badgeClass = 'bg-surface-variant text-on-surface-variant animate-pulse';
+                        } elseif ($skor !== null) {
                             if ($skor >= 75) {
                                 $skorLevel = 'SANGAT BAIK';
                                 $badgeClass = 'bg-orange-100 text-orange-800';
@@ -79,10 +82,10 @@
                             }
                         }
                     @endphp
-                    <span class="{{ $badgeClass }} text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wide">{{ $skorLevel }}</span>
+                    <span id="ai-skor-badge" class="{{ $badgeClass }} text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wide">{{ $skorLevel }}</span>
                 </div>
                 <div class="flex items-end gap-2">
-                    <span class="font-h2 text-h2 text-on-surface">{{ $skor ?? '—' }}</span><span class="text-sm text-on-surface-variant mb-1">/100</span>
+                    <span id="ai-skor-value" class="font-h2 text-h2 text-on-surface {{ $needsAiGeneration ? 'animate-pulse text-transparent bg-surface-variant rounded' : '' }}">{{ $needsAiGeneration ? '00' : ($skor ?? '—') }}</span><span class="text-sm text-on-surface-variant mb-1">/100</span>
                 </div>
                 <div class="mt-3 flex items-center justify-between text-xs text-on-surface-variant">
                     <span>{{ $selectedLahan->nama ?? 'Belum ada lahan' }}</span>
@@ -151,33 +154,6 @@
                     <span class="text-xs">Belum ada lahan</span>
                 </div>
                 @endif
-            </div>
-
-            {{-- Metric 4: Harga Komoditas --}}
-            @php
-                $mainCommodity = $marketPrices[0] ?? null;
-            @endphp
-            <div class="bg-surface rounded-xl p-5 border border-surface-variant shadow-[0_2px_8px_rgba(27,94,32,0.04)]">
-                <div class="flex justify-between items-start mb-2">
-                    <span class="font-small-label text-small-label text-on-surface-variant">Harga {{ $mainCommodity['label'] ?? ucfirst($selectedLahan->komoditas ?? 'Padi') }} Hari Ini</span>
-                    <span class="material-symbols-outlined {{ ($mainCommodity['trend'] ?? 0) >= 0 ? 'text-orange-600' : 'text-red-600' }}">
-                        {{ ($mainCommodity['trend'] ?? 0) >= 0 ? 'trending_up' : 'trending_down' }}
-                    </span>
-                </div>
-                @if($mainCommodity)
-                <div class="font-h2 text-h2 text-on-surface">Rp {{ number_format($mainCommodity['harga'], 0, ',', '.') }}<span class="text-sm font-normal text-on-surface-variant">/kg</span></div>
-                <div class="flex items-center gap-1 mt-1 text-sm font-medium {{ $mainCommodity['trend'] >= 0 ? 'text-orange-600' : 'text-red-600' }}">
-                    <span class="material-symbols-outlined text-sm">{{ $mainCommodity['trend'] >= 0 ? 'arrow_upward' : 'arrow_downward' }}</span> {{ $mainCommodity['trend'] > 0 ? '+' : '' }}{{ $mainCommodity['trend'] }}%
-                </div>
-                @else
-                <div class="font-h2 text-h2 text-on-surface">—<span class="text-sm font-normal text-on-surface-variant">/kg</span></div>
-                <div class="flex items-center gap-1 mt-1 text-sm font-medium text-on-surface-variant">
-                    Belum ada data
-                </div>
-                @endif
-                <div class="mt-3 text-xs text-on-surface-variant bg-surface-container-low px-2 py-1 rounded inline-block">
-                    Wilayah: <strong>{{ \App\Models\MarketPrice::availableRegions()[$defaultRegion] ?? $defaultRegion }}</strong>
-                </div>
             </div>
         </div>
 
@@ -270,18 +246,35 @@
                         <h3 class="font-h3 text-h3 text-on-surface">Aktivitas Hari Ini</h3>
                         <span class="text-[10px] font-bold bg-primary-container text-on-primary-container px-2 py-1 rounded-md">Powered by TaniBot AI</span>
                     </div>
-                    <div class="space-y-3 relative z-10">
-                        @if($recommendation && collect($recommendation->checklists)->where('kategori', 'hari_ini')->isNotEmpty())
+                    <div class="space-y-3 relative z-10" id="ai-checklist-container">
+                        @if($needsAiGeneration)
+                            {{-- Skeleton Loading --}}
+                            <div class="flex items-start gap-3 p-3 bg-white rounded-lg border border-surface-variant animate-pulse">
+                                <div class="w-6 h-6 rounded bg-surface-variant"></div>
+                                <div class="flex-1 space-y-2 py-1">
+                                    <div class="h-4 bg-surface-variant rounded w-3/4"></div>
+                                    <div class="h-3 bg-surface-variant rounded w-1/2"></div>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3 p-3 bg-white rounded-lg border border-surface-variant animate-pulse">
+                                <div class="w-6 h-6 rounded bg-surface-variant"></div>
+                                <div class="flex-1 space-y-2 py-1">
+                                    <div class="h-4 bg-surface-variant rounded w-5/6"></div>
+                                    <div class="h-3 bg-surface-variant rounded w-2/3"></div>
+                                </div>
+                            </div>
+                            <div class="text-center text-xs text-on-surface-variant mt-2 animate-pulse">AI sedang menganalisis kondisi lahan...</div>
+                        @elseif($recommendation && collect($recommendation->checklists)->where('kategori', 'hari_ini')->isNotEmpty())
                             @foreach(collect($recommendation->checklists)->where('kategori', 'hari_ini') as $checklist)
                             <div class="flex items-start gap-3 p-3 bg-white rounded-lg border {{ $checklist->is_checked ? 'border-primary/50 bg-primary/5' : 'border-surface-variant' }}">
                                 <span class="material-symbols-outlined mt-0.5 {{ $checklist->is_checked ? 'text-primary' : 'text-outline-variant' }}">
                                     {{ $checklist->is_checked ? 'check_box' : 'check_box_outline_blank' }}
                                 </span>
                                 <div class="flex-1">
-                                    <p class="font-body text-body {{ $checklist->is_checked ? 'text-on-surface-variant line-through' : 'text-on-surface' }} font-medium">{{ $checklist->title }}</p>
-                                    <p class="text-xs text-on-surface-variant">{{ $checklist->detail }}</p>
+                                    <p class="font-body text-body {{ $checklist->is_checked ? 'text-on-surface-variant line-through' : 'text-on-surface' }} font-medium">{{ $checklist->title ?? $checklist->task_title }}</p>
+                                    <p class="text-xs text-on-surface-variant">{{ $checklist->detail ?? $checklist->description }}</p>
                                 </div>
-                                <span class="bg-error-container text-on-error-container text-[10px] font-bold px-2 py-0.5 rounded uppercase">Segera</span>
+                                <span class="bg-error-container text-on-error-container text-[10px] font-bold px-2 py-0.5 rounded uppercase">{{ $checklist->priority ?? 'Segera' }}</span>
                             </div>
                             @endforeach
                             <a href="{{ route('ai_reccomendation') }}" class="block text-center text-sm font-semibold text-primary mt-2 hover:underline">
@@ -292,7 +285,7 @@
                                 <span class="material-symbols-outlined mt-1 text-primary">check_circle</span>
                                 <div class="flex-1">
                                     <p class="font-body text-body text-on-surface font-medium">Tidak ada aktivitas mendesak</p>
-                                    <p class="text-xs text-on-surface-variant">Anda bisa melihat rekomendasi aktivitas minggu ini atau bulan ini di halaman Analisis AI.</p>
+                                    <p class="text-xs text-on-surface-variant">Lahan Anda dalam kondisi aman saat ini.</p>
                                 </div>
                             </div>
                             <a href="{{ route('ai_reccomendation') }}" class="block text-center text-sm font-semibold text-primary mt-2 hover:underline">
@@ -338,32 +331,101 @@
                     </a>
                 </div>
                 @endif
-
-                {{-- Harga Komoditas --}}
-                <div class="bg-surface rounded-xl border border-surface-variant p-5 shadow-[0_2px_12px_rgba(27,94,32,0.03)]">
-                    <div class="flex justify-between items-center mb-4">
-                        <h3 class="font-h3 text-h3 text-on-surface">Harga Komoditas</h3>
-                        <span class="text-[10px] bg-surface-container-low px-2 py-1 rounded-full text-on-surface-variant font-medium">{{ \App\Models\MarketPrice::availableRegions()[$defaultRegion] ?? $defaultRegion }}</span>
-                    </div>
-                    <div class="space-y-3">
-                        @forelse($marketPrices as $mp)
-                        <div class="flex justify-between items-center pb-2 border-b border-surface-variant last:border-0 last:pb-0">
-                            <span class="text-sm font-medium text-on-surface">{{ $mp['label'] }}</span>
-                            <div class="text-right">
-                                <div class="text-sm font-bold text-on-surface">Rp {{ number_format($mp['harga'], 0, ',', '.') }}</div>
-                                <div class="text-[10px] {{ $mp['trend'] >= 0 ? 'text-orange-600' : 'text-red-600' }} flex items-center justify-end gap-0.5"><span class="material-symbols-outlined text-[10px]">{{ $mp['trend'] >= 0 ? 'arrow_upward' : 'arrow_downward' }}</span> {{ $mp['trend'] > 0 ? '+' : '' }}{{ $mp['trend'] }}%</div>
-                            </div>
-                        </div>
-                        @empty
-                        <div class="text-center text-sm text-on-surface-variant py-4">Belum ada data harga.</div>
-                        @endforelse
-                    </div>
-                    <a href="{{ route('market_price') }}" class="w-full mt-4 flex items-center justify-center gap-2 py-2.5 bg-primary-container text-on-primary-container hover:bg-primary-container/80 rounded-xl text-sm font-semibold transition-colors">
-                        Lihat Radar Harga
-                    </a>
-                </div>
             </div>
         </div>
     </main>
 
 @endsection
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const needsAi = {{ isset($needsAiGeneration) && $needsAiGeneration ? 'true' : 'false' }};
+    const lahanId = '{{ $selectedLahan->id ?? '' }}';
+    
+    if (needsAi && lahanId) {
+        fetch('{{ route("dashboard.generate_ai") }}', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            },
+            body: JSON.stringify({ lahan_id: lahanId })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success && data.data) {
+                // Update Skor
+                const skor = data.data.skor_kesehatan || null;
+                const badgeEl = document.getElementById('ai-skor-badge');
+                const valEl = document.getElementById('ai-skor-value');
+                
+                if (skor !== null) {
+                    valEl.innerText = skor;
+                    valEl.classList.remove('animate-pulse', 'text-transparent', 'bg-surface-variant', 'rounded');
+                    
+                    badgeEl.classList.remove('bg-surface-variant', 'text-on-surface-variant', 'animate-pulse');
+                    if (skor >= 75) {
+                        badgeEl.innerText = 'SANGAT BAIK';
+                        badgeEl.classList.add('bg-orange-100', 'text-orange-800');
+                    } else if (skor >= 50) {
+                        badgeEl.innerText = 'CUKUP BAIK';
+                        badgeEl.classList.add('bg-amber-100', 'text-amber-800');
+                    } else {
+                        badgeEl.innerText = 'KRITIS';
+                        badgeEl.classList.add('bg-red-100', 'text-red-800');
+                    }
+                }
+                
+                // Update Checklist
+                const checklistContainer = document.getElementById('ai-checklist-container');
+                const checklists = data.data.checklists || [];
+                
+                let html = '';
+                if (checklists.length > 0) {
+                    checklists.forEach(item => {
+                        html += `
+                        <div class="flex items-start gap-3 p-3 bg-white rounded-lg border ${item.is_completed ? 'border-primary/50 bg-primary/5' : 'border-surface-variant'}">
+                            <span class="material-symbols-outlined mt-0.5 ${item.is_completed ? 'text-primary' : 'text-outline-variant'}">
+                                ${item.is_completed ? 'check_box' : 'check_box_outline_blank'}
+                            </span>
+                            <div class="flex-1">
+                                <p class="font-body text-body ${item.is_completed ? 'text-on-surface-variant line-through' : 'text-on-surface'} font-medium">${item.task_title}</p>
+                                <p class="text-xs text-on-surface-variant">${item.description}</p>
+                            </div>
+                            <span class="bg-error-container text-on-error-container text-[10px] font-bold px-2 py-0.5 rounded uppercase">${item.priority || 'Segera'}</span>
+                        </div>
+                        `;
+                    });
+                    html += `
+                        <a href="{{ route('ai_reccomendation') }}" class="block text-center text-sm font-semibold text-primary mt-2 hover:underline">
+                            Lihat Semua Rekomendasi
+                        </a>
+                    `;
+                } else {
+                    html = `
+                    <div class="flex items-start gap-3 p-3 bg-white rounded-lg border border-surface-variant">
+                        <span class="material-symbols-outlined mt-1 text-primary">check_circle</span>
+                        <div class="flex-1">
+                            <p class="font-body text-body text-on-surface font-medium">Tidak ada aktivitas mendesak</p>
+                            <p class="text-xs text-on-surface-variant">Lahan Anda dalam kondisi aman saat ini.</p>
+                        </div>
+                    </div>
+                    `;
+                }
+                checklistContainer.innerHTML = html;
+            }
+        })
+        .catch(error => {
+            console.error('Error generating AI:', error);
+            // Fallback UI
+            document.getElementById('ai-skor-badge').innerText = 'ERROR';
+            document.getElementById('ai-skor-badge').classList.remove('animate-pulse');
+            document.getElementById('ai-skor-value').innerText = '—';
+            document.getElementById('ai-skor-value').classList.remove('animate-pulse', 'text-transparent', 'bg-surface-variant', 'rounded');
+            document.getElementById('ai-checklist-container').innerHTML = '<div class="text-center text-sm text-red-500 py-4">Gagal memuat rekomendasi AI.</div>';
+        });
+    }
+});
+</script>
+@endpush

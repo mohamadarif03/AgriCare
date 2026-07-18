@@ -26,7 +26,7 @@
                         <span class="material-symbols-outlined {{ $index === 0 ? 'text-primary' : 'text-outline' }} mt-0.5 icon-location">location_on</span>
                         <div>
                             <h3 class="font-bold text-on-surface text-base">{{ $lahan->nama }}</h3>
-                            <p class="text-sm text-on-surface-variant mt-1">{{ ucfirst($lahan->komoditas) }} &middot; {{ number_format($lahan->luas, 0, ',', '.') }} m²</p>
+                            <p class="text-sm text-on-surface-variant mt-1">{{ ucfirst($lahan->komoditas) }} &middot; {{ number_format($lahan->luas, 2, ',', '.') }} Ha</p>
                             <p class="text-xs font-semibold {{ $index === 0 ? 'text-primary bg-primary-container' : 'text-on-surface-variant bg-surface-container' }} mt-2 px-2 py-1 rounded-md inline-block badge-hari">Hari ke-{{ $lahan->durasi_tanam_hari }}</p>
                         </div>
                     </div>
@@ -97,7 +97,6 @@
         <section class="bg-surface rounded-2xl p-6 shadow-sm border border-outline-variant/30">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-2">
                 <h2 class="text-lg font-semibold text-on-surface">4. Rekap Satu Musim Tanam</h2>
-                <span id="rekap-biaya" class="text-sm text-primary font-medium cursor-pointer hover:underline"></span>
             </div>
 
             <div class="space-y-0" id="rekap-list">
@@ -143,8 +142,34 @@
                 badge.classList.add('text-primary', 'bg-primary-container');
 
                 selectedLahanId = this.getAttribute('data-id');
+                checkExistingData();
             });
         });
+
+        // Cek awal
+        if(selectedLahanId) {
+            checkExistingData();
+        }
+
+        function checkExistingData() {
+            if(!selectedLahanId) return;
+
+            document.getElementById('output-container').classList.add('hidden');
+            document.getElementById('error-message').classList.add('hidden');
+            document.getElementById('generate-text').innerText = 'Generate Kalkulator Pemupukan';
+
+            fetch(`{{ url('/api/kalkulator-pemupukan/data') }}?lahan_id=${selectedLahanId}`)
+            .then(res => res.json())
+            .then(data => {
+                if(data.success && data.data) {
+                    renderOutput(data.data);
+                    document.getElementById('output-container').classList.remove('hidden');
+                    document.getElementById('output-container').classList.add('flex');
+                    document.getElementById('generate-text').innerText = 'Perbarui Kalkulator (AI)';
+                }
+            })
+            .catch(err => console.log('Belum ada data', err));
+        }
 
         if(btnGenerate) {
             btnGenerate.addEventListener('click', function() {
@@ -176,6 +201,7 @@
                         renderOutput(data.data);
                         document.getElementById('output-container').classList.remove('hidden');
                         document.getElementById('output-container').classList.add('flex');
+                        document.getElementById('generate-text').innerText = 'Perbarui Kalkulator (AI)';
                     } else {
                         throw new Error(data.message || 'Gagal mengambil data');
                     }
@@ -183,10 +209,10 @@
                 .catch(error => {
                     document.getElementById('error-text').innerText = error.message;
                     document.getElementById('error-message').classList.remove('hidden');
+                    document.getElementById('generate-text').innerText = 'Generate Kalkulator Pemupukan';
                 })
                 .finally(() => {
-                    // Reset Button
-                    document.getElementById('generate-text').innerText = originalText;
+                    // Reset Button Icon and State
                     icon.innerText = 'psychiatry';
                     icon.classList.remove('animate-spin');
                     btnGenerate.disabled = false;
@@ -267,7 +293,6 @@
             }
 
             // Render Rekap (Section 4)
-            document.getElementById('rekap-biaya').innerText = 'Estimasi Biaya: ' + (data.estimasi_biaya || '-');
             const rekapList = document.getElementById('rekap-list');
             rekapList.innerHTML = '';
             

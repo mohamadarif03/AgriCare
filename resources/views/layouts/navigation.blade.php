@@ -17,12 +17,11 @@
                 <a href="{{ route('calender_planning') }}"
                     class="px-3 py-2 text-sm font-semibold transition-colors whitespace-nowrap {{ request()->routeIs('calender_planning') ? 'text-orange-700 dark:text-orange-400 border-b-2 border-orange-700 dark:border-orange-400' : 'text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-300' }}">Kalender
                     Tanam</a>
+                <a href="{{ route('kalkulator_pemupukan') }}"
+                    class="px-3 py-2 text-sm font-semibold transition-colors whitespace-nowrap {{ request()->routeIs('kalkulator_pemupukan') ? 'text-orange-700 dark:text-orange-400 border-b-2 border-orange-700 dark:border-orange-400' : 'text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-300' }}">Pemupukan</a>
                 <a href="{{ route('pest_detection_alert') }}"
                     class="px-3 py-2 text-sm font-semibold transition-colors whitespace-nowrap {{ request()->routeIs('pest_detection_alert') ? 'text-orange-700 dark:text-orange-400 border-b-2 border-orange-700 dark:border-orange-400' : 'text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-300' }}">Deteksi
                     Hama</a>
-                <a href="{{ route('market_price') }}"
-                    class="px-3 py-2 text-sm font-semibold transition-colors whitespace-nowrap {{ request()->routeIs('market_price') ? 'text-orange-700 dark:text-orange-400 border-b-2 border-orange-700 dark:border-orange-400' : 'text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-300' }}">Radar
-                    Harga</a>
 
                 <a href="{{ route('tanibot') }}"
                     class="px-3 py-2 text-sm font-semibold transition-colors whitespace-nowrap {{ request()->routeIs('tanibot') ? 'text-orange-700 dark:text-orange-400 border-b-2 border-orange-700 dark:border-orange-400' : 'text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-300' }}">Tanya
@@ -82,12 +81,11 @@
             <a href="{{ route('calender_planning') }}"
                 class="text-sm font-semibold whitespace-nowrap {{ request()->routeIs('calender_planning') ? 'text-orange-700 dark:text-orange-400 border-b-2 border-orange-700 dark:border-orange-400 pb-1' : 'text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-300' }}">Kalender
                 Tanam</a>
+            <a href="{{ route('kalkulator_pemupukan') }}"
+                class="text-sm font-semibold whitespace-nowrap {{ request()->routeIs('kalkulator_pemupukan') ? 'text-orange-700 dark:text-orange-400 border-b-2 border-orange-700 dark:border-orange-400 pb-1' : 'text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-300' }}">Pemupukan</a>
             <a href="{{ route('pest_detection_alert') }}"
                 class="text-sm font-semibold whitespace-nowrap {{ request()->routeIs('pest_detection_alert') ? 'text-orange-700 dark:text-orange-400 border-b-2 border-orange-700 dark:border-orange-400 pb-1' : 'text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-300' }}">Deteksi
                 Hama</a>
-            <a href="{{ route('market_price') }}"
-                class="text-sm font-semibold whitespace-nowrap {{ request()->routeIs('market_price') ? 'text-orange-700 dark:text-orange-400 border-b-2 border-orange-700 dark:border-orange-400 pb-1' : 'text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-300' }}">Radar
-                Harga</a>
 
             <a href="{{ route('tanibot') }}"
                 class="text-sm font-semibold whitespace-nowrap {{ request()->routeIs('tanibot') ? 'text-orange-700 dark:text-orange-400 border-b-2 border-orange-700 dark:border-orange-400 pb-1' : 'text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-300' }}">Tanya
