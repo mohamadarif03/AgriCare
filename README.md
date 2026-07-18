@@ -1,58 +1,85 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# AgriCare (sebelumnya TaniPintar)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+AgriCare adalah platform manajemen pertanian cerdas berbasis web yang mengintegrasikan kecerdasan buatan (AI) untuk membantu petani dalam merencanakan, memantau, dan mengoptimalkan hasil panen mereka. Sistem ini memberikan rekomendasi personal untuk setiap lahan berdasarkan komoditas, fase penanaman, luas area, dan data cuaca secara *real-time*.
 
-## About Laravel
+## ✨ Fitur Utama
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Dashboard AI Pintar:** Tampilan ringkasan lahan dengan *lazy loading* AI, menampilkan skor ketahanan lahan dan aktivitas mandatori harian secara instan.
+- **Kalkulator Pemupukan AI:** Secara otomatis menghitung dosis dan jadwal pemupukan yang paling optimal, disesuaikan persis dengan luas lahan (Hektar) dan usia tanaman. Data tersimpan secara permanen di database.
+- **Kalender Tanam:** Membantu petani menentukan jadwal ideal mulai dari persiapan lahan, penanaman, pemeliharaan, hingga estimasi panen.
+- **TaniBot (Tanya AI):** Asisten virtual pintar (*chatbot*) yang siap menjawab semua permasalahan seputar pertanian dan agrikultur.
+- **Deteksi Hama & Penyakit:** (Dalam Pengembangan) Membantu mendeteksi hama dan merekomendasikan solusi penanganannya.
+- **Integrasi Cuaca:** Mengambil data prakiraan cuaca lokal secara langsung (via API BMKG) untuk menentukan peringatan risiko iklim terhadap lahan.
+- **Kelola Banyak Lahan:** Pengguna dapat mendaftarkan dan memantau beberapa lahan berbeda dengan komoditas yang berbeda-beda sekaligus.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 💻 Teknologi yang Digunakan
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Proyek ini dibangun dengan *stack* modern dan kokoh:
 
-## Learning Laravel
+- **Backend:** [Laravel 13](https://laravel.com/) (PHP 8.3)
+- **Frontend:** Blade Templating Engine + [Tailwind CSS](https://tailwindcss.com/)
+- **Database:** MySQL
+- **Kecerdasan Buatan (AI):** Google Gemini AI API
+- **API Eksternal:** API BMKG (untuk prakiraan cuaca)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🚀 Panduan Instalasi & Menjalankan Proyek
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Ikuti langkah-langkah di bawah ini untuk menjalankan proyek AgriCare secara lokal di komputer Anda:
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+### 1. Persyaratan Sistem
+Pastikan komputer Anda sudah terinstal:
+- PHP >= 8.3
+- Composer
+- Node.js & npm
+- MySQL / MariaDB
 
-## Agentic Development
-
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
-
+### 2. Kloning Repositori
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+git clone https://github.com/mohamadarif03/AgriCare.git
+cd AgriCare
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### 3. Instalasi Dependensi (Backend & Frontend)
+Instal *package* PHP melalui Composer dan *library* JavaScript/CSS melalui npm:
+```bash
+composer install
+npm install
+npm run build
+```
 
-## Contributing
+### 4. Pengaturan Lingkungan (Environment)
+Salin file konfigurasi bawaan dan sesuaikan dengan *environment* Anda:
+```bash
+cp .env.example .env
+```
+Buka file `.env` di teks editor, lalu sesuaikan konfigurasi database dan API key Anda. Pastikan untuk mengisi kredensial AI:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nama_database_anda
+DB_USERNAME=root
+DB_PASSWORD=
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+GEMINI_API_KEY=masukkan_api_key_gemini_anda_di_sini
+```
 
-## Code of Conduct
+### 5. *Generate Key* dan Migrasi Database
+Buat Application Key untuk Laravel dan jalankan migrasi beserta *seeder* awal (untuk data dummy market dll):
+```bash
+php artisan key:generate
+php artisan migrate --seed
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 6. Jalankan Aplikasi
+Jalankan *development server* bawaan Laravel:
+```bash
+php artisan serve
+```
+Aplikasi kini dapat diakses melalui browser di: `http://localhost:8000`
 
-## Security Vulnerabilities
+## 🤝 Kontribusi
+Jika Anda ingin berkontribusi pada proyek ini, silakan buat *Pull Request* atau laporkan masalah melalui tab *Issues* di GitHub.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+Dibuat dengan ❤️ untuk kemajuan Petani.
