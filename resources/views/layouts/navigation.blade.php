@@ -5,7 +5,7 @@
             <!-- Kiri: Logo -->
             <a href="{{ route('dashboard') }}" class="flex items-center gap-2 shrink-0">
                 <div class="flex items-center gap-2 text-xl font-bold tracking-tight text-orange-800 dark:text-orange-400">
-                    <img src="{{ asset('assets/logo.png') }}" alt="AgriCare Logo" class="h-8 w-auto">
+                    <img src="{{ asset('assets/logo panjang.png') }}" alt="AgriCare Logo" class="h-8 w-auto">
 
                 </div>
             </a>

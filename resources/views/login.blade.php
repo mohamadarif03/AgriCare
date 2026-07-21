@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Masuk - AgriCare</title>
-    <link rel="icon" type="image/svg+xml" href="{{ asset('assets/favicon.svg') }}">
-    <link rel="icon" type="image/png" href="{{ asset('assets/favicon.png') }}">
-    <link rel="apple-touch-icon" href="{{ asset('assets/favicon.png') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('assets/favicon1.svg') }}">
+    <link rel="icon" type="image/png" href="{{ asset('assets/favicon1.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('assets/favicon1.png') }}">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
@@ -55,7 +55,7 @@
     <div class="w-full max-w-[360px] md:max-w-sm bg-surface-container-lowest rounded-2xl shadow-ambient border border-outline-variant/30 p-6 relative z-10">
         <div class="text-center mb-8">
             <div class="inline-flex items-center justify-center mb-4">
-                <img src="{{ asset('assets/logo1.png') }}" alt="AgriCare Logo" class="h-12 w-auto">
+                <img src="{{ asset('assets/logokotak.png') }}" alt="AgriCare Logo" class="h-12 w-auto">
             </div>
             <h1 class="text-2xl font-bold text-on-surface mb-2">Selamat Datang Kembali</h1>
             <p class="text-on-surface-variant text-sm">Masuk ke akun AgriCare Anda</p>

@@ -53,7 +53,7 @@
     <!-- Navbar -->
     <nav class="flex items-center justify-between px-6 sm:px-10 lg:px-16 py-5 bg-white relative z-50">
         <a href="/" class="flex items-center">
-            <img src="{{ asset('assets/logo.png') }}" alt="AgriCare Logo" class="h-12 w-auto">
+            <img src="{{ asset('assets/logo panjang.png') }}" alt="AgriCare Logo" class="h-12 w-auto">
         </a>
         <div class="hidden lg:flex space-x-10 text-[12px] font-bold text-brand-brown tracking-wider">
             <a href="#fitur" class="hover:text-brand-orange transition-colors">FITUR</a>
