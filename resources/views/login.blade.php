@@ -4,9 +4,8 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Masuk - AgriCare</title>
-    <link rel="icon" type="image/svg+xml" href="{{ asset('assets/favicon1.svg') }}">
-    <link rel="icon" type="image/png" href="{{ asset('assets/favicon1.png') }}">
-    <link rel="apple-touch-icon" href="{{ asset('assets/favicon1.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('assets/logokotak1.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('assets/logokotak1.png') }}">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
@@ -16,20 +15,20 @@
             theme: {
                 extend: {
                     "colors": {
-                        "primary": "#402E24",
-                        "primary-container": "#F5F2F0",
+                        "primary": "#1B5E20",
+                        "primary-container": "#E8F5E9",
                         "on-primary": "#ffffff",
-                        "on-primary-container": "#402E24",
-                        "background": "#FDFBF7",
-                        "on-background": "#402E24",
+                        "on-primary-container": "#1B5E20",
+                        "background": "#F5FFF5",
+                        "on-background": "#1B5E20",
                         "surface": "#ffffff",
-                        "on-surface": "#402E24",
-                        "surface-variant": "#EFE2D5",
-                        "on-surface-variant": "#63483A",
+                        "on-surface": "#1B5E20",
+                        "surface-variant": "#E8F5E9",
+                        "on-surface-variant": "#3E6B4F",
                         "surface-container-lowest": "#ffffff",
-                        "surface-container-low": "#FCF9F5",
-                        "outline": "#8C624E",
-                        "outline-variant": "#D4A373",
+                        "surface-container-low": "#F1F8E9",
+                        "outline": "#4CAF50",
+                        "outline-variant": "#A5D6A7",
                     },
                     "fontFamily": {
                         "body": ["Plus Jakarta Sans"],
@@ -55,7 +54,7 @@
     <div class="w-full max-w-[360px] md:max-w-sm bg-surface-container-lowest rounded-2xl shadow-ambient border border-outline-variant/30 p-6 relative z-10">
         <div class="text-center mb-8">
             <div class="inline-flex items-center justify-center mb-4">
-                <img src="{{ asset('assets/logokotak.png') }}" alt="AgriCare Logo" class="h-12 w-auto">
+                <img src="{{ asset('assets/logokotak1.png') }}" alt="AgriCare Logo" class="h-12 w-auto">
             </div>
             <h1 class="text-2xl font-bold text-on-surface mb-2">Selamat Datang Kembali</h1>
             <p class="text-on-surface-variant text-sm">Masuk ke akun AgriCare Anda</p>

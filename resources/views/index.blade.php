@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AgriCare - Dashboard Cerdas untuk Petani Modern</title>
+    <link rel="icon" type="image/png" href="{{ asset('assets/logokotak1.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('assets/logokotak1.png') }}">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,9 +19,9 @@
                         'inter': ['Inter', 'sans-serif'],
                     },
                     colors: {
-                        'brand-yellow': '#FFD147',
-                        'brand-brown': '#402E24',
-                        'brand-orange': '#FF7A59',
+                        'brand-yellow': '#C8E6C9',
+                        'brand-brown': '#1B5E20',
+                        'brand-orange': '#4CAF50',
                     }
                 }
             }
@@ -40,7 +42,7 @@
         }
         .hero-title {
             font-family: 'Anton', sans-serif;
-            color: #402E24;
+            color: #1B5E20;
             font-size: 9vw;
             line-height: 0.88;
             letter-spacing: -1px;
@@ -53,7 +55,7 @@
     <!-- Navbar -->
     <nav class="flex items-center justify-between px-6 sm:px-10 lg:px-16 py-5 bg-white relative z-50">
         <a href="/" class="flex items-center">
-            <img src="{{ asset('assets/logo panjang.png') }}" alt="AgriCare Logo" class="h-12 w-auto">
+            <img src="{{ asset('assets/logo panjang-1.png') }}" alt="AgriCare Logo" class="h-12 w-auto">
         </a>
         <div class="hidden lg:flex space-x-10 text-[12px] font-bold text-brand-brown tracking-wider">
             <a href="#fitur" class="hover:text-brand-orange transition-colors">FITUR</a>
@@ -84,7 +86,7 @@
             <p class="text-brand-brown text-[11px] sm:text-[12px] lg:text-[13px] font-semibold leading-relaxed mb-5 lg:mb-6">
                 Satu dashboard untuk semua kebutuhan pertanian Anda. Dari deteksi penyakit hingga prediksi panen.
             </p>
-            <button class="bg-[#5C4033] text-white px-5 py-3 lg:px-6 lg:py-4 w-40 lg:w-48 flex items-center justify-between hover:bg-[#4a3429] transition font-bold text-[11px] lg:text-[12px] tracking-wider group">
+            <button class="bg-[#2E7D32] text-white px-5 py-3 lg:px-6 lg:py-4 w-40 lg:w-48 flex items-center justify-between hover:bg-[#1B5E20] transition font-bold text-[11px] lg:text-[12px] tracking-wider group">
                 MULAI GRATIS 
                 <svg class="w-3.5 h-3.5 lg:w-4 lg:h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
             </button>
@@ -93,7 +95,7 @@
         <!-- Konten kanan (di DEPAN semua) -->
         <div class="absolute right-6 sm:right-10 lg:right-16 top-[35%] z-30 flex flex-col items-end space-y-3">
             <div class="flex items-center">
-                <div class="w-9 h-9 lg:w-11 lg:h-11 bg-[#FFE800] rounded-full flex items-center justify-center -mr-2 z-10 shadow-md hover:scale-110 transition-transform cursor-pointer">
+                <div class="w-9 h-9 lg:w-11 lg:h-11 bg-green-100 rounded-full flex items-center justify-center -mr-2 z-10 shadow-md hover:scale-110 transition-transform cursor-pointer">
                     <svg class="w-3 h-3 text-brand-brown ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                 </div>
                 <div class="w-9 h-9 lg:w-11 lg:h-11 bg-brand-orange rounded-full flex items-center justify-center shadow-md hover:scale-110 transition-transform cursor-pointer">
@@ -117,7 +119,7 @@
     </section>
 
     <!-- Scale Feature Section -->
-    <section id="fitur" class="bg-[#FDFBF7] py-20 px-6 sm:px-10 lg:px-16 relative z-30">
+    <section id="fitur" class="bg-[#F5FFF5] py-20 px-6 sm:px-10 lg:px-16 relative z-30">
         <div class="max-w-[1200px] mx-auto bg-white rounded-[2rem] p-8 sm:p-12 md:p-16 shadow-lg border border-gray-100">
             <!-- Header Area (Two Columns) -->
             <div class="flex flex-col md:flex-row justify-between items-start gap-6 md:gap-12 mb-16">
@@ -140,7 +142,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-gray-100 pt-12">
                 <!-- Column 1 -->
                 <div class="space-y-4">
-                    <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-[#FFF0EB]">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-green-50">
                         <svg class="w-7 h-7 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
                             <circle cx="12" cy="13" r="4" />
@@ -173,7 +175,7 @@
 
                 <!-- Column 3 -->
                 <div class="space-y-4">
-                    <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-[#F5F2F0]">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-[#E8F5E9]">
                         <svg class="w-7 h-7 text-brand-brown" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
                         </svg>
@@ -190,11 +192,11 @@
     </section>
 
     <!-- Quote Section -->
-    <section id="testimoni" class="relative bg-gradient-to-br from-[#FCF9F5] via-[#F7EFE9] to-[#EFE2D5] pt-20 pb-32 px-6 sm:px-10 lg:px-16 overflow-hidden">
+    <section id="testimoni" class="relative bg-gradient-to-br from-[#F1F8E9] via-[#E8F5E9] to-[#E8F5E9] pt-20 pb-32 px-6 sm:px-10 lg:px-16 overflow-hidden">
         
         <!-- Scalloped Top Edge Decoration using SVG -->
         <div class="absolute top-0 left-0 w-full overflow-hidden leading-none pointer-events-none">
-            <svg viewBox="0 0 1440 24" fill="none" class="w-full h-6 text-[#F9F7F2]">
+            <svg viewBox="0 0 1440 24" fill="none" class="w-full h-6 text-[#F1F8E9]">
                 <path d="M0,0 Q15,12 30,0 Q45,12 60,0 Q75,12 90,0 Q105,12 120,0 Q135,12 150,0 Q165,12 180,0 Q195,12 210,0 Q225,12 240,0 Q255,12 270,0 Q285,12 300,0 Q315,12 330,0 Q345,12 360,0 Q375,12 390,0 Q405,12 420,0 Q435,12 450,0 Q465,12 480,0 Q495,12 510,0 Q525,12 540,0 Q555,12 570,0 Q585,12 600,0 Q615,12 630,0 Q645,12 660,0 Q675,12 690,0 Q705,12 720,0 Q735,12 750,0 Q765,12 780,0 Q795,12 810,0 Q825,12 840,0 Q855,12 870,0 Q885,12 900,0 Q915,12 930,0 Q945,12 960,0 Q975,12 990,0 Q1005,12 1020,0 Q1035,12 1050,0 Q1065,12 1080,0 Q1095,12 1110,0 Q1125,12 1140,0 Q1155,12 1170,0 Q1185,12 1200,0 Q1215,12 1230,0 Q1245,12 1260,0 Q1275,12 1290,0 Q1305,12 1320,0 Q1335,12 1350,0 Q1365,12 1380,0 Q1395,12 1410,0 Q1425,12 1440,0 L1440,24 L0,24 Z" fill="currentColor"/>
             </svg>
         </div>
@@ -208,7 +210,7 @@
                     AgriCare mengubah cara saya bertani - hasilnya <span class="italic font-medium text-brand-orange">meningkat drastis</span> setiap musim
                 </h2>
                 <div class="pt-4">
-                    <button class="bg-[#5C4033] hover:bg-[#4a3429] text-white px-8 py-3.5 rounded-full flex items-center gap-2 font-bold text-sm transition duration-200 shadow-md">
+                    <button class="bg-[#2E7D32] hover:bg-[#1B5E20] text-white px-8 py-3.5 rounded-full flex items-center gap-2 font-bold text-sm transition duration-200 shadow-md">
                         Mulai Sekarang
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
@@ -253,13 +255,13 @@
                 <div class="absolute -left-4 bottom-12 w-16 h-16 pointer-events-none drop-shadow-md">
                     <svg viewBox="0 0 64 64" class="w-full h-full">
                         <!-- Moon -->
-                        <path d="M 42 12 A 20 20 0 1 0 52 44 A 24 24 0 1 1 42 12 Z" fill="#FFE082" stroke="#222" stroke-width="3" stroke-linejoin="round" />
+                        <path d="M 42 12 A 20 20 0 1 0 52 44 A 24 24 0 1 1 42 12 Z" fill="#C8E6C9" stroke="#222" stroke-width="3" stroke-linejoin="round" />
                         <!-- Moon Face -->
                         <path d="M 22 36 Q 24 33 26 36" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
                         <path d="M 32 36 Q 34 33 36 36" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
                         <path d="M 26 44 Q 29 48 32 44" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round"/>
                         <!-- Pink sparkle star -->
-                        <path d="M 50 20 Q 50 25 55 25 Q 50 25 50 30 Q 50 25 45 25 Q 50 25 50 20 Z" fill="#FFB7B2" />
+                        <path d="M 50 20 Q 50 25 55 25 Q 50 25 50 30 Q 50 25 45 25 Q 50 25 50 20 Z" fill="#A5D6A7" />
                     </svg>
                 </div>
 
@@ -267,13 +269,13 @@
                 <div class="absolute -right-2 top-12 w-16 h-16 pointer-events-none drop-shadow-md">
                     <svg viewBox="0 0 64 64" class="w-full h-full">
                         <!-- Rocket Body -->
-                        <rect x="24" y="10" width="16" height="32" rx="8" fill="#B39DFF" stroke="#222" stroke-width="3" />
+                        <rect x="24" y="10" width="16" height="32" rx="8" fill="#81C784" stroke="#222" stroke-width="3" />
                         <!-- Rocket Nose -->
-                        <path d="M 24 18 C 24 8, 40 8, 40 18 Z" fill="#FF8A80" stroke="#222" stroke-width="3" />
+                        <path d="M 24 18 C 24 8, 40 8, 40 18 Z" fill="#66BB6A" stroke="#222" stroke-width="3" />
                         <!-- Rocket Wings -->
-                        <path d="M 24 34 L 16 42 L 24 42 Z M 40 34 L 48 42 L 40 42 Z" fill="#FFD54F" stroke="#222" stroke-width="3" />
+                        <path d="M 24 34 L 16 42 L 24 42 Z M 40 34 L 48 42 L 40 42 Z" fill="#A5D6A7" stroke="#222" stroke-width="3" />
                         <!-- Fire -->
-                        <path d="M 32 42 Q 32 54 28 48 Q 32 54 36 48 Q 32 54 32 42 Z" fill="#FF8A65" />
+                        <path d="M 32 42 Q 32 54 28 48 Q 32 54 36 48 Q 32 54 32 42 Z" fill="#81C784" />
                     </svg>
                 </div>
             </div>
@@ -281,14 +283,14 @@
 
         <!-- Wave divider at bottom -->
         <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none pointer-events-none transform translate-y-1">
-            <svg viewBox="0 0 1440 80" fill="none" preserveAspectRatio="none" class="w-full h-20 text-[#402E24]">
+            <svg viewBox="0 0 1440 80" fill="none" preserveAspectRatio="none" class="w-full h-20 text-[#1B5E20]">
                 <path d="M0,80 C240,0 480,80 720,80 C960,80 1200,0 1440,80 L1440,80 L0,80 Z" fill="currentColor"/>
             </svg>
         </div>
     </section>
 
     <!-- What's New Section -->
-    <section id="berita" class="bg-gradient-to-b from-[#402E24] via-[#63483A] to-[#F9F7F2] pt-10 pb-28 px-6 sm:px-10 lg:px-16 relative z-20">
+    <section id="berita" class="bg-gradient-to-b from-[#1B5E20] via-[#3E6B4F] to-[#F1F8E9] pt-10 pb-28 px-6 sm:px-10 lg:px-16 relative z-20">
         <div class="max-w-[1200px] mx-auto">
             <!-- Header Text -->
             <div class="text-center mb-16 space-y-4">
@@ -310,10 +312,10 @@
                         <!-- Content -->
                         <div class="p-8 space-y-4">
                             <!-- Badge tag -->
-                            <span class="inline-flex items-center gap-1 bg-[#FFF0EB] text-brand-orange px-4 py-1.5 rounded-full text-xs font-bold">
+                            <span class="inline-flex items-center gap-1 bg-green-50 text-brand-orange px-4 py-1.5 rounded-full text-xs font-bold">
                                 Berita
                             </span>
-                            <h3 class="text-[#322A4E] text-2xl font-bold leading-tight hover:text-brand-orange transition-colors cursor-pointer">
+                            <h3 class="text-green-900 text-2xl font-bold leading-tight hover:text-brand-orange transition-colors cursor-pointer">
                                 Revolusi Pertanian Digital: Bagaimana AI Membantu Petani Meningkatkan Panen
                             </h3>
                             <p class="text-gray-500 text-sm leading-relaxed">
@@ -341,7 +343,7 @@
                                 <span class="inline-flex items-center gap-1 bg-[#FFF9E6] text-brand-yellow px-4 py-1.5 rounded-full text-xs font-bold">
                                     Cuaca
                                 </span>
-                                <h3 class="text-[#322A4E] text-lg font-bold leading-snug hover:text-brand-orange transition-colors cursor-pointer">
+                                <h3 class="text-green-900 text-lg font-bold leading-snug hover:text-brand-orange transition-colors cursor-pointer">
                                     Panduan Menyiram Berdasarkan Prakiraan Cuaca Mingguan
                                 </h3>
                                 <p class="text-gray-500 text-xs sm:text-sm leading-relaxed line-clamp-2">
@@ -363,10 +365,10 @@
                         </div>
                         <div class="sm:col-span-7 p-6 sm:p-8 flex flex-col justify-between">
                             <div class="space-y-3">
-                                <span class="inline-flex items-center gap-1 bg-[#F5F2F0] text-brand-brown px-4 py-1.5 rounded-full text-xs font-bold">
+                                <span class="inline-flex items-center gap-1 bg-[#E8F5E9] text-brand-brown px-4 py-1.5 rounded-full text-xs font-bold">
                                     Pupuk
                                 </span>
-                                <h3 class="text-[#322A4E] text-lg font-bold leading-snug hover:text-brand-orange transition-colors cursor-pointer">
+                                <h3 class="text-green-900 text-lg font-bold leading-snug hover:text-brand-orange transition-colors cursor-pointer">
                                     Kalkulator Pupuk Cerdas: Hitung Kebutuhan Sesuai Luas Lahan
                                 </h3>
                                 <p class="text-gray-500 text-xs sm:text-sm leading-relaxed line-clamp-2">
@@ -386,10 +388,10 @@
     </section>
 
     <!-- FAQ Section -->
-    <section id="faq" class="bg-[#F9F7F2] py-20 px-6 sm:px-10 lg:px-16 flex flex-col items-center relative z-30">
+    <section id="faq" class="bg-[#F1F8E9] py-20 px-6 sm:px-10 lg:px-16 flex flex-col items-center relative z-30">
         <!-- FAQ Title -->
-        <h2 class="font-serif text-[#322A4E] text-5xl md:text-6xl font-normal mb-4 tracking-tight">FAQ</h2>
-        <p class="text-[#322A4E] text-sm sm:text-base text-center max-w-[600px] mb-16 leading-relaxed font-semibold">
+        <h2 class="font-serif text-green-900 text-5xl md:text-6xl font-normal mb-4 tracking-tight">FAQ</h2>
+        <p class="text-green-900 text-sm sm:text-base text-center max-w-[600px] mb-16 leading-relaxed font-semibold">
             Pertanyaan yang sering diajukan tentang AgriCare. Temukan jawabannya di sini untuk memulai perjalanan pertanian cerdas Anda.
         </p>
 
@@ -431,7 +433,7 @@
             <div class="space-y-4">
                 <!-- Item 1 (Open by default) -->
                 <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden transition-all duration-300">
-                    <button class="w-full text-left px-8 py-6 flex items-center justify-between font-bold text-base md:text-lg text-[#322A4E] focus:outline-none" onclick="toggleFAQ(this)">
+                    <button class="w-full text-left px-8 py-6 flex items-center justify-between font-bold text-base md:text-lg text-green-900 focus:outline-none" onclick="toggleFAQ(this)">
                         <span>Seberapa akurat deteksi penyakit tanaman dari AgriCare?</span>
                         <span class="text-xl font-bold text-gray-400 select-none transition-transform duration-200">–</span>
                     </button>
@@ -442,7 +444,7 @@
 
                 <!-- Item 2 -->
                 <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden transition-all duration-300">
-                    <button class="w-full text-left px-8 py-6 flex items-center justify-between font-bold text-base md:text-lg text-[#322A4E] focus:outline-none" onclick="toggleFAQ(this)">
+                    <button class="w-full text-left px-8 py-6 flex items-center justify-between font-bold text-base md:text-lg text-green-900 focus:outline-none" onclick="toggleFAQ(this)">
                         <span>Apakah data lahan dan hasil panen saya aman?</span>
                         <span class="text-xl font-bold text-gray-400 select-none transition-transform duration-200">+</span>
                     </button>
@@ -453,7 +455,7 @@
 
                 <!-- Item 3 -->
                 <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden transition-all duration-300">
-                    <button class="w-full text-left px-8 py-6 flex items-center justify-between font-bold text-base md:text-lg text-[#322A4E] focus:outline-none" onclick="toggleFAQ(this)">
+                    <button class="w-full text-left px-8 py-6 flex items-center justify-between font-bold text-base md:text-lg text-green-900 focus:outline-none" onclick="toggleFAQ(this)">
                         <span>Apakah AgriCare bisa digunakan secara gratis?</span>
                         <span class="text-xl font-bold text-gray-400 select-none transition-transform duration-200">+</span>
                     </button>
@@ -464,7 +466,7 @@
 
                 <!-- Item 4 -->
                 <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden transition-all duration-300">
-                    <button class="w-full text-left px-8 py-6 flex items-center justify-between font-bold text-base md:text-lg text-[#322A4E] focus:outline-none" onclick="toggleFAQ(this)">
+                    <button class="w-full text-left px-8 py-6 flex items-center justify-between font-bold text-base md:text-lg text-green-900 focus:outline-none" onclick="toggleFAQ(this)">
                         <span>Jenis tanaman apa saja yang didukung oleh AgriCare?</span>
                         <span class="text-xl font-bold text-gray-400 select-none transition-transform duration-200">+</span>
                     </button>
@@ -475,7 +477,7 @@
 
                 <!-- Item 5 -->
                 <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden transition-all duration-300">
-                    <button class="w-full text-left px-8 py-6 flex items-center justify-between font-bold text-base md:text-lg text-[#322A4E] focus:outline-none" onclick="toggleFAQ(this)">
+                    <button class="w-full text-left px-8 py-6 flex items-center justify-between font-bold text-base md:text-lg text-green-900 focus:outline-none" onclick="toggleFAQ(this)">
                         <span>Apakah AgriCare bisa digunakan tanpa koneksi internet?</span>
                         <span class="text-xl font-bold text-gray-400 select-none transition-transform duration-200">+</span>
                     </button>
@@ -525,7 +527,7 @@
     </script>
 
     <!-- Pre-Footer Section with Curved Ribbon & Main Card -->
-    <section class="relative bg-[#FAFAFA] pt-10 pb-24 px-6 sm:px-10 lg:px-16 overflow-hidden">
+    <section class="relative bg-green-50 pt-10 pb-24 px-6 sm:px-10 lg:px-16 overflow-hidden">
         
         <!-- Curved Text Ribbon (Wavy / Loop-de-loop) -->
         <div class="w-full h-44 relative z-10 -mb-6 md:-mb-12 pointer-events-none">
@@ -539,18 +541,18 @@
             </svg>
         </div>
 
-        <div class="max-w-[1200px] mx-auto bg-gradient-to-r from-[#402E24] via-[#8C624E] to-[#D4A373] rounded-[2.5rem] relative z-20 px-8 sm:px-12 md:px-16 pt-6 pb-0 flex flex-col md:flex-row items-stretch justify-between shadow-xl">
+        <div class="max-w-[1200px] mx-auto bg-gradient-to-r from-[#1B5E20] via-[#4CAF50] to-[#A5D6A7] rounded-[2.5rem] relative z-20 px-8 sm:px-12 md:px-16 pt-6 pb-0 flex flex-col md:flex-row items-stretch justify-between shadow-xl">
             
             <!-- Left Side: Text and Button -->
             <div class="flex flex-col justify-center items-start md:w-[50%] relative z-10 py-6">
                 <div class="space-y-4 mb-8">
-                    <h2 class="text-[#FFF8F4] text-2xl sm:text-3xl lg:text-[2.5rem] font-bold leading-[1.25] tracking-tight max-w-[480px]">
+                    <h2 class="text-white text-2xl sm:text-3xl lg:text-[2.5rem] font-bold leading-[1.25] tracking-tight max-w-[480px]">
                         Karena setiap keputusan di ladang seharusnya didukung oleh <span class="italic text-brand-orange font-semibold">data</span>, bukan tebakan.
                     </h2>
                 </div>
                 
                 <div class="relative w-full flex items-center">
-                    <button class="bg-brand-orange hover:bg-[#ff6842] text-white px-8 py-3.5 rounded-full flex items-center gap-2 font-bold text-sm transition duration-200 shadow-md">
+                    <button class="bg-brand-orange hover:bg-green-700 text-white px-8 py-3.5 rounded-full flex items-center gap-2 font-bold text-sm transition duration-200 shadow-md">
                         Mulai Sekarang
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
@@ -605,14 +607,14 @@
                     </div>
                     
                     <!-- Screen Container -->
-                    <div class="bg-gradient-to-b from-[#FFF2EA] to-[#FFFFFF] rounded-[2.6rem] overflow-hidden pt-8 pb-3 px-3 flex flex-col h-[500px]">
+                    <div class="bg-gradient-to-b from-green-50 to-[#FFFFFF] rounded-[2.6rem] overflow-hidden pt-8 pb-3 px-3 flex flex-col h-[500px]">
                         <!-- Chat Header -->
-                        <div class="flex items-center justify-between border-b border-orange-100 pb-3 mb-3">
+                        <div class="flex items-center justify-between border-b border-green-100 pb-3 mb-3">
                             <div class="flex items-center gap-2">
-                                <div class="w-7 h-7 bg-[#FFF2EA] border border-orange-200 rounded-full flex items-center justify-center font-bold text-xs text-brand-brown">
+                                <div class="w-7 h-7 bg-green-50 border border-green-200 rounded-full flex items-center justify-center font-bold text-xs text-brand-brown">
                                     A
                                 </div>
-                                <span class="font-bold text-sm text-[#322A4E]">Chat AgriCare AI</span>
+                                <span class="font-bold text-sm text-green-900">Chat AgriCare AI</span>
                             </div>
                             <button class="text-gray-400 hover:text-gray-600">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
@@ -623,23 +625,23 @@
                         <div class="flex-grow space-y-4 overflow-y-auto pr-1">
                             <!-- Avatar / Welcome message -->
                             <div class="text-center my-3">
-                                <div class="w-10 h-10 bg-[#FF9D74] border border-[#222] rounded-full flex items-center justify-center mx-auto mb-2 shadow-sm">
+                                <div class="w-10 h-10 bg-green-400 border border-[#222] rounded-full flex items-center justify-center mx-auto mb-2 shadow-sm">
                                     <svg viewBox="0 0 40 40" class="w-6 h-6">
-                                        <circle cx="20" cy="20" r="16" fill="#FF9D74" />
+                                        <circle cx="20" cy="20" r="16" fill="#66BB6A" />
                                         <circle cx="15" cy="18" r="1.5" fill="#222" />
                                         <circle cx="25" cy="18" r="1.5" fill="#222" />
                                         <path d="M 17 24 Q 20 28 23 24" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round"/>
                                     </svg>
                                 </div>
                                 <p class="text-[10px] text-gray-500 font-bold uppercase tracking-wider">Halo Pak Budi!</p>
-                                <p class="text-[12px] font-bold text-[#322A4E] max-w-[200px] mx-auto leading-tight mt-1">
+                                <p class="text-[12px] font-bold text-green-900 max-w-[200px] mx-auto leading-tight mt-1">
                                     Ada yang bisa saya bantu untuk lahan Anda hari ini?
                                 </p>
                                 <p class="text-[10px] text-gray-400 mt-1">Berikut beberapa ide:</p>
                             </div>
                             
                             <!-- Prompt suggestions -->
-                            <div class="grid grid-cols-2 gap-2 text-[9px] font-bold text-[#322A4E]">
+                            <div class="grid grid-cols-2 gap-2 text-[9px] font-bold text-green-900">
                                 <div class="p-2 bg-white rounded-xl border border-gray-100 hover:bg-gray-50 cursor-pointer transition flex flex-col justify-between h-16 shadow-sm">
                                     <span class="text-xs">~</span>
                                     <span class="leading-tight">Analisis foto daun padi saya yang menguning.</span>
@@ -716,7 +718,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-brand-brown text-[#FAFAFA] py-16 px-8 md:px-16 lg:px-24 border-t border-[#5C4033] relative z-40">
+    <footer class="bg-brand-brown text-[#FAFAFA] py-16 px-8 md:px-16 lg:px-24 border-t border-[#2E7D32] relative z-40">
         <div class="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-6 items-stretch">
             
             <!-- Left Side -->
@@ -732,7 +734,7 @@
                     </p>
                 </div>
                 <!-- Button -->
-                <button class="bg-brand-orange hover:bg-[#ff6842] text-white px-8 py-3.5 rounded-full flex items-center gap-2 font-bold text-[13px] transition duration-200 shadow-lg">
+                <button class="bg-brand-orange hover:bg-green-700 text-white px-8 py-3.5 rounded-full flex items-center gap-2 font-bold text-[13px] transition duration-200 shadow-lg">
                     Mulai Sekarang
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
@@ -743,7 +745,7 @@
             <!-- Middle Columns (Divider & Links) -->
             <div class="md:col-span-4 flex justify-between items-stretch">
                 <!-- Divider Line -->
-                <div class="w-[1px] bg-[#5C4033] hidden md:block self-stretch mr-10"></div>
+                <div class="w-[1px] bg-[#2E7D32] hidden md:block self-stretch mr-10"></div>
                 
                 <!-- Links Grid -->
                 <div class="grid grid-cols-2 gap-x-12 gap-y-4 w-full text-sm font-medium text-gray-300 self-center">
@@ -764,7 +766,7 @@
                 </div>
 
                 <!-- Divider Line -->
-                <div class="w-[1px] bg-[#5C4033] hidden md:block self-stretch ml-10"></div>
+                <div class="w-[1px] bg-[#2E7D32] hidden md:block self-stretch ml-10"></div>
             </div>
 
             <!-- Right Side -->
@@ -775,7 +777,7 @@
                 <!-- Subscription Box -->
                 <div class="flex items-center bg-white rounded-full p-1.5 w-full shadow-md max-w-md">
                     <input type="email" placeholder="Masukkan email Anda" class="w-full pl-4 pr-2 py-2 text-brand-brown text-sm font-medium focus:outline-none placeholder-gray-400 rounded-full" />
-                    <button class="bg-[#5C4033] hover:bg-[#4a3429] text-white px-5 py-2.5 rounded-full text-xs font-bold tracking-wider transition shrink-0 flex items-center gap-1">
+                    <button class="bg-[#2E7D32] hover:bg-[#1B5E20] text-white px-5 py-2.5 rounded-full text-xs font-bold tracking-wider transition shrink-0 flex items-center gap-1">
                         Subscribe
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>

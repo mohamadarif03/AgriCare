@@ -86,7 +86,7 @@
                 <div class="flex-shrink-0 flex flex-col items-center justify-center bg-surface-container-lowest w-32 h-32 rounded-full border-4 border-primary-container shadow-[0_4px_12px_rgba(27,94,32,0.08)] relative">
                     <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 100 100">
                         <circle cx="50" cy="50" fill="none" r="46" stroke="#eef2e7" stroke-width="8"></circle>
-                        <circle id="probCircle" cx="50" cy="50" fill="none" r="46" stroke="#402E24"
+                        <circle id="probCircle" cx="50" cy="50" fill="none" r="46" stroke="#1B5E20"
                             stroke-dasharray="289" stroke-dashoffset="289" stroke-linecap="round" stroke-width="8"
                             style="transition: stroke-dashoffset 1.5s ease-out"></circle>
                     </svg>
@@ -166,13 +166,13 @@
 </main>
 
 {{-- <!-- Footer -->
-<footer class="bg-slate-50 dark:bg-slate-950 border-t border-orange-100 dark:border-slate-800 w-full mt-auto">
+<footer class="bg-slate-50 dark:bg-slate-950 border-t border-green-100 dark:border-slate-800 w-full mt-auto">
     <div class="flex flex-col md:flex-row justify-between items-center py-10 px-6 gap-6 max-w-7xl mx-auto">
-        <div class="text-lg font-bold text-orange-800 dark:text-orange-400">AgriCare</div>
+        <div class="text-lg font-bold text-green-800 dark:text-green-400">AgriCare</div>
         <div class="font-plus-jakarta text-xs md:text-sm font-normal text-slate-500 dark:text-slate-500 opacity-90">© 2024 AgriCare. Guardian of the Harvest.</div>
         <div class="flex gap-4">
-            <a class="font-plus-jakarta text-xs md:text-sm font-normal text-slate-500 hover:text-orange-600 hover:underline" href="#">Privacy Policy</a>
-            <a class="font-plus-jakarta text-xs md:text-sm font-normal text-slate-500 hover:text-orange-600 hover:underline" href="#">Terms of Service</a>
+            <a class="font-plus-jakarta text-xs md:text-sm font-normal text-slate-500 hover:text-green-600 hover:underline" href="#">Privacy Policy</a>
+            <a class="font-plus-jakarta text-xs md:text-sm font-normal text-slate-500 hover:text-green-600 hover:underline" href="#">Terms of Service</a>
         </div>
     </div>
 </footer> --}}

@@ -69,7 +69,7 @@
 
         <!-- 3. Yang Perlu Dilakukan Sekarang -->
         <section>
-            <div class="bg-gradient-to-br from-primary to-[#7a5940] rounded-3xl p-6 md:p-8 shadow-lg text-on-primary relative overflow-hidden">
+            <div class="bg-gradient-to-br from-primary to-[#2E7D32] rounded-3xl p-6 md:p-8 shadow-lg text-on-primary relative overflow-hidden">
                 <div class="absolute -right-10 -top-10 w-48 h-48 bg-white opacity-5 rounded-full pointer-events-none"></div>
                 <div class="absolute right-20 -bottom-10 w-32 h-32 bg-white opacity-5 rounded-full pointer-events-none"></div>
 

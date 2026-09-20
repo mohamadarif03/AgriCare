@@ -5,10 +5,10 @@
 
     {{-- Flash Messages --}}
     @if(session('success'))
-    <div id="flash-success" class="flex items-center gap-3 px-5 py-4 bg-orange-50 border border-orange-200 text-orange-800 rounded-xl shadow-sm">
-        <span class="material-symbols-outlined text-orange-600">check_circle</span>
+    <div id="flash-success" class="flex items-center gap-3 px-5 py-4 bg-green-50 border border-green-200 text-green-800 rounded-xl shadow-sm">
+        <span class="material-symbols-outlined text-green-600">check_circle</span>
         <span class="font-semibold text-sm">{{ session('success') }}</span>
-        <button onclick="document.getElementById('flash-success').remove()" class="ml-auto text-orange-500 hover:text-orange-700">
+        <button onclick="document.getElementById('flash-success').remove()" class="ml-auto text-green-500 hover:text-green-700">
             <span class="material-symbols-outlined text-[18px]">close</span>
         </button>
     </div>
@@ -218,7 +218,7 @@
                     </div>
                     <div class="flex justify-between">
                         <span class="text-on-surface-variant">Status</span>
-                        <span class="font-semibold {{ $lahan->is_aktif ? 'text-orange-600' : 'text-on-surface-variant' }}">
+                        <span class="font-semibold {{ $lahan->is_aktif ? 'text-green-600' : 'text-on-surface-variant' }}">
                             {{ $lahan->is_aktif ? 'Aktif' : 'Nonaktif' }}
                         </span>
                     </div>
@@ -227,7 +227,7 @@
                 {{-- Toggle Aktif --}}
                 <form action="{{ route('lahan.toggle-aktif', $lahan) }}" method="POST" class="mt-4">
                     @csrf @method('PATCH')
-                    <button type="submit" class="w-full py-2 rounded-xl text-sm font-semibold transition-colors {{ $lahan->is_aktif ? 'bg-red-50 text-red-600 hover:bg-red-100' : 'bg-orange-50 text-orange-600 hover:bg-orange-100' }}">
+                    <button type="submit" class="w-full py-2 rounded-xl text-sm font-semibold transition-colors {{ $lahan->is_aktif ? 'bg-red-50 text-red-600 hover:bg-red-100' : 'bg-green-50 text-green-600 hover:bg-green-100' }}">
                         {{ $lahan->is_aktif ? 'Nonaktifkan Lahan' : 'Aktifkan Lahan' }}
                     </button>
                 </form>

@@ -192,12 +192,12 @@
             </a>
             <a class="card-surface rounded-[12px] p-4 border border-outline-variant/30 card-shadow flex items-center justify-between group hover:ambient-shadow transition-all" href="{{ route('market_price') }}">
                 <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full bg-[#ffefc2] flex items-center justify-center text-[#7a5a00]">
+                    <div class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-green-700">
                         <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">monitoring</span>
                     </div>
                     <span class="font-medium text-on-surface">Cek Radar Harga</span>
                 </div>
-                <span class="material-symbols-outlined text-[#7a5a00] group-hover:translate-x-1 transition-transform" style="font-variation-settings: 'FILL' 0;">arrow_forward</span>
+                <span class="material-symbols-outlined text-green-700 group-hover:translate-x-1 transition-transform" style="font-variation-settings: 'FILL' 0;">arrow_forward</span>
             </a>
         </div>
     </div>
@@ -325,8 +325,8 @@
             },
 
             get skorHex() {
-                if (!this.data) return '#402E24';
-                if (this.data.skor_ketahanan >= 75) return '#402E24';
+                if (!this.data) return '#1B5E20';
+                if (this.data.skor_ketahanan >= 75) return '#1B5E20';
                 if (this.data.skor_ketahanan >= 50) return '#f59e0b';
                 return '#ba1a1a';
             },

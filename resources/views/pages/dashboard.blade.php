@@ -43,13 +43,13 @@
             </div>
         </div>
         @elseif($lahans->isEmpty())
-        <div class="bg-orange-50 border-l-4 border-orange-400 rounded-r-lg p-4 flex items-start gap-3">
-            <span class="material-symbols-outlined text-orange-500">info</span>
+        <div class="bg-green-50 border-l-4 border-green-400 rounded-r-lg p-4 flex items-start gap-3">
+            <span class="material-symbols-outlined text-green-500">info</span>
             <div class="flex-1">
-                <p class="font-body text-body text-orange-900">
+                <p class="font-body text-body text-green-900">
                     <strong>Selamat datang!</strong> Tambahkan lahan pertama Anda untuk melihat data cuaca real-time dari BMKG.
                 </p>
-                <a class="inline-flex items-center mt-2 text-sm font-semibold text-orange-700 hover:text-orange-800" href="{{ route('add_land') }}">
+                <a class="inline-flex items-center mt-2 text-sm font-semibold text-green-700 hover:text-green-800" href="{{ route('add_land') }}">
                     Tambah Lahan Sekarang <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
                 </a>
             </div>
@@ -72,7 +72,7 @@
                         } elseif ($skor !== null) {
                             if ($skor >= 75) {
                                 $skorLevel = 'SANGAT BAIK';
-                                $badgeClass = 'bg-orange-100 text-orange-800';
+                                $badgeClass = 'bg-green-100 text-green-800';
                             } elseif ($skor >= 50) {
                                 $skorLevel = 'CUKUP BAIK';
                                 $badgeClass = 'bg-amber-100 text-amber-800';
@@ -367,7 +367,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     badgeEl.classList.remove('bg-surface-variant', 'text-on-surface-variant', 'animate-pulse');
                     if (skor >= 75) {
                         badgeEl.innerText = 'SANGAT BAIK';
-                        badgeEl.classList.add('bg-orange-100', 'text-orange-800');
+                        badgeEl.classList.add('bg-green-100', 'text-green-800');
                     } else if (skor >= 50) {
                         badgeEl.innerText = 'CUKUP BAIK';
                         badgeEl.classList.add('bg-amber-100', 'text-amber-800');
